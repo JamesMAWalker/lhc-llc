@@ -3,118 +3,61 @@
 	import logo from './svelte-logo.svg';
 </script>
 
-<header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
+<nav class="header">
+	<div class="logo">
+		DATACOM
 	</div>
-
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
-			<li class:active={$page.path === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
+	<div class="menu-cluster">
+		<span class="quote-btn">get a quote</span>
+		<span class="divider"/>
+		<div class="menu-button">//</div>
 	</div>
-</header>
+</nav>
 
 <style>
-	header {
+	.header {
+		z-index: 99;
+		position: fixed;
+		height: 20vh;
+		width: 90vw;
+		padding: 0 5vw;
 		display: flex;
 		justify-content: space-between;
-	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
 		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
 	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
-	}
-
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
+	.logo {
+		font-family: var(--font-main);
+		font-size: 2.5rem;
+		letter-spacing: 2px;
+		font-weight: 500;
 		text-transform: uppercase;
-		letter-spacing: 10%;
-		text-decoration: none;
-		transition: color 0.2s linear;
+		color: rgb(53, 53, 53);
 	}
-
-	a:hover {
-		color: var(--accent-color);
+	.menu-cluster {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.quote-btn, .divider, .menu-button {
+		margin: 0 1rem;
+	}
+	.quote-btn {
+		font-weight: bold;
+		color: var(--white);
+	}
+	.divider {
+		height: 50px;
+		width: 1px;
+		background-color: var(--white);
+	}
+	.menu-button {
+		height: 45px;
+		width: 45px;
+		background-color: var(--white);
+		border-radius: var(--radius-rounded);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--primary-color);
 	}
 </style>
