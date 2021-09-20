@@ -1,31 +1,93 @@
 @import '@fontsource/fira-mono';
 
 :root {
-	font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-mono: 'Fira Mono', monospace;
-	--pure-white: #ffffff;
-	--primary-color: #b9c6d2;
-	--secondary-color: #d0dde9;
-	--tertiary-color: #edf0f8;
-	--accent-color: #ff3e00;
-	--heading-color: rgba(0, 0, 0, 0.7);
+	/* colors */
+	--white: #ffffff;
+	--primary-color: #073163;
+	--primary-tr-1: hsla(212, 88%, 29%, 0.8);
+	--primary-tr-2: hsla(202, 68%, 36%, 0.07);
+	--accent-color: #f5da4e;
+	--accent-tr-1: hsla(50, 89%, 63%, 0.6);
+	--accent-tr-2: hsla(50, 89%, 63%, 0.25);
+	--neutral-color: #e5e5e5;
+	--neutral-light: #f2f2f2;
+
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
+
+	/* fonts */
+	--font-main: 'Source Sans Pro', sans-serif;
+
+	/* text sizes */
+	--text-xs: 12px;
+	--text-sm: 14px;
+	--text-md: 16px;
+	--text-lg: 18px;
+	--text-xl: 20px;
+	--text-2xl: 24px;
+	--text-3xl: 32px;
+	--text-4xl: 48px;
+	--text-5xl: 56px;
+	--text-6xl: 64px;
+	--text-7xl: 85px;
+	--text-8xl: 96px;
+	--text-9xl: 118px;
+	--text-10xl: 144px;
+	--text-11xl: 156px;
+
+	/* radii */
+	--radius-sm: 4px;
+	--radius-md: 8px;
+	--radius-lg: 16px;
+	--radius-xl: 48px;
+	--radius-rounded: 999px;
+
+	/* sizes */
+	--circle-med: 40px
+
+	/* spacing */
+	--space-xs: 2px;
+	--space-sm: 4px;
+	--space-md: 8px;
+	--space-lg: 16px;
+	--space-xl: 20px;
+	--space-2xl: 24px;
+	--space-3xl: 48px;
+	--space-4xl: 64px;
+	--space-5xl: 70px;
+
+	/* viewport-spacing */
+	--vp-sm: 2.5vh;
+	--vp-md: 5vh;
+	--vp-lg: 9vh;
+	--vp-xl: 13vh;
+
+	/* --ROLE BASED TOKENS-- */
+
+	/* text size */
+	--text-section-header: 175px;
+	--text-section-header-plus: 230px;
+	--text-hero: var(--text-7xl);
+	--text-hero-plus: var(--text-9xl);
+	--text-header: var(--text-3xl);
+	--text-header-plus: var(--text-4xl);
+	--text-display: var(--text-5xl);
+	--text-prose: var(--text-2xl);
+}
+
+html {
+	scrollbar-width: none;
+}
+html::-webkit-scrollbar {
+	display: none;
 }
 
 body {
+	font-family: var(--font-main);
+	letter-spacing: 1px;
 	min-height: 100vh;
 	margin: 0;
 	background-color: var(--primary-color);
-	background: linear-gradient(
-		180deg,
-		var(--primary-color) 0%,
-		var(--secondary-color) 10.45%,
-		var(--tertiary-color) 41.35%
-	);
 }
 
 body::before {
@@ -36,11 +98,7 @@ body::before {
 	top: 0;
 	left: 10vw;
 	z-index: -1;
-	background: radial-gradient(
-		50% 50% at 50% 50%,
-		var(--pure-white) 0%,
-		rgba(255, 255, 255, 0) 100%
-	);
+	background: radial-gradient(50% 50% at 50% 50%, var(--white) 0%, rgba(255, 255, 255, 0) 100%);
 	opacity: 0.05;
 }
 
