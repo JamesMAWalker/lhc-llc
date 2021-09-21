@@ -6,6 +6,10 @@
 	setTimeout(() => {
 		loaded = true;
 	}, 200);
+
+	/*
+	 TODO: Write an algorithm that can keep the svg circle within the same distance of the png cutout.  
+	*/
 </script>
 
 <section class="hero">
@@ -14,7 +18,7 @@
 		autoplay
 		muted
 		loop
-		src="/cabling-vids.mp4"
+		src="https://res.cloudinary.com/jameswalker-work/video/upload/q_60/v1632240871/cabling-vids_xitbot.mp4"
 		alt="slow pan over ethernet cables"
 	>
 		<track kind="captions" />
@@ -62,6 +66,8 @@
 			height: 100%;
 			width: 100%;
 			transform: rotateY(180deg) scale(1.75) translate(17vh, 15vh);
+			transition: var(--transition-1-smooth);
+			transition: all 2s ease-in-out;
 		}
 	}
 	.left {
