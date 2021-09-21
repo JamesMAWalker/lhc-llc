@@ -62,6 +62,20 @@
 	--vp-lg: 9vh;
 	--vp-xl: 13vh;
 
+	  /* bezier curves */
+  --smooth: cubic-bezier(0.115, 0.905, 0.32, 1);
+  --punchitchewy: cubic-bezier(1, 0, 0.115, 0.995);
+
+  /* transitions */
+  --transition-1: all 1s var(--punchitchewy);
+  --transition-2: all .6s var(--punchitchewy);
+  --transition-3: all 0.3s var(--punchitchewy);
+  --transition-4: all 0.1s var(--punchitchewy);
+  --transition-1-smooth: all 1s var(--smooth);
+  --transition-2-smooth: all .6s var(--smooth);
+  --transition-3-smooth: all 0.3s var(--smooth);
+  --transition-4-smooth: all 0.1s var(--smooth);
+
 	/* --ROLE BASED TOKENS-- */
 
 	/* text size */
