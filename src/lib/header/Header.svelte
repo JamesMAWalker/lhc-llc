@@ -1,6 +1,4 @@
 <script>
-	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
 </script>
 
 <nav class="header">
@@ -10,11 +8,11 @@
 	<div class="menu-cluster">
 		<span class="quote-btn">get a quote</span>
 		<span class="divider"/>
-		<div class="menu-button">//</div>
+		<div class="menu-button"><span>//</span></div>
 	</div>
 </nav>
 
-<style>
+<style lang="scss">
 	.header {
 		z-index: 99;
 		position: fixed;
@@ -34,16 +32,21 @@
 		color: rgb(53, 53, 53);
 	}
 	.menu-cluster {
+		cursor: pointer;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
 	.quote-btn, .divider, .menu-button {
-		margin: 0 1rem;
+		margin: 0 var(--space-lg);
 	}
 	.quote-btn {
 		font-weight: bold;
 		color: var(--white);
+		transition: var(--transition-3-smooth);
+		&:hover {
+			color: var(--accent-color);
+		}
 	}
 	.divider {
 		height: 50px;
@@ -59,5 +62,14 @@
 		align-items: center;
 		justify-content: center;
 		color: var(--primary-color);
+		span {
+			transition: var(--transition-3-smooth) !important;
+		}
+		&:hover {
+			span {
+				transform: translateX(1px) skewX(-15deg) scale(.95);
+				font-weight: 700;
+			}
+		}
 	}
 </style>
