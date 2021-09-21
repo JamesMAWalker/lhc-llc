@@ -1,5 +1,6 @@
 <script>
 	import { draw } from 'svelte/transition';
+	import { onMount } from 'svelte';
 
 	let loaded = false;
 
@@ -8,8 +9,22 @@
 	}, 200);
 
 	/*
-	 TODO: Write an algorithm that can keep the svg circle within the same distance of the png cutout.  
+	 TODO: The below code works, but is VERY hacky. 
+	 Find a more elegant solution.
 	*/
+
+	let circleHeight
+	let svgEl
+	
+	$: {
+		if (svgEl !== undefined) {
+			setTimeout(() => {
+				const cutoutHeight = svgEl.height.animVal.value
+				circleHeight = cutoutHeight * .42
+			}, 100);
+		}
+	}
+
 </script>
 
 <section class="hero">
@@ -24,12 +39,7 @@
 		<track kind="captions" />
 	</video>
 	{#if loaded}
-		<svg
-			class="hero-circle"
-			viewBox="0 0 396 396"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
+		<svg class="hero-circle" height={circleHeight} viewBox="0 0 396 396" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path
 				in:draw={{ duration: 1200 }}
 				d="M395.5 198C395.5 307.076 307.076 395.5 198 395.5C88.9238 395.5 0.5 307.076 0.5 198C0.5 88.9238 88.9238 0.5 198 0.5C307.076 0.5 395.5 88.9238 395.5 198Z"
@@ -37,7 +47,21 @@
 			/>
 		</svg>
 	{/if}
-	<div class="left" />
+	<!-- <div class="left" /> -->
+	<svg
+		class="left"
+		id="Layer_1"
+		data-name="Layer 1"
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 1260 1500"
+		bind:this={svgEl}
+	>
+		<path
+			d="M1000,1609V3109H2260V2646.5c-157.72,0-287.5-129.78-287.5-287.5s129.78-287.5,287.5-287.5V1609Z"
+			transform="translate(-1000 -1609)"
+		/>
+	</svg>
+
 	<div class="right" />
 	<div class="center">
 		<h1>Your structured cabling <span class="accent">solution.</span></h1>
@@ -72,14 +96,13 @@
 	}
 	.left {
 		position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 50%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-100%, -50%);
+		width: 52 vw;
 		background-color: transparent;
-		background-position: right;
-    background-size: 55vw;
-		background-image: url('/cut-out.png');
+		fill: white;
+		/* background-image: url('/cut-out.png'); */
 	}
 	.right {
 		height: 100%;
@@ -91,15 +114,15 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
+		transform: translate(-50%, -50%);
+		/* top: 50%;
+		left: 50%;
 		height: 47vh;
-    height: calc((((75vw - 80vh) / 2) + 100vh) * .4);
-		transform: translate(-50%, -50.05%) rotate(-0.25turn);
-    @media (max-height: 950px) {
-      /* transform: translate(-50%, -50.05%) scale(1) rotate(-0.25turn); */
-    }
+		height: calc((((75vw - 80vh) / 2) + 100vh) * 0.4);
+		transform: translate(-50%, -50.05%) rotate(-0.25turn); */
 	}
 	.center {
-    z-index: 3;
+		z-index: 3;
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -118,7 +141,7 @@
 			}
 		}
 		.button {
-      z-index: 3;
+			z-index: 3;
 			cursor: pointer;
 			position: relative;
 			margin-top: 1rem;
