@@ -89,9 +89,8 @@
 			left: 0;
 			height: 100%;
 			width: 100%;
-			transform: rotateY(180deg) scale(1.75) translate(17vh, 15vh);
-			transition: var(--transition-1-smooth);
-			transition: all 2s ease-in-out;
+			transform: rotateY(180deg) scale(1.75) translate(17vh, 12vh);
+			transition: opacity 2s ease-in-out;
 		}
 	}
 	.left {
@@ -99,7 +98,8 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-100%, -50%);
-		width: 52 vw;
+		min-width: 52vw;
+		min-height: 102vh;
 		background-color: transparent;
 		fill: white;
 		/* background-image: url('/cut-out.png'); */
