@@ -1,16 +1,20 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
+	import Menu from '$lib/menu/Menu.svelte';
 	import '../app.css';
+
+	let menuOpen = false;
 </script>
 
-
-<Header />
+{#if menuOpen}
+	 <Menu />
+{/if}
+<Header bind:menuOpen={menuOpen} />
 <main>
-	<slot/>
+	<slot />
 </main>
 
-<footer>
-</footer>
+<footer />
 
 <style>
 	main {
@@ -20,5 +24,4 @@
 		height: max-content;
 		width: 100%;
 	}
-
 </style>
