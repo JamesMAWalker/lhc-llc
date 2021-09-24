@@ -2,29 +2,34 @@
 	import { draw } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
-	let loaded = false;
+	let pageLoaded = false;
 
-	setTimeout(() => {
-		loaded = true;
-	}, 200);
+	onMount(() => {
+		pageLoaded = true;
+		
+	});
 
 	/*
 	 TODO: The below code works, but is VERY hacky. 
 	 Find a more elegant solution.
 	*/
 
-	let circleHeight
-	let svgEl
-	
+	let circleHeight;
+	let svgEl;
+
+	// Detect Firefox
+	var isFirefox = typeof InstallTrigger !== 'undefined';
+
 	$: {
 		if (svgEl !== undefined) {
 			setTimeout(() => {
-				const cutoutHeight = svgEl.height.animVal.value
-				circleHeight = cutoutHeight * .42
+				
+				const cutoutHeight = svgEl.height.animVal.value;
+				circleHeight = cutoutHeight * `${isFirefox ? .27 : .42}`
+				
 			}, 100);
 		}
 	}
-
 </script>
 
 <section class="hero">
@@ -38,8 +43,14 @@
 	>
 		<track kind="captions" />
 	</video>
-	{#if loaded}
-		<svg class="hero-circle" height={circleHeight} viewBox="0 0 396 396" fill="none" xmlns="http://www.w3.org/2000/svg">
+	{#if pageLoaded}
+		<svg
+			class="hero-circle"
+			height={circleHeight}
+			viewBox="0 0 396 396"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
 			<path
 				in:draw={{ duration: 1200 }}
 				d="M395.5 198C395.5 307.076 307.076 395.5 198 395.5C88.9238 395.5 0.5 307.076 0.5 198C0.5 88.9238 88.9238 0.5 198 0.5C307.076 0.5 395.5 88.9238 395.5 198Z"
@@ -83,7 +94,7 @@
 		flex: 1;
 		overflow: hidden;
 		&-vid {
-			z-index: -1;
+			z-index: var(--base-one);
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -107,14 +118,14 @@
 	.right {
 		height: 100%;
 		width: 100%;
-		background-color: var(--primary-tr-1);
+		background-color: var(--primary-tr1);
 	}
 	.hero-circle {
-		z-index: 2;
+		z-index: var(--level-eight);
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%) rotate(-.25turn);
 		/* top: 50%;
 		left: 50%;
 		height: 47vh;
@@ -122,11 +133,11 @@
 		transform: translate(-50%, -50.05%) rotate(-0.25turn); */
 	}
 	.center {
-		z-index: 3;
+		z-index: var(--level-two);
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-59%, -50%) scale(0.9);
+		transform: translate(-59%, -50%);
 		width: 20vh;
 		color: var(--white);
 		h1 {
@@ -141,20 +152,20 @@
 			}
 		}
 		.button {
-			z-index: 3;
+			z-index: var(--level-one);
 			cursor: pointer;
 			position: relative;
 			margin-top: 1rem;
 			padding-left: 1rem;
 			font-size: var(--text-xl);
-			font-weight: 600;
+			font-weight: 700;
 			&:hover {
 				.circle--fade {
 					transform: translate(-5%, -45%) scale(1.1);
 				}
 			}
 			.circle--fade {
-				z-index: -1;
+				z-index: var(--base-one);
 				position: absolute;
 				top: 50%;
 				left: 0;
@@ -163,7 +174,7 @@
 				width: var(--circle-med);
 				height: 40px;
 				width: 40px;
-				background-color: var(--accent-tr-1);
+				background-color: var(--accent-tr1);
 				border-radius: var(--radius-rounded);
 			}
 		}
