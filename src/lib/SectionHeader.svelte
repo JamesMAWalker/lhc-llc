@@ -1,7 +1,7 @@
 <script>
-	let sub
-	let titleBlue
-	let titleYellow
+	export let sub
+	export let titleBlue
+	export let titleYellow
 </script>
 
 <div class="title-block">
