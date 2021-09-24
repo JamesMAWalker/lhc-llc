@@ -2,16 +2,18 @@
 
 :root {
 	/* colors */
-	--white: #ffffff;
-	--primary-color: #073163;
-	--primary-tr-1: hsla(212, 88%, 29%, 0.8);
-	--primary-tr-2: hsla(202, 68%, 36%, 0.07);
-	--accent-color: #f5da4e;
-	--accent-tr-1: hsla(50, 89%, 63%, 0.6);
-	--accent-tr-2: hsla(50, 89%, 63%, 0.25);
-	--neutral-color: #e5e5e5;
-	--neutral-light: #f2f2f2;
-
+	--white: hsl(0, 0%, 100%);
+	--dark-cyan: hsl(209, 37%, 23%);
+	--deep-cyan: hsl(213, 87%, 21%);
+	--deep-cyan-tr1: hsla(212, 88%, 29%, 0.8);
+	--deep-cyan-tr2: hsla(202, 68%, 36%, 0.25);
+	--deep-cyan-tr3: hsla(202, 68%, 36%, 0.07);
+	--mustard: hsl(50, 89%, 63%);
+	--mustard-tr1: hsla(50, 89%, 63%, 0.6);
+	--mustard-tr2: hsla(50, 89%, 63%, 0.25);
+	--barely-grey: #e5e5e5;
+	--almost-white: #f2f2f2;
+	
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 
@@ -43,7 +45,10 @@
 	--radius-rounded: 999px;
 
 	/* sizes */
-	--circle-med: 40px
+	--circle-lg: 60px;
+	--circle-med: 40px;
+	--circle-sm: 30px;
+	--arrow-lg: 60px;
 
 	/* spacing */
 	--space-xs: 2px;
@@ -60,7 +65,24 @@
 	--vp-sm: 2.5vh;
 	--vp-md: 5vh;
 	--vp-lg: 9vh;
-	--vp-xl: 13vh;
+	--vp-xl: 15vh;
+	--vp-2xl: 18vh;
+	--vp-3xl: 27vh;
+
+	/* z-indeces */
+  --base-two: -200;
+  --base-one: -100;
+  --ground: auto;
+  --level-one: 100;
+  --level-two: 200;
+  --level-three: 300;
+  --level-four: 400;
+  --level-five: 500;
+  --level-six: 600;
+  --level-seven: 700;
+  --level-eight: 800;
+  --level-nine: 900;
+  --level-top: 9999;
 
 	  /* bezier curves */
   --smooth: cubic-bezier(0.115, 0.905, 0.32, 1);
@@ -78,9 +100,19 @@
 
 	/* --ROLE BASED TOKENS-- */
 
+	/* colors */
+	--text-color: var(--dark-cyan);
+	--primary-color: var(--deep-cyan);
+	--primary-tr1: var(--deep-cyan-tr1);
+	--primary-tr2: var(--deep-cyan-tr2);
+	--primary-tr3: var(--deep-cyan-tr3);
+	--accent-color: var(--mustard);
+	--accent-tr1: var(--mustard-tr1);
+	--accent-tr2: var(--mustard-tr2);
+	--neutral-color: var(--barely-grey);
+	--neutral-light: var(--almost-white);
+
 	/* text size */
-	--text-section-header: 175px;
-	--text-section-header-plus: 230px;
 	--text-hero: var(--text-7xl);
 	--text-hero-plus: var(--text-9xl);
 	--text-header: var(--text-3xl);
@@ -88,6 +120,18 @@
 	--text-display: var(--text-5xl);
 	--text-prose: var(--text-2xl);
 }
+
+@media (max-width: 1460px) {
+	:root {
+		--text-hero: var(--text-6xl);
+		--text-hero-plus: var(--text-8xl);
+		--text-header: var(--text-2xl);
+		--text-header-plus: var(--text-3xl);
+		--text-display: var(--text-4xl);
+		--text-prose: var(--text-xl);
+	}
+}
+
 
 html {
 	scrollbar-width: none;
