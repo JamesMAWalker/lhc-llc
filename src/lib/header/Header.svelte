@@ -1,11 +1,11 @@
 <script>
-	export let menuOpen
-	console.log('menuOpen from Header: ', menuOpen);
+	export let menuOpen;
+	export let menuIsWhite;
 </script>
 
 <nav class="header">
 	<div class="logo">DATACOM</div>
-	<div class="menu-cluster" on:click="{() => menuOpen = !menuOpen}">
+	<div class="menu-cluster" class:active={!menuIsWhite} on:click={() => (menuOpen = !menuOpen)}>
 		<span class="quote-btn">get a quote</span>
 		<span class="divider" />
 		<div class="menu-button"><span>//</span></div>
@@ -27,20 +27,31 @@
 		font-family: var(--font-main);
 		font-size: 2.5rem;
 		letter-spacing: 2px;
-		font-weight: 500;
+		font-weight: 600;
 		text-transform: uppercase;
-		color: rgb(53, 53, 53);
+		color: var(--text-color);
 	}
 	.menu-cluster {
 		cursor: pointer;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		&.active {
+			.quote-btn,
+			.divider,
+			.menu-button {
+				color: var(--text-color);
+			}
+			.menu-button, .divider {
+				background-color: var(--text-color);
+				color: var(--white);
+			}
+		}
 	}
 	.quote-btn,
 	.divider,
 	.menu-button {
-		margin: 0 var(--space-lg);
+		margin: 0 var(--space-md);
 	}
 	.quote-btn {
 		font-weight: bold;
