@@ -1,0 +1,179 @@
+<script>
+	// your script goes here
+	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
+	import Icon from '$lib/logo/Icon.svelte';
+	import Facebook from '$lib/icons/Facebook.svelte';
+	import LinkedIn from '$lib/icons/LinkedIn.svelte';
+	import Yelp from '$lib/icons/Yelp.svelte';
+</script>
+
+<div class="footer">
+	<ContainerSixty>
+		<div class="footer-grid">
+			<div class="logo-wrap">
+				<!-- <Icon/> -->
+				<svg
+					class="iconmark"
+					height="100%"
+					viewBox="0 0 64 47"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M51 23C51 25.2091 49.2091 27 47 27C44.7909 27 43 25.2091 43 23C43 20.7909 44.7909 19 47 19C49.2091 19 51 20.7909 51 23Z"
+						fill="#F5DA4E"
+					/>
+					<path
+						d="M0.504028 1.328H16.312C19.1707 1.328 21.752 1.79734 24.056 2.736C26.4027 3.67467 28.3867 5.08267 30.008 6.96C31.672 8.79467 32.952 11.12 33.848 13.936C34.744 16.7093 35.192 19.952 35.192 23.664C35.192 27.376 34.744 30.64 33.848 33.456C32.952 36.2293 31.672 38.5547 30.008 40.432C28.3867 42.2667 26.4027 43.6533 24.056 44.592C21.752 45.5307 19.1707 46 16.312 46H0.504028V1.328ZM16.312 39.6C19.64 39.6 22.328 38.5547 24.376 36.464C26.424 34.3733 27.448 31.3013 27.448 27.248V20.08C27.448 16.0267 26.424 12.9547 24.376 10.864C22.328 8.77333 19.64 7.728 16.312 7.728H7.73603V39.6H16.312Z"
+						fill="var(--dark-cyan-2)"
+					/>
+					<path
+						d="M47.272 46.7681C41.4267 46.7681 36.84 44.8054 33.512 40.8801C30.184 36.9121 28.52 31.1734 28.52 23.6641C28.52 19.9094 28.9467 16.6027 29.8 13.7441C30.6534 10.8854 31.8907 8.47473 33.512 6.51206C35.1334 4.54939 37.096 3.07739 39.4 2.09606C41.7467 1.07206 44.3707 0.560059 47.272 0.560059C51.1547 0.560059 54.3974 1.41339 57 3.12006C59.6454 4.82673 61.7147 7.34406 63.208 10.6721L57.128 14.0001C56.36 11.8667 55.1654 10.1814 53.544 8.94406C51.9654 7.66406 49.8747 7.02406 47.272 7.02406C43.816 7.02406 41.1067 8.19739 39.144 10.5441C37.1814 12.8907 36.2 16.1334 36.2 20.2721V27.0561C36.2 31.1947 37.1814 34.4374 39.144 36.7841C41.1067 39.1307 43.816 40.3041 47.272 40.3041C49.96 40.3041 52.136 39.6214 53.8 38.2561C55.5067 36.8481 56.7654 35.0561 57.576 32.8801L63.4 36.4001C61.9067 39.6427 59.816 42.1814 57.128 44.0161C54.44 45.8507 51.1547 46.7681 47.272 46.7681Z"
+						fill="var(--dark-cyan-2)"
+					/>
+				</svg>
+			</div>
+			<h4 class="blurb">Improving <br /> business <br /> since <br /><span> 1997.</span></h4>
+			<div class="icons">
+				<LinkedIn />
+				<Facebook />
+				<Yelp />
+			</div>
+			<div class="contact-info">
+				<h6 class="header">GET IN TOUCH</h6>
+				<p class="email">place@holder.com</p>
+				<p class="number">555 . 123 . 4567</p>
+			</div>
+			<div class="page-links">
+				<h6 class="header">EXPLORE</h6>
+				<ul class="links">
+					<li class="link"><a href="/#">about</a></li>
+					<li class="link"><a href="/#">contact</a></li>
+					<li class="link"><a href="/#">services</a></li>
+					<li class="link"><a href="/#">case studies</a></li>
+					<li class="link"><a href="/#">location</a></li>
+				</ul>
+			</div>
+			<div class="copyright">© DATACOM LLC. 2021</div>
+			<div class="dev">
+				development and design by &nbsp; <a href="/#">jw.dev</a>
+			</div>
+		</div>
+	</ContainerSixty>
+</div>
+
+<style lang="scss">
+	.footer {
+		height: 80vh;
+		background-color: var(--text-color);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: var(--text-xl);
+		font-weight: var(--semibold) !important;
+		color: var(--white);
+	}
+	.footer-grid {
+    transform: translateY(6vh);
+    height: calc(80vh - var(--vp-xl) - var(--vp-xl));
+		width: 100%;
+		display: grid;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: 1fr 2fr;
+		grid-template-areas:
+			'blurb info  logo'
+			'icons links links'
+			'cc    cc    dev';
+	}
+	.header {
+		margin: 0;
+		margin-bottom: var(--space-xl);
+	}
+	.logo-wrap {
+		grid-area: logo;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+		svg {
+			height: 10vh;
+		}
+	}
+	.blurb {
+		grid-area: blurb;
+		font-size: var(--text-header);
+		margin: 0;
+		padding-bottom: var(--space-3xl);
+		span {
+			color: var(--accent-color);
+		}
+	}
+	.contact-info {
+    padding-top: var(--space-sm);
+		grid-area: info;
+		.email,
+		.number {
+      cursor: pointer;
+			color: var(--accent-color);
+			margin-bottom: var(--space-xl);
+			transition: var(--transition-3-smooth);
+			&:hover {
+				color: var(--white);
+			}
+		}
+	}
+	.icons {
+		grid-area: icons;
+		width: 50%;
+    /* padding-bottom: var(--vp-md); */
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+    svg {
+      cursor: pointer;
+    }
+  }
+	.page-links {
+    grid-area: links;
+    width: 100%;
+    /* padding-bottom: var(--vp-md); */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+		ul {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		li {
+      cursor: pointer;
+			list-style: none;
+			color: var(--accent-color);
+			a {
+				text-decoration: none;
+				transition: var(--transition-3-smooth);
+				&:hover {
+					color: var(--white);
+				}
+			}
+		}
+	}
+	.copyright {
+		grid-area: cc;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
+		font-size: var(--text-md);
+	}
+	.dev {
+		grid-area: dev;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+		font-size: var(--text-md);
+		font-weight: 200;
+	}
+</style>
