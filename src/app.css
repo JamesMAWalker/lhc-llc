@@ -4,6 +4,7 @@
 	/* colors */
 	--white: hsl(0, 0%, 100%);
 	--dark-cyan: hsl(209, 37%, 23%);
+	--dark-cyan-2: hsl(209, 27%, 32%);
 	--deep-cyan: hsl(213, 87%, 21%);
 	--deep-cyan-tr1: hsla(212, 88%, 29%, 0.8);
 	--deep-cyan-tr2: hsla(202, 68%, 36%, 0.25);
@@ -13,7 +14,7 @@
 	--mustard-tr2: hsla(50, 89%, 63%, 0.25);
 	--barely-grey: #e5e5e5;
 	--almost-white: #f2f2f2;
-	
+
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 
@@ -36,6 +37,13 @@
 	--text-9xl: 118px;
 	--text-10xl: 144px;
 	--text-11xl: 156px;
+
+	/* font-weights */
+	--light: 200;
+	--body: 400;
+	--medium: 500;
+	--semibold: 600;
+	--bold: 700;
 
 	/* radii */
 	--radius-sm: 4px;
@@ -70,33 +78,33 @@
 	--vp-3xl: 27vh;
 
 	/* z-indeces */
-  --base-two: -200;
-  --base-one: -100;
-  --ground: auto;
-  --level-one: 100;
-  --level-two: 200;
-  --level-three: 300;
-  --level-four: 400;
-  --level-five: 500;
-  --level-six: 600;
-  --level-seven: 700;
-  --level-eight: 800;
-  --level-nine: 900;
-  --level-top: 9999;
+	--base-two: -200;
+	--base-one: -100;
+	--ground: auto;
+	--level-one: 100;
+	--level-two: 200;
+	--level-three: 300;
+	--level-four: 400;
+	--level-five: 500;
+	--level-six: 600;
+	--level-seven: 700;
+	--level-eight: 800;
+	--level-nine: 900;
+	--level-top: 9999;
 
-	  /* bezier curves */
-  --smooth: cubic-bezier(0.115, 0.905, 0.32, 1);
-  --punchitchewy: cubic-bezier(1, 0, 0.115, 0.995);
+	/* bezier curves */
+	--smooth: cubic-bezier(0.115, 0.905, 0.32, 1);
+	--punchitchewy: cubic-bezier(1, 0, 0.115, 0.995);
 
-  /* transitions */
-  --transition-1: all 1s var(--punchitchewy);
-  --transition-2: all .6s var(--punchitchewy);
-  --transition-3: all 0.3s var(--punchitchewy);
-  --transition-4: all 0.1s var(--punchitchewy);
-  --transition-1-smooth: all 1s var(--smooth);
-  --transition-2-smooth: all .6s var(--smooth);
-  --transition-3-smooth: all 0.3s var(--smooth);
-  --transition-4-smooth: all 0.1s var(--smooth);
+	/* transitions */
+	--transition-1: all 1s var(--punchitchewy);
+	--transition-2: all 0.6s var(--punchitchewy);
+	--transition-3: all 0.3s var(--punchitchewy);
+	--transition-4: all 0.1s var(--punchitchewy);
+	--transition-1-smooth: all 1s var(--smooth);
+	--transition-2-smooth: all 0.6s var(--smooth);
+	--transition-3-smooth: all 0.3s var(--smooth);
+	--transition-4-smooth: all 0.1s var(--smooth);
 
 	/* --ROLE BASED TOKENS-- */
 
@@ -132,9 +140,9 @@
 	}
 }
 
-
 html {
 	scrollbar-width: none;
+	letter-spacing: 1px;
 }
 html::-webkit-scrollbar {
 	display: none;
@@ -166,11 +174,14 @@ body::before {
 	flex-direction: column;
 }
 
+
 h1,
 h2,
+h3,
+h4,
+h5,
 p {
-	font-weight: 400;
-	color: var(--heading-color);
+	margin: 0;
 }
 
 p {
