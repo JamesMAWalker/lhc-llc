@@ -1,10 +1,22 @@
 <script>
+	import Wordmark from '$lib/logo/Wordmark.svelte'
+	import Icon from '$lib/logo/Icon.svelte'
+
 	export let menuOpen;
 	export let menuIsWhite;
+	export let showWordmark;
 </script>
 
 <nav class="header">
-	<div class="logo">DATACOM</div>
+	<div class="logo-container">
+		{#if showWordmark}
+		 <!-- content here -->
+		 <Wordmark />
+	{:else}
+		 <!-- else content here -->
+		 <Icon />
+	{/if}
+	</div>
 	<div class="menu-cluster" class:active={!menuIsWhite} on:click={() => (menuOpen = !menuOpen)}>
 		<span class="quote-btn">get a quote</span>
 		<span class="divider" />
@@ -23,13 +35,14 @@
 		justify-content: space-between;
 		align-items: center;
 	}
-	.logo {
-		font-family: var(--font-main);
-		font-size: 2.5rem;
-		letter-spacing: 2px;
-		font-weight: 600;
-		text-transform: uppercase;
-		color: var(--text-color);
+	.logo-container {
+		position: relative;
+		height: 4vh;
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
 	}
 	.menu-cluster {
 		cursor: pointer;
