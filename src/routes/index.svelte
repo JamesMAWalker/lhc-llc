@@ -5,6 +5,7 @@
 <script>
 	import Hero from '$lib/index/Hero.svelte';
 	import Services from '$lib/index/Services.svelte';
+	import About from '$lib/About.svelte';
 </script>
 
 <svelte:head>
@@ -19,6 +20,8 @@
 
 <div class="landing">
 	<Hero />
+	<Services />
+	<About />
 	<Services />
 </div>
 

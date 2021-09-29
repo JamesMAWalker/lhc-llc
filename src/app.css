@@ -13,7 +13,9 @@
 	--mustard-tr1: hsla(50, 89%, 63%, 0.6);
 	--mustard-tr2: hsla(50, 89%, 63%, 0.25);
 	--barely-grey: #e5e5e5;
+	--barely-grey-tr1: hsla(180, 1%, 75%, 0.1);
 	--almost-white: #f2f2f2;
+
 
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);

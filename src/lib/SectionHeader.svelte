@@ -1,20 +1,20 @@
 <script>
 	export let sub
-	export let titleBlue
+	export let titleMainColor
 	export let titleYellow
+	export let mainColor = "var(--text-color)";
 </script>
 
-<div class="title-block">
+<div class="title-block" style="color: {mainColor}">
 	<h3 class="sub">{sub}</h3>
 	<h2 class="title">
-		<span>{titleBlue}</span>
+		<span>{titleMainColor}</span>
 		<span>{titleYellow}</span>
 	</h2>
 </div>
 
 <style lang="scss">
 	.title-block {
-		color: var(--text-color);
 		.sub {
 			padding: 0;
 			margin: 0;
