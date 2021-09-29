@@ -155,31 +155,6 @@
 		}
 	}
 
-	/* .title-block {
-		color: var(--text-color);
-		.sub {
-			padding: 0;
-			margin: 0;
-			margin-bottom: var(--space-md);
-			font-size: var(--text-md);
-			font-weight: 200;
-			text-transform: uppercase;
-		}
-		.title {
-			padding: 0;
-			margin: 0;
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: flex-start;
-			font-size: var(--text-header);
-			font-weight: 600;
-			span:last-of-type {
-				color: var(--accent-color);
-			}
-		}
-	} */
-
 	.upper {
 		width: 100%;
 		margin-bottom: var(--space-5xl);
