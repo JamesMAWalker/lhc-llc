@@ -4,6 +4,7 @@
 	/* colors */
 	--white: hsl(0, 0%, 100%);
 	--dark-cyan: hsl(209, 37%, 23%);
+	--dark-cyan-tr1: hsla(209, 37%, 23%, .25);
 	--dark-cyan-2: hsl(209, 27%, 32%);
 	--deep-cyan: hsl(213, 87%, 21%);
 	--deep-cyan-tr1: hsla(212, 88%, 29%, 0.8);

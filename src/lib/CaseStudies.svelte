@@ -1,40 +1,40 @@
 <script>
-  import SectionHeader from '$lib/SectionHeader.svelte';
+	import SectionHeader from '$lib/SectionHeader.svelte';
 	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
 	import Arrow from '$lib/Arrow.svelte';
 
 	let services = [
 		{
-			title: 'Server Racking',
-			imgSrc: '/services/server.jpg'
+			title: 'imgIX Data Center',
+			imgSrc: '/case-studies/server-tower.jpg'
 		},
 		{
-			title: 'Internet & VoIP',
-			imgSrc: '/services/voip.jpg'
+			title: 'Security at YS Athletics',
+			imgSrc: '/case-studies/security.jpg'
 		},
 		{
-			title: 'Fiber Optics',
-			imgSrc: '/services/fiber.jpg'
+			title: 'Oakpark Logistics Hub',
+			imgSrc: '/case-studies/logistics.jpg'
 		},
 		{
-			title: 'Security Systems',
-			imgSrc: '/services/security.jpg'
+			title: 'Lawndale City College',
+			imgSrc: '/case-studies/campus.jpg'
 		},
 		{
-			title: 'Server Repair',
-			imgSrc: '/services/repair.jpg'
+			title: 'East Bank Credit Union',
+			imgSrc: '/case-studies/front-desk.jpg'
 		}
 	];
 
 	let scrollIndex = 0;
 	let scrollPosition = 0;
-	let servicesScrolled;
+	let casesScrolled;
 
-	const scrollServices = (direction) => {
-		const scrollDistance = 23.5
-		
+	const scrollCases = (direction) => {
+		const scrollDistance = 34;
+
 		// prevent scroll if already translated
-		if (servicesScrolled) return;
+		if (casesScrolled) return;
 
 		if (direction === 'right' && scrollIndex <= 2) {
 			scrollIndex++;
@@ -45,19 +45,20 @@
 	};
 </script>
 
-<section class="services">
+<section class="case-studies">
 	<ContainerSixty>
 		<div class="upper">
-			<SectionHeader
-				sub={'What we Do'}
-				titleBlue={'services &'}
-				titleYellow={'solutions'}
-			/>
+			<div class="upper-left">
+				<SectionHeader sub={'HOW WE WORK'} titleMainColor={'services &'} titleYellow={'solutions'} />
+				<div class="section-blurb">
+					See how we approach each unique issue with a tailored solution.
+				</div>
+			</div>
 			<div class="arrows">
-				<span on:click={() => scrollServices('left')}
+				<span on:click={() => scrollCases('left')}
 					><Arrow filled={scrollIndex !== 0} direction="left" /></span
 				>
-				<span on:click={() => scrollServices('right')}
+				<span on:click={() => scrollCases('right')}
 					><Arrow filled={scrollIndex !== 3} direction="right" /></span
 				>
 			</div>
@@ -68,10 +69,10 @@
 				if (scrollIndex > 0) {
 					e.target.scrollLeft = 0;
 				}
-				servicesScrolled = e.target.scrollLeft > 0;
+				casesScrolled = e.target.scrollLeft > 0;
 			}}
 		>
-			<ul class="services__list" style={`transform: translate(-${scrollPosition}vw)`}>
+			<ul class="case-studies__list" style={`transform: translate(-${scrollPosition}vw)`}>
 				{#each services as { title, imgSrc } (title)}
 					<li class="service">
 						<img src={imgSrc} alt={title} class="image" />
@@ -84,7 +85,7 @@
 </section>
 
 <style lang="scss">
-	.services {
+	.case-studies {
 		height: 140vh;
 		width: 100vw;
 		background: var(--white);
@@ -94,7 +95,7 @@
 		color: var(--white);
 		overflow: hidden;
 		&__list {
-			min-width: 140vw;
+			min-width: 180vw;
 			height: 50vh;
 			margin: 0;
 			padding: 0;
@@ -104,13 +105,13 @@
 			justify-content: flex-start;
 			overflow: visible;
 			transition: var(--transition-1-smooth);
-			will-change: transform;
+      will-change: transform;
 		}
 		.service {
 			-webkit-user-select: none;
 			position: relative;
-			height: 50vh;
-			width: 20vw;
+			height: 40vh;
+			width: 30vw;
 			padding-right: var(--space-5xl);
 			overflow: hidden;
 			&-title {
@@ -118,7 +119,7 @@
 				position: absolute;
 				bottom: var(--space-3xl);
 				left: var(--space-3xl);
-				width: 30%;
+				width: 35%;
 				line-height: 100%;
 				word-break: break-word;
 				font-size: var(--text-header);
@@ -133,7 +134,7 @@
 					height: 60px;
 					width: 60px;
 					border-radius: var(--radius-rounded);
-					border: 1px solid var(--accent-color);
+          background-color: var(--accent-tr1);
 				}
 			}
 			&::before {
@@ -144,7 +145,7 @@
 				left: 0;
 				height: 100%;
 				width: calc(100% - var(--space-5xl));
-				background-color: var(--primary-tr2);
+				background-color: var(--dark-cyan-tr1);
 			}
 		}
 		img {
@@ -162,6 +163,11 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
+    .section-blurb {
+      width: 65%;
+      font-size: var(--text-lg);
+      color: var(--text-color);
+    }
 		.arrows {
 			width: 200px;
 			width: var(--vp-2xl);

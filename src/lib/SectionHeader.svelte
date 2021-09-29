@@ -1,8 +1,8 @@
 <script>
+	export let mainColor = "var(--text-color)";
 	export let sub
 	export let titleMainColor
 	export let titleYellow
-	export let mainColor = "var(--text-color)";
 </script>
 
 <div class="title-block" style="color: {mainColor}">
