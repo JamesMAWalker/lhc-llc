@@ -1,14 +1,14 @@
 <script>
 	export let mainColor = "var(--text-color)";
-	export let sub
-	export let titleMainColor
-	export let titleYellow
+	export let sub = '';
+	export let titleMainColor = '';
+	export let titleYellow = '';
 </script>
 
 <div class="title-block" style="color: {mainColor}">
 	<h3 class="sub">{sub}</h3>
 	<h2 class="title">
-		<span>{titleMainColor}</span>
+		<span>{@html titleMainColor}</span>
 		<span>{titleYellow}</span>
 	</h2>
 </div>
