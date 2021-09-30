@@ -5,23 +5,29 @@
 
 	let services = [
 		{
-			title: 'imgIX Data Center',
+			// title: 'imgIX Data Center',
+			title: '<div>imgIX <br> Data Center</div>',
+			blurb: 'Delivering a custom solution for an innovative start-up.',
 			imgSrc: '/case-studies/server-tower.jpg'
 		},
 		{
-			title: 'Security at YS Athletics',
+			title: '<div>Security at <br> YS Athletics</div>',
+			blurb: 'Clean and tamper-proof installation provides security and peace of mind.',
 			imgSrc: '/case-studies/security.jpg'
 		},
 		{
-			title: 'Oakpark Logistics Hub',
+			title: '<div>Oakpark <br> Logistics Hub</div>',
+			blurb: 'Providing core infrastructure improvements when downtime is not an option.',
 			imgSrc: '/case-studies/logistics.jpg'
 		},
 		{
-			title: 'Lawndale City College',
+			title: '<div>Lawndale <br> City College</div>',
+			blurb: 'Optimizing networks to improve remote learning facilities.',
 			imgSrc: '/case-studies/campus.jpg'
 		},
 		{
-			title: 'East Bank Credit Union',
+			title: '<div>Eastbank <br> Credit Union</div>',
+			blurb: 'Improving customer experience through VoIP and modernized tools.',
 			imgSrc: '/case-studies/front-desk.jpg'
 		}
 	];
@@ -49,7 +55,11 @@
 	<ContainerSixty>
 		<div class="upper">
 			<div class="upper-left">
-				<SectionHeader sub={'HOW WE WORK'} titleMainColor={'services &'} titleYellow={'solutions'} />
+				<SectionHeader
+					sub={'HOW WE WORK'}
+					titleMainColor={'services &'}
+					titleYellow={'solutions'}
+				/>
 				<div class="section-blurb">
 					See how we approach each unique issue with a tailored solution.
 				</div>
@@ -73,10 +83,19 @@
 			}}
 		>
 			<ul class="case-studies__list" style={`transform: translate(-${scrollPosition}vw)`}>
-				{#each services as { title, imgSrc } (title)}
+				{#each services as { imgSrc, title, blurb } (title)}
 					<li class="service">
 						<img src={imgSrc} alt={title} class="image" />
-						<div class="service-title"><span class="ring" />{title}</div>
+						<div class="service-title">
+							<span class="disc" />
+							{@html title}
+							<span class="arrow-wrap">
+								<Arrow direction="right" filled />
+							</span>
+							<div class="service-blurb">
+								{blurb}
+							</div>
+						</div>
 					</li>
 				{/each}
 			</ul>
@@ -105,27 +124,48 @@
 			justify-content: flex-start;
 			overflow: visible;
 			transition: var(--transition-1-smooth);
-      will-change: transform;
+			will-change: transform;
 		}
 		.service {
 			-webkit-user-select: none;
 			position: relative;
 			height: 40vh;
 			width: 30vw;
-			padding-right: var(--space-5xl);
+			margin-right: var(--space-5xl);
 			overflow: hidden;
+			&:hover {
+				.arrow-wrap {
+					transform: translate(50%, -50%);
+					opacity: 1;
+				}
+				.disc {
+					background-color: var(--accent-color);
+					transform: scale(.8);
+				}
+				img {
+					transform: scale(1.1);
+				}
+			}
+			&-blurb {
+				position: absolute;
+				margin-top: var(--space-md);
+				font-size: var(--text-md);
+				font-weight: var(--body);
+				line-height: 100%;
+			}
 			&-title {
 				z-index: var(--level-one);
 				position: absolute;
-				bottom: var(--space-3xl);
+				bottom: 27.5%;
 				left: var(--space-3xl);
-				width: 35%;
+				width: 40%;
 				line-height: 100%;
 				word-break: break-word;
 				font-size: var(--text-header);
 				font-weight: 600;
 				color: var(--white);
-				span {
+				.disc {
+					z-index: var(--base-one);
 					position: absolute;
 					height: var(--circle-lg);
 					width: var(--circle-lg);
@@ -134,7 +174,23 @@
 					height: 60px;
 					width: 60px;
 					border-radius: var(--radius-rounded);
-          background-color: var(--accent-tr1);
+					background-color: var(--accent-tr1);
+					transition: var(--transition-2-smooth);
+					will-change: color, transform;
+				}
+				.arrow-wrap {
+					position: absolute;
+					height: 100%;
+					width: 20%;
+					top: 100%;
+					right: 0%;
+					transform: translate(0%, -50%);
+					opacity: 0;
+					transition: var(--transition-2-smooth);
+					will-change: transition, opacity;
+				}
+				:global(.arrow-wrap svg) {
+					height: 50%;
 				}
 			}
 			&::before {
@@ -144,7 +200,7 @@
 				top: 0;
 				left: 0;
 				height: 100%;
-				width: calc(100% - var(--space-5xl));
+				width: 100%;
 				background-color: var(--dark-cyan-tr1);
 			}
 		}
@@ -154,6 +210,7 @@
 			object-fit: cover;
 			object-position: center;
 			filter: saturate(0.6);
+			transition: var(--transition-2-smooth);
 		}
 	}
 
@@ -163,11 +220,11 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
-    .section-blurb {
-      width: 65%;
-      font-size: var(--text-lg);
-      color: var(--text-color);
-    }
+		.section-blurb {
+			width: 65%;
+			font-size: var(--text-lg);
+			color: var(--text-color);
+		}
 		.arrows {
 			width: 200px;
 			width: var(--vp-2xl);
