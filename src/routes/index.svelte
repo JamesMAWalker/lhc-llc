@@ -29,5 +29,6 @@
 <style lang="scss">
 	.landing {
 		background-color: transparent;
+		overflow: hidden;
 	}
 </style>
