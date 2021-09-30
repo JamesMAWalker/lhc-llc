@@ -167,6 +167,7 @@
 		justify-content: space-between;
 		align-items: flex-end;
 		.arrows {
+			z-index: var(--level-two);
 			width: 200px;
 			width: var(--vp-2xl);
 			display: flex;
