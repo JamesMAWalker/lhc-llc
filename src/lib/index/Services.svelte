@@ -52,7 +52,7 @@
 	</div>
 	<ContainerSixty>
 		<div class="upper">
-			<SectionHeader sub={'What we Do'} titleBlue={'services &'} titleYellow={'solutions'} />
+			<SectionHeader sub={'What we Do'} titleMainColor={'services &'} titleYellow={'solutions'} />
 			<div class="arrows">
 				<span on:click={() => scrollServices('left')}
 					><Arrow filled={scrollIndex !== 0} direction="left" /></span
