@@ -65,7 +65,7 @@
 		</div>
 		<SectionHeader titleMainColor="Cabling <br> Service & <br> Expertise." />
 		<p class="text">
-			Lighthouse is your comprehensive solution for cabling services from fiber optic networking to
+			Datacom is your comprehensive solution for cabling services from fiber optic networking to
 			video security.
 		</p>
 		<button class="btn"><span class="ring"/>	services <span class="down-arr">↓</span></button>
