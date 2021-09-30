@@ -2,11 +2,13 @@
 	import { draw } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
+	import SectionHeader from '$lib/SectionHeader.svelte';
+	import BGLogo from '$lib/background/BGLogo.svelte'
+
 	let pageLoaded = false;
 
 	onMount(() => {
 		pageLoaded = true;
-		
 	});
 
 	/*
@@ -23,10 +25,8 @@
 	$: {
 		if (svgEl !== undefined) {
 			setTimeout(() => {
-				
 				const cutoutHeight = svgEl.height.animVal.value;
-				circleHeight = cutoutHeight * `${isFirefox ? .27 : .42}`
-				
+				circleHeight = cutoutHeight * `${isFirefox ? 0.27 : 0.42}`;
 			}, 100);
 		}
 	}
@@ -59,6 +59,17 @@
 		</svg>
 	{/if}
 	<!-- <div class="left" /> -->
+	<div class="left-content">
+		<div class="bglogo-wrap">
+			<BGLogo />
+		</div>
+		<SectionHeader titleMainColor="Cabling <br> Service & <br> Expertise." />
+		<p class="text">
+			Lighthouse is your comprehensive solution for cabling services from fiber optic networking to
+			video security.
+		</p>
+		<button class="btn"><span class="ring"/>	services <span class="down-arr">↓</span></button>
+	</div>
 	<svg
 		class="left"
 		id="Layer_1"
@@ -92,7 +103,7 @@
 		justify-content: center;
 		align-items: center;
 		flex: 1;
-		overflow: hidden;
+		/* overflow: hidden; */
 		&-vid {
 			z-index: var(--base-one);
 			position: absolute;
@@ -115,6 +126,48 @@
 		fill: white;
 		/* background-image: url('/cut-out.png'); */
 	}
+	.left-content {
+		z-index: var(--level-one);
+		position: absolute;
+		bottom: 17.5%;
+		left: 15%;
+		transform: scale(1.1);
+		.bglogo-wrap {
+			z-index: var(--base-one);
+			position: absolute;
+			bottom: -20vh;
+			left: -27vh;
+			opacity: .6;
+		}
+		.text {
+			margin-top: var(--space-lg);
+			color: var(--text-color);
+			width: 25%;
+		}
+		button {
+			position: relative;
+			margin-top: var(--space-lg);
+			background-color: transparent;
+			border: none;
+			color: var(--text-color);
+			font-size: var(--text-prose);
+			font-weight: var(--semibold);
+			.down-arr {
+				color: var(--accent-color);
+			}
+			.ring {
+				z-index: var(--base-one);
+				position: absolute;
+				top: 50%;
+				left: -5%;
+				transform: translateY(-50%);
+				height: 30px;
+				width: 30px;
+				border-radius: var(--radius-rounded);
+				border: 1px solid var(--accent-color);
+			}
+		}
+	}
 	.right {
 		height: 100%;
 		width: 100%;
@@ -125,7 +178,7 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%) rotate(-.25turn);
+		transform: translate(-50%, -50%) rotate(-0.25turn);
 		/* top: 50%;
 		left: 50%;
 		height: 47vh;

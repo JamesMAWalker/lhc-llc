@@ -44,5 +44,7 @@
     position: absolute;
     left: 0;
     top: 0;
+		transform-origin: left; 
+		transform: scale(.75);
   }
 </style>
