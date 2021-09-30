@@ -26,7 +26,7 @@
 		if (svgEl !== undefined) {
 			setTimeout(() => {
 				const cutoutHeight = svgEl.height.animVal.value;
-				circleHeight = cutoutHeight * `${isFirefox ? 0.27 : 0.42}`;
+				circleHeight = cutoutHeight * `${isFirefox ? 0.3 : 0.42}`;
 			}, 100);
 		}
 	}
