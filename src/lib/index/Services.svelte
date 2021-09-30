@@ -2,7 +2,7 @@
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
 	import Arrow from '$lib/Arrow.svelte';
-	import { scale } from 'svelte/transition';
+	import BGCircle from '$lib/background/BGCircle.svelte';
 
 	let services = [
 		{
@@ -47,6 +47,9 @@
 </script>
 
 <section class="services">
+	<div class="bgcircle-wrap">
+		<BGCircle />
+	</div>
 	<ContainerSixty>
 		<div class="upper">
 			<SectionHeader sub={'What we Do'} titleBlue={'services &'} titleYellow={'solutions'} />
@@ -81,7 +84,12 @@
 </section>
 
 <style lang="scss">
+	.bgcircle-wrap {
+		position: absolute;
+		left: 40%;
+	}
 	.services {
+		position: relative;
 		height: 140vh;
 		width: 100vw;
 		background: var(--white);

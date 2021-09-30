@@ -2,6 +2,7 @@
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
 	import Arrow from '$lib/Arrow.svelte';
+	import BGCircle from '$lib/background/BGCircle.svelte'
 
 	let services = [
 		{
@@ -52,6 +53,9 @@
 </script>
 
 <section class="case-studies">
+	<div class="bgcircle-wrap">
+		<BGCircle />
+	</div>
 	<ContainerSixty>
 		<div class="upper">
 			<div class="upper-left">
@@ -104,7 +108,14 @@
 </section>
 
 <style lang="scss">
+	.bgcircle-wrap {
+		z-index: var(--ground);
+		position: absolute;
+		top: 10%;
+		left: -25%;
+	}
 	.case-studies {
+		position: relative;
 		height: 140vh;
 		width: 100vw;
 		background: var(--white);
@@ -215,6 +226,7 @@
 	}
 
 	.upper {
+		z-index: var(--level-one);
 		width: 100%;
 		margin-bottom: var(--space-5xl);
 		display: flex;
