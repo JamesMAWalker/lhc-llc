@@ -1,21 +1,24 @@
 <script>
-	import Wordmark from '$lib/logo/Wordmark.svelte'
-	import Icon from '$lib/logo/Icon.svelte'
+	import Wordmark from '$lib/logo/Wordmark.svelte';
+	import Icon from '$lib/logo/Icon.svelte';
+	import About from '$lib/About.svelte';
 
 	export let menuOpen;
-	export let menuIsWhite;
 	export let showWordmark;
+	export let heroInView;
+	export let aboutInView;
+	
+	let menuIsWhite
+	$: menuIsWhite = aboutInView || heroInView
 </script>
 
 <nav class="header">
 	<div class="logo-container">
 		{#if showWordmark}
-		 <!-- content here -->
-		 <Wordmark />
-	{:else}
-		 <!-- else content here -->
-		 <Icon />
-	{/if}
+			<Wordmark />
+		{:else}
+			<Icon />
+		{/if}
 	</div>
 	<div class="menu-cluster" class:active={!menuIsWhite} on:click={() => (menuOpen = !menuOpen)}>
 		<span class="quote-btn">get a quote</span>
@@ -37,7 +40,7 @@
 	}
 	.logo-container {
 		position: relative;
-		height: 4vh;
+		height: 5vh;
 		svg {
 			position: absolute;
 			top: 0;
@@ -49,13 +52,16 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		& > * {
+		}
 		&.active {
 			.quote-btn,
 			.divider,
 			.menu-button {
 				color: var(--text-color);
 			}
-			.menu-button, .divider {
+			.menu-button,
+			.divider {
 				background-color: var(--text-color);
 				color: var(--white);
 			}

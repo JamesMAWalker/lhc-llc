@@ -9,7 +9,9 @@
 	let menuOpen = false;
 
 	let menuTrigger;
-	let menuIsWhite = true;
+	let menuTriggerTwo;
+	let heroInView = true;
+	let aboutInView = false;
 
 	let logoTrigger;
 	let showWordmark = true;
@@ -18,20 +20,23 @@
 {#if menuOpen}
 	<Menu />
 {/if}
-<Header bind:menuOpen {menuIsWhite} {showWordmark} />
+<Header bind:menuOpen {heroInView} {aboutInView} {showWordmark} />
 <main>
 	<slot />
-	<IntersectionObserver element={menuTrigger} bind:intersecting={menuIsWhite}>
+	<IntersectionObserver element={menuTrigger} bind:intersecting={heroInView}>
 		<div class="menu-trigger" bind:this={menuTrigger} />
 	</IntersectionObserver>
 	<IntersectionObserver element={logoTrigger} bind:intersecting={showWordmark}>
 		<div class="logo-trigger" bind:this={logoTrigger} />
 	</IntersectionObserver>
+	<IntersectionObserver element={menuTriggerTwo} bind:intersecting={aboutInView}>
+		<div class="menu-trigger menu-trigger--2" bind:this={menuTriggerTwo} />
+	</IntersectionObserver>
 </main>
 
 <Footer />
 
-<style>
+<style lang="scss">
 	main {
 		position: relative;
 		flex: 1;
@@ -41,12 +46,15 @@
 		width: 100%;
 	}
 	.menu-trigger {
-		z-index: 99;
+		z-index: 9999;
 		position: absolute;
 		height: 1px;
 		width: 100vw;
 		top: 90vh;
 		left: 0;
+		&--2 {
+			top: 330vh;
+		}
 	}
 	.logo-trigger {
 		z-index: 99;

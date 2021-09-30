@@ -1,7 +1,8 @@
 <script>
-  import SectionHeader from '$lib/SectionHeader.svelte';
+	import SectionHeader from '$lib/SectionHeader.svelte';
 	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
 	import Arrow from '$lib/Arrow.svelte';
+	import { scale } from 'svelte/transition';
 
 	let services = [
 		{
@@ -31,8 +32,8 @@
 	let servicesScrolled;
 
 	const scrollServices = (direction) => {
-		const scrollDistance = 23.5
-		
+		const scrollDistance = 23.5;
+
 		// prevent scroll if already translated
 		if (servicesScrolled) return;
 
@@ -48,11 +49,7 @@
 <section class="services">
 	<ContainerSixty>
 		<div class="upper">
-			<SectionHeader
-				sub={'What we Do'}
-				titleBlue={'services &'}
-				titleYellow={'solutions'}
-			/>
+			<SectionHeader sub={'What we Do'} titleBlue={'services &'} titleYellow={'solutions'} />
 			<div class="arrows">
 				<span on:click={() => scrollServices('left')}
 					><Arrow filled={scrollIndex !== 0} direction="left" /></span
@@ -155,7 +152,6 @@
 			filter: saturate(0.6);
 		}
 	}
-
 	.upper {
 		width: 100%;
 		margin-bottom: var(--space-5xl);
