@@ -94,7 +94,7 @@
 							<span class="disc" />
 							{@html title}
 							<span class="arrow-wrap">
-								<Arrow direction="right" filled />
+								<Arrow direction="right" filled={true	} />
 							</span>
 							<div class="service-blurb">
 								{blurb}
@@ -139,6 +139,7 @@
 		}
 		.service {
 			-webkit-user-select: none;
+			cursor: pointer;
 			position: relative;
 			height: 40vh;
 			width: 30vw;

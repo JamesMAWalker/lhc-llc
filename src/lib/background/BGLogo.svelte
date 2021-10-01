@@ -21,5 +21,6 @@
 	/* your styles go here */
   .bg-logo {
     overflow: visible;
+		opacity: .6;
   }
 </style>

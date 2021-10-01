@@ -10,7 +10,7 @@
 <div class="footer">
 	<ContainerSixty>
 		<div class="footer-grid">
-			<div class="logo-wrap">
+			<div class="logo-wrap--footer">
 				<svg
 					class="wordmark"
 					height="100%"
@@ -114,13 +114,12 @@
 		margin: 0;
 		margin-bottom: var(--space-xl);
 	}
-	.logo-wrap {
+	.logo-wrap--footer {
 		grid-area: logo;
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-end;
 		svg {
-			/* height: 6vh; */
 			max-width: 100%;
 		}
 	}

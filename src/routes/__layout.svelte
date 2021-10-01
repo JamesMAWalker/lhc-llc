@@ -18,7 +18,7 @@
 </script>
 
 {#if menuOpen}
-	<Menu />
+	<Menu {menuOpen}/>
 {/if}
 <Header bind:menuOpen {heroInView} {aboutInView} {showWordmark} />
 <main>
@@ -44,6 +44,7 @@
 		flex-direction: column;
 		height: max-content;
 		width: 100%;
+		overflow: hidden;
 	}
 	.menu-trigger {
 		z-index: 9999;

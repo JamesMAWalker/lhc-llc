@@ -18,8 +18,11 @@
 	/>
 </svg>
 
-<style>
+<style lang="scss">
 	.iconmark {
 		max-width: 10vh;
+		path {
+			transition: var(--transition-2-smooth);
+		}
 	}
 </style>

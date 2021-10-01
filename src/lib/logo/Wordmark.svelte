@@ -1,9 +1,16 @@
 <script>
 	// your script goes here
-  import { fade } from 'svelte/transition'
+	import { fade } from 'svelte/transition';
 </script>
 
-<svg class="wordmark" transition:fade={{ duration: 200 }} height="100%" viewBox="0 0 347 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg
+	class="wordmark"
+	transition:fade={{ duration: 200 }}
+	height="100%"
+	viewBox="0 0 347 47"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+>
 	<path fill-rule="evenodd" clip-rule="evenodd" d="M343 23H31V22.5H343V23Z" fill="#F5DA4E" />
 	<path
 		d="M219.131 22.5656C219.131 24.8109 217.311 26.6311 215.065 26.6311C212.82 26.6311 211 24.8109 211 22.5656C211 20.3202 212.82 18.5 215.065 18.5C217.311 18.5 219.131 20.3202 219.131 22.5656Z"
@@ -39,12 +46,15 @@
 	/>
 </svg>
 
-<style>
-   .wordmark {
-    position: absolute;
-    left: 0;
-    top: 0;
-		transform-origin: left; 
-		transform: scale(.75);
-  }
+<style lang="scss">
+	.wordmark {
+		position: absolute;
+		left: 0;
+		top: 0;
+		transform-origin: left;
+		transform: scale(0.75);
+		path {
+			transition: var(--transition-2-smooth);
+		}
+	}
 </style>
