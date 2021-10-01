@@ -1,9 +1,14 @@
 <script>
+  import DiscButton from '$lib/buttons/disc-button.svelte';
+  import RingButton from '$lib/buttons/ring-button.svelte';
+
+	import { goto } from '$app/navigation';
+
 	import { draw } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
 	import SectionHeader from '$lib/SectionHeader.svelte';
-	import BGLogo from '$lib/background/BGLogo.svelte'
+	import BGLogo from '$lib/background/BGLogo.svelte';
 
 	let pageLoaded = false;
 
@@ -68,7 +73,7 @@
 			Datacom is your comprehensive solution for cabling services from fiber optic networking to
 			video security.
 		</p>
-		<button class="btn"><span class="ring"/>	services <span class="down-arr">↓</span></button>
+		<RingButton />
 	</div>
 	<svg
 		class="left"
@@ -87,10 +92,7 @@
 	<div class="right" />
 	<div class="center">
 		<h1>Your structured cabling <span class="accent">solution.</span></h1>
-		<div class="button">
-			<span class="circle--fade" />
-			learn more
-		</div>
+		<DiscButton />
 	</div>
 </section>
 
@@ -143,29 +145,6 @@
 			color: var(--text-color);
 			width: 25%;
 		}
-		button {
-			position: relative;
-			margin-top: var(--space-lg);
-			background-color: transparent;
-			border: none;
-			color: var(--text-color);
-			font-size: var(--text-prose);
-			font-weight: var(--semibold);
-			.down-arr {
-				color: var(--accent-color);
-			}
-			.ring {
-				z-index: var(--base-one);
-				position: absolute;
-				top: 50%;
-				left: -5%;
-				transform: translateY(-50%);
-				height: 30px;
-				width: 30px;
-				border-radius: var(--radius-rounded);
-				border: 1px solid var(--accent-color);
-			}
-		}
 	}
 	.right {
 		height: 100%;
@@ -185,7 +164,7 @@
 		transform: translate(-50%, -50.05%) rotate(-0.25turn); */
 	}
 	.center {
-		z-index: var(--level-two);
+		z-index: var(--level-nine);
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -203,7 +182,7 @@
 				color: var(--accent-color);
 			}
 		}
-		.button {
+		.disc-button {
 			z-index: var(--level-one);
 			cursor: pointer;
 			position: relative;
@@ -211,12 +190,15 @@
 			padding-left: 1rem;
 			font-size: var(--text-xl);
 			font-weight: 700;
+			color: var(--white);
+			background-color: transparent;
+			border: none;
 			&:hover {
-				.circle--fade {
+				.disc {
 					transform: translate(-5%, -45%) scale(1.1);
 				}
 			}
-			.circle--fade {
+			.disc {
 				z-index: var(--base-one);
 				position: absolute;
 				top: 50%;

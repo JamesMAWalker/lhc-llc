@@ -1,4 +1,6 @@
 <script>
+	import { goto } from '$app/navigation'
+
 	import Wordmark from '$lib/logo/Wordmark.svelte';
 	import Icon from '$lib/logo/Icon.svelte';
 	import About from '$lib/About.svelte';
@@ -13,7 +15,7 @@
 </script>
 
 <nav class="header">
-	<div class="logo-container">
+	<div class="logo-container" on:click={() => goto('/')} >
 		{#if showWordmark}
 			<Wordmark />
 		{:else}
@@ -39,6 +41,7 @@
 		align-items: center;
 	}
 	.logo-container {
+		cursor: pointer;
 		position: relative;
 		height: 5vh;
 	}

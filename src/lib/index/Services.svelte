@@ -1,4 +1,6 @@
 <script>
+	import { goto } from '$app/navigation'
+
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
 	import Arrow from '$lib/Arrow.svelte';
@@ -46,7 +48,7 @@
 	};
 </script>
 
-<section class="services">
+<section class="services" id="services">
 	<div class="bgcircle-wrap">
 		<BGCircle />
 	</div>
@@ -73,7 +75,7 @@
 		>
 			<ul class="services__list" style={`transform: translate(-${scrollPosition}vw)`}>
 				{#each services as { title, imgSrc } (title)}
-					<li class="service">
+					<li class="service" on:click={() => goto('services', { noscroll: false })}>
 						<img src={imgSrc} alt={title} class="image" />
 						<div class="service-title">
 							<span class="disc" />{title}
