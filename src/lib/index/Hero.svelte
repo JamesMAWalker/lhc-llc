@@ -137,7 +137,6 @@
 			position: absolute;
 			bottom: -20vh;
 			left: -27vh;
-			opacity: .6;
 		}
 		.text {
 			margin-top: var(--space-lg);

@@ -75,7 +75,10 @@
 				{#each services as { title, imgSrc } (title)}
 					<li class="service">
 						<img src={imgSrc} alt={title} class="image" />
-						<div class="service-title"><span class="ring" />{title}</div>
+						<div class="service-title">
+							<span class="disc" />{title}
+							<div class="arrow-wrap arrow-wrap--service"><Arrow direction="right" filled /></div>
+						</div>
 					</li>
 				{/each}
 			</ul>
@@ -88,6 +91,9 @@
 		position: absolute;
 		left: 40%;
 	}
+	:global(.arrow-wrap--service svg) {
+		transform: scale(.6) rotate(180deg);
+	}	
 	.services {
 		position: relative;
 		height: 140vh;
@@ -113,23 +119,47 @@
 		}
 		.service {
 			-webkit-user-select: none;
+			cursor: pointer;
 			position: relative;
 			height: 50vh;
 			width: 20vw;
-			padding-right: var(--space-5xl);
+			margin-right: var(--space-5xl);
 			overflow: hidden;
+			&:hover {
+				.arrow-wrap {
+					transform: translate(0, -50%);
+					opacity: 1;
+				}
+				.disc {
+					transform: scale(.8);
+					background-color: var(--accent-color);
+				}
+				img {
+					transform: scale(1.1);
+				}
+			}
 			&-title {
 				z-index: var(--level-one);
 				position: absolute;
 				bottom: var(--space-3xl);
 				left: var(--space-3xl);
-				width: 30%;
+				width: 40%;
 				line-height: 100%;
 				word-break: break-word;
 				font-size: var(--text-header);
 				font-weight: 600;
 				color: var(--white);
-				span {
+				.arrow-wrap {
+					position: absolute;
+					right: -25%;
+					top: 50%;
+					width: 20%;
+					transform: translate(-50%, -50%);
+					opacity: 0;
+					transition: var(--transition-2-smooth);
+				}
+				.disc {
+					z-index: var(--base-one);
 					position: absolute;
 					height: var(--circle-lg);
 					width: var(--circle-lg);
@@ -138,7 +168,8 @@
 					height: 60px;
 					width: 60px;
 					border-radius: var(--radius-rounded);
-					border: 1px solid var(--accent-color);
+					background-color: var(--accent-tr1);
+					transition: var(--transition-2-smooth);
 				}
 			}
 			&::before {
@@ -148,16 +179,19 @@
 				top: 0;
 				left: 0;
 				height: 100%;
-				width: calc(100% - var(--space-5xl));
+				width: calc(100% - var(--space-3xl));
+				width: 100%;
 				background-color: var(--primary-tr2);
 			}
 		}
 		img {
 			height: 100%;
+			width: calc(100% - var(--space-3xl));
 			width: 100%;
 			object-fit: cover;
 			object-position: center;
 			filter: saturate(0.6);
+			transition: var(--transition-2-smooth);
 		}
 	}
 	.upper {
