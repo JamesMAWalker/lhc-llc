@@ -164,7 +164,7 @@
 		transform: translate(-50%, -50.05%) rotate(-0.25turn); */
 	}
 	.center {
-		z-index: var(--level-nine);
+		z-index: var(--level-eight);
 		position: absolute;
 		top: 50%;
 		left: 50%;
