@@ -7,9 +7,9 @@
 	export let showWordmark;
 	export let heroInView;
 	export let aboutInView;
-	
-	let menuIsWhite
-	$: menuIsWhite = aboutInView || heroInView
+
+	let menuIsWhite;
+	$: menuIsWhite = aboutInView || heroInView || menuOpen;
 </script>
 
 <nav class="header">
@@ -41,19 +41,12 @@
 	.logo-container {
 		position: relative;
 		height: 5vh;
-		svg {
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
 	}
 	.menu-cluster {
 		cursor: pointer;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		& > * {
-		}
 		&.active {
 			.quote-btn,
 			.divider,

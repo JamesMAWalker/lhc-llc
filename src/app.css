@@ -7,9 +7,11 @@
 	--dark-cyan-tr1: hsla(209, 37%, 23%, .35);
 	--dark-cyan-2: hsl(209, 27%, 32%);
 	--deep-cyan: hsl(213, 87%, 21%);
+	--deep-cyan-tr: hsla(213, 87%, 21%, 0.9);
 	--deep-cyan-tr1: hsla(212, 88%, 29%, 0.8);
 	--deep-cyan-tr2: hsla(202, 68%, 36%, 0.25);
 	--deep-cyan-tr3: hsla(202, 68%, 36%, 0.07);
+	--deep-cyan-tr4: hsla(213, 87%, 26%, 0.95);
 	--mustard: hsl(50, 89%, 63%);
 	--mustard-tr1: hsla(50, 89%, 63%, 0.6);
 	--mustard-tr2: hsla(50, 89%, 63%, 0.25);
@@ -155,6 +157,7 @@ body {
 	font-family: var(--font-main);
 	letter-spacing: 1px;
 	min-height: 100vh;
+	height: max-content;
 	margin: 0;
 	background-color: var(--primary-color);
 }
@@ -194,10 +197,6 @@ p {
 a {
 	color: var(--accent-color);
 	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
 }
 
 h1 {
