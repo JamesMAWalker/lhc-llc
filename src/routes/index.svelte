@@ -3,6 +3,8 @@
 </script>
 
 <script>
+	import { fade, slide} from 'svelte/transition';
+
 	import Hero from '$lib/index/Hero.svelte';
 	import Services from '$lib/index/Services.svelte';
 	import About from '$lib/About.svelte';
@@ -19,7 +21,7 @@
 	/>
 </svelte:head>
 
-<div class="landing">
+<div class="landing" transition:fade>
 	<Hero />
 	<Services />
 	<About />
@@ -29,6 +31,6 @@
 <style lang="scss">
 	.landing {
 		background-color: transparent;
-		overflow: hidden;	
+		overflow: hidden;
 	}
 </style>
