@@ -113,7 +113,7 @@
 			left: 0;
 			height: 100%;
 			width: 100%;
-			transform: rotateY(180deg) scale(1.75) translate(17vh, 12vh);
+			transform: rotateY(180deg) scale(1.75) translate(17vh, 16vh);
 			transition: opacity 2s ease-in-out;
 		}
 	}
