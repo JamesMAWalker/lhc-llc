@@ -10,7 +10,6 @@
 	export let menuOpen;
 </script>
 
-<!-- <nav class="menu" transition:fly={{ y: -100, easing: expoInOut }} > -->
 <nav class="menu" transition:slide={{ duration: 1000, easing: expoInOut }}>
 	<div class="left">
 		{#if menuOpen}

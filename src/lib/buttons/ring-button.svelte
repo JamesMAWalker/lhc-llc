@@ -1,8 +1,10 @@
 <script>
 	import { goto } from '$app/navigation';
+
+	export let link = '/'
 </script>
 
-<button on:click={() => goto('/#services')} class="ring-btn">
+<button on:click={() => goto(`${link}`)} class="ring-btn">
 	<span class="ring" />
 	<span class="text">services</span>
 	<span class="down-arr">↓</span>

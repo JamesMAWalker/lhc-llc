@@ -73,7 +73,7 @@
 			Datacom is your comprehensive solution for cabling services from fiber optic networking to
 			video security.
 		</p>
-		<RingButton />
+		<RingButton link="/#services" />
 	</div>
 	<svg
 		class="left"
