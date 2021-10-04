@@ -18,7 +18,7 @@
 </script>
 
 {#if menuOpen}
-	<Menu {menuOpen}/>
+	<Menu bind:menuOpen />
 {/if}
 <Header bind:menuOpen {heroInView} {aboutInView} {showWordmark} />
 <main>

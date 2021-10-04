@@ -52,7 +52,7 @@
 	};
 </script>
 
-<section class="case-studies">
+<section class="case-studies" id="case-studies">
 	<div class="bgcircle-wrap">
 		<BGCircle />
 	</div>

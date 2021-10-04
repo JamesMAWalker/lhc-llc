@@ -15,12 +15,12 @@
 		{#if menuOpen}
 			<ul class="menu-options" in:fade={{ delay: 750 }} out:fade>
 				<h6 class="label">MENU</h6>
-				<li class="option"><a href="/#">home</a></li>
-				<li class="option"><a href="/#">about</a></li>
-				<li class="option"><a href="/#">services</a></li>
-				<li class="option"><a href="/#">case studies</a></li>
-				<li class="option"><a href="/#">locations</a></li>
-				<li class="option"><a href="/#">contact</a></li>
+				<li class="option"><a on:click={() => menuOpen = false} href="/">home</a></li>
+				<li class="option"><a on:click={() => menuOpen = false} href="/#about">about</a></li>
+				<li class="option"><a on:click={() => menuOpen = false} href="/#services">services</a></li>
+				<li class="option"><a on:click={() => menuOpen = false} href="/#case-studies">case studies</a></li>
+				<li class="option"><a on:click={() => menuOpen = false} href="/">locations</a></li>
+				<li class="option"><a on:click={() => menuOpen = false} href="/contact">contact</a></li>
 			</ul>
 		{/if}
 		<div class="bglogo-wrap">

@@ -5,7 +5,7 @@
 </script>
 
 <!-- markup (zero or more items) goes here -->
-<section class="about">
+<section class="about" id="about">
 	<img class="bg-image" src="/job-site.jpg" alt="Construction site planning" />
 	<ContainerSixty column>
 		<div class="about-inner">
