@@ -1,17 +1,19 @@
 <script>
 	import { goto } from '$app/navigation'
+	import { page } from '$app/stores'
 
 	import Wordmark from '$lib/logo/Wordmark.svelte';
 	import Icon from '$lib/logo/Icon.svelte';
-	import About from '$lib/About.svelte';
 
 	export let menuOpen;
 	export let showWordmark;
 	export let heroInView;
 	export let aboutInView;
 
+	let isContactPage = $page.path === '/contact'
+
 	let menuIsWhite;
-	$: menuIsWhite = aboutInView || heroInView || menuOpen;
+	$: menuIsWhite = (aboutInView || heroInView || menuOpen) && !isContactPage;
 </script>
 
 <nav class="header">
@@ -23,7 +25,7 @@
 		{/if}
 	</div>
 	<div class="menu-cluster" class:active={!menuIsWhite} on:click={() => (menuOpen = !menuOpen)}>
-		<span class="quote-btn">get a quote</span>
+		<span class="quote-btn" on:click={() => goto('/contact')} >get a quote</span>
 		<span class="divider" />
 		<div class="menu-button"><span>//</span></div>
 	</div>
