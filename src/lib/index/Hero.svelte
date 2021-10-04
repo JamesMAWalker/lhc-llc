@@ -141,7 +141,7 @@
 			left: -27vh;
 		}
 		.text {
-			margin-top: var(--space-lg);
+			margin-top: var(--title-margin);
 			color: var(--text-color);
 			width: 25%;
 		}

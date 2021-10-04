@@ -56,7 +56,7 @@
 	<div class="bgcircle-wrap">
 		<BGCircle />
 	</div>
-	<ContainerSixty>
+	<ContainerSixty column>
 		<div class="upper">
 			<div class="upper-left">
 				<SectionHeader

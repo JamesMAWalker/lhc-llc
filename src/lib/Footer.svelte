@@ -8,7 +8,7 @@
 </script>
 
 <div class="footer">
-	<ContainerSixty>
+	<ContainerSixty column>
 		<div class="footer-grid">
 			<div class="logo-wrap--footer">
 				<svg
@@ -81,7 +81,7 @@
 			</div>
 			<div class="copyright">© DATACOM LLC. 2021</div>
 			<div class="dev">
-				development and design by &nbsp; <a href="/#">jw.dev</a>
+				<span>development and design by &nbsp;</span> <a href="/#">jw.dev</a>
 			</div>
 		</div>
 	</ContainerSixty>
@@ -202,7 +202,9 @@
 		align-items: flex-end;
 		justify-content: flex-end;
 		font-size: var(--text-md);
-		/* font-weight: 200; */
 		color: var(--barely-grey);
+		a, span {
+			height: var(--text-2xl);
+		}
 	}
 </style>
