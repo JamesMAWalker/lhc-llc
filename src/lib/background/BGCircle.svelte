@@ -19,5 +19,6 @@
 		overflow: visible;
 		height: 75vw;
 		width: 75vw;
+		opacity: 0.5;
 	}
 </style>
