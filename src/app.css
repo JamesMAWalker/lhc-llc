@@ -152,6 +152,7 @@
 
 html {
 	scrollbar-width: none;
+	scroll-behavior: smooth;
 	letter-spacing: 1px;
 }
 html::-webkit-scrollbar {
