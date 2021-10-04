@@ -1,6 +1,4 @@
 <script>
-	import { goto } from '$app/navigation'
-
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
 	import Arrow from '$lib/Arrow.svelte';
@@ -8,22 +6,27 @@
 
 	let services = [
 		{
-			title: 'Server Racking',
-			imgSrc: '/services/server.jpg'
+			id: 'data001',
+			title: 'Data Centers',
+			imgSrc: '/services/server-blade.jpg'
 		},
 		{
+			id: 'netvoip002',
 			title: 'Internet & VoIP',
 			imgSrc: '/services/voip.jpg'
 		},
 		{
+			id: 'fiberopt003',
 			title: 'Fiber Optics',
 			imgSrc: '/services/fiber.jpg'
 		},
 		{
+			id: 'security004',
 			title: 'Security Systems',
 			imgSrc: '/services/security.jpg'
 		},
 		{
+			id: 'serverrep005',
 			title: 'Server Repair',
 			imgSrc: '/services/repair.jpg'
 		}
@@ -52,7 +55,7 @@
 	<div class="bgcircle-wrap">
 		<BGCircle />
 	</div>
-	<ContainerSixty>
+	<ContainerSixty column>
 		<div class="upper">
 			<SectionHeader sub={'What we Do'} titleMainColor={'services &'} titleYellow={'solutions'} />
 			<div class="arrows">
@@ -74,14 +77,14 @@
 			}}
 		>
 			<ul class="services__list" style={`transform: translate(-${scrollPosition}vw)`}>
-				{#each services as { title, imgSrc } (title)}
-					<li class="service" on:click={() => goto('services', { noscroll: false })}>
+				{#each services as { title, imgSrc, id } (id)}
+					<a class="service" href="/services" class:server={id === 'data001'}>
 						<img src={imgSrc} alt={title} class="image" />
 						<div class="service-title">
 							<span class="disc" />{title}
 							<div class="arrow-wrap arrow-wrap--service"><Arrow direction="right" filled /></div>
 						</div>
-					</li>
+					</a>
 				{/each}
 			</ul>
 		</div>
@@ -127,6 +130,11 @@
 			width: 20vw;
 			margin-right: var(--space-5xl);
 			overflow: hidden;
+			&.server {
+				img {
+					object-position: 75% 50%;
+				}
+			}
 			&:hover {
 				.arrow-wrap {
 					transform: translate(0, -50%);
