@@ -1,4 +1,6 @@
 <script>
+  import ContactForm from '../../lib/ContactForm.svelte';
+
 	import { fade, draw } from 'svelte/transition';
 
 	import SectionHeader from '$lib/SectionHeader.svelte';
@@ -86,7 +88,7 @@
 <section class="service-hero" transition:fade>
 	<div class="left">
 		<div class="blurb-container">
-			<SectionHeader sub="we develop" titleMainColor="server" titleYellow="solutions" />
+			<SectionHeader sub="we have" titleMainColor="server" titleYellow="solutions" />
 			<p class="blurb">
 				One of the most important pieces of equipment in any company’s data center will be its
 				server racks, and these can come in a variety of different models and designs. You might use
@@ -94,7 +96,7 @@
 				of them serve to store the different kinds of equipment which are necessary to your network
 				processing, and your computing capability.
 			</p>
-			<RingButton />
+			<RingButton link="/services/#info" />
 		</div>
 	</div>
 	<div class="right">
@@ -120,7 +122,7 @@
 		</div>
 	</div>
 </section>
-<section class="service-info">
+<section class="service-info" id="info">
 	<ContainerFifty>
 		<div class="left">
 			<SectionHeader sub="how we work" titleMainColor="our" titleYellow="process" />
@@ -172,22 +174,7 @@
 			</div>
 		</div>
 		<div class="right">
-			<form class="contact-form">
-				<input type="text" class="first" placeholder="First name" />
-				<input type="text" class="last" placeholder="Last" />
-				<input type="text" class="company" placeholder="Company name" />
-				<input type="email" class="email" placeholder="Email address" />
-				<textarea name="message" id="message" class="message" placeholder="Your message..." />
-				<div class="captcha">
-					<input type="checkbox">
-					<div class="text">
-						<span>I'm not a robot</span>
-						<span class="privacy">Privacy • Terms</span>
-					</div>
-					<img src="/static/captcha.png" alt="captcha symbol">
-				</div>
-				<button class="submit" type="submit">send message</button>
-			</form>
+			<ContactForm></ContactForm>
 		</div>
 	</ContainerSixty>
 </section>
@@ -434,6 +421,7 @@
 				}
 			}
 			.submit {
+				cursor: pointer;
 				grid-column: 1 / 2;
 				grid-row: 5 / 6;
 				height: 90%;
