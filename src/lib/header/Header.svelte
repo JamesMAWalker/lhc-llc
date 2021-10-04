@@ -10,10 +10,18 @@
 	export let heroInView;
 	export let aboutInView;
 
-	let isContactPage = $page.path === '/contact'
+	let isContactPage 
+	
+	$: isContactPage = $page.path === '/contact'
 
 	let menuIsWhite;
 	$: menuIsWhite = (aboutInView || heroInView || menuOpen) && !isContactPage;
+	
+	const handleContactBtn = () => {
+		menuOpen = false;
+		goto('/contact')
+	}
+	
 </script>
 
 <nav class="header">
@@ -25,7 +33,7 @@
 		{/if}
 	</div>
 	<div class="menu-cluster" class:active={!menuIsWhite} on:click={() => (menuOpen = !menuOpen)}>
-		<span class="quote-btn" on:click={() => goto('/contact')} >get a quote</span>
+		<span class="quote-btn" on:click|stopPropagation={handleContactBtn} >get a quote</span>
 		<span class="divider" />
 		<div class="menu-button"><span>//</span></div>
 	</div>
