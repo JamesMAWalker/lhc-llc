@@ -130,6 +130,7 @@
 	/* text size */
 	--text-hero: var(--text-7xl);
 	--text-hero-plus: var(--text-9xl);
+	--text-header-sm: 36px;
 	--text-header: var(--text-3xl);
 	--text-header-plus: var(--text-4xl);
 	--text-display: var(--text-5xl);
