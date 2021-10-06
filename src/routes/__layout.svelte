@@ -24,13 +24,13 @@
 <main>
 	<slot />
 	<IntersectionObserver element={menuTrigger} bind:intersecting={heroInView}>
-		<div class="menu-trigger" bind:this={menuTrigger} />
+		<div class="trigger menu-trigger" bind:this={menuTrigger} />
 	</IntersectionObserver>
 	<IntersectionObserver element={logoTrigger} bind:intersecting={showWordmark}>
-		<div class="logo-trigger" bind:this={logoTrigger} />
+		<div class="trigger logo-trigger" bind:this={logoTrigger} />
 	</IntersectionObserver>
 	<IntersectionObserver element={menuTriggerTwo} bind:intersecting={aboutInView}>
-		<div class="menu-trigger menu-trigger--2" bind:this={menuTriggerTwo} />
+		<div class="trigger menu-trigger menu-trigger--2" bind:this={menuTriggerTwo} />
 	</IntersectionObserver>
 </main>
 
@@ -45,6 +45,9 @@
 		height: max-content;
 		width: 100%;
 		overflow: hidden;
+	}
+	.trigger {
+		/* background-color: blueviolet; */
 	}
 	.menu-trigger {
 		z-index: 9999;
