@@ -10,12 +10,12 @@
 	export let heroInView;
 	export let aboutInView;
 
-	let isContactPage 
+	let isWhitePage 
 	
-	$: isContactPage = $page.path === '/contact'
+	$: isWhitePage = $page.path === '/contact' || $page.path === '/case-studies';
 
 	let menuIsWhite;
-	$: menuIsWhite = (aboutInView || heroInView || menuOpen) && !isContactPage;
+	$: menuIsWhite = (aboutInView || heroInView || menuOpen) && !isWhitePage;
 	
 	const handleContactBtn = () => {
 		menuOpen = false;
