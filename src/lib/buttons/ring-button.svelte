@@ -2,12 +2,16 @@
 	import { goto } from '$app/navigation';
 
 	export let link = '/'
+	export let text = 'services'
+	export let arrow = true
 </script>
 
 <button on:click={() => goto(`${link}`)} class="ring-btn">
 	<span class="ring" />
-	<span class="text">services</span>
-	<span class="down-arr">↓</span>
+	<span class="text">{text}</span>
+	{#if arrow}
+		 <span class="down-arr">↓</span>
+	{/if}
 </button>
 
 <style lang="scss">
