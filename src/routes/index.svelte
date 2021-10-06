@@ -8,7 +8,7 @@
 	import Hero from '$lib/index/Hero.svelte';
 	import Services from '$lib/index/Services.svelte';
 	import About from '$lib/About.svelte';
-	import CaseStudies from '$lib/CaseStudies.svelte';
+	import CaseStudies from '$lib/case-studies/CaseStudies.svelte';
 </script>
 
 <svelte:head>
