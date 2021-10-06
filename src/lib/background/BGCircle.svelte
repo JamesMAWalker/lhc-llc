@@ -7,7 +7,7 @@
 	class="bg-circle"
 	width="792"
 	height="1090"
-	viewBox="0 0 792 1090"
+	viewBox="0 0 1090 1090"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
 >
