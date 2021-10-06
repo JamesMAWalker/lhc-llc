@@ -29,10 +29,10 @@
 		-webkit-user-select: none;
 		cursor: pointer;
 		position: relative;
-		/* height: 40vh;
-		width: 30vw; */
-		margin-right: var(--space-5xl);
 		overflow: hidden;
+		&:not(:last-child) {
+			margin-right: var(--space-5xl);
+		}
 		&:hover {
 			.arrow-wrap {
 				transform: translate(50%, -50%);

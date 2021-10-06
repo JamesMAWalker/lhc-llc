@@ -3,7 +3,7 @@
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import Case from '$lib/case-studies/Case.svelte';
 	import BgCircle from '$lib/background/BGCircle.svelte';
-import RingButton from '$lib/buttons/ring-button.svelte';
+	import RingButton from '$lib/buttons/ring-button.svelte';
 
 	let services = [
 		{
@@ -119,14 +119,14 @@ import RingButton from '$lib/buttons/ring-button.svelte';
 			<SectionHeader sub="SEE MORE" titleMainColor="relevant" titleYellow="cases" />
 			<ul class="case-list">
 				{#each services as { imgSrc, title, blurb } (title)}
-					<Case {imgSrc} {title} {blurb} width="45vh" height="45vh" />
+					<Case {imgSrc} {title} {blurb} width="27.5vw" height="27.5vw" />
 				{/each}
 			</ul>
 		</div>
 		<div class="contact-cta">
 			<SectionHeader titleMainColor="have a similar case?" titleYellow="let's talk." />
-			<RingButton text="get in touch" arrow={false}/>
-      <div class="bgcircle-wrapper">
+			<RingButton text="get in touch" arrow={false} />
+			<div class="bgcircle-wrapper">
 				<BgCircle />
 			</div>
 		</div>
@@ -282,40 +282,43 @@ import RingButton from '$lib/buttons/ring-button.svelte';
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+      &:last-child {
+        padding-right: none;
+      }
 		}
 	}
 	.contact-cta {
-    position: relative;
+		position: relative;
 		height: 90vh;
 		width: 100%;
 		display: flex;
-    flex-direction: column;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 	}
-  :global(.contact-cta .title-block) {
-    margin-bottom: var(--space-2xl);
-  }
-  :global(.contact-cta .ring-btn) {
-    font-size: var(--text-lg) !important;
-    font-weight: 600 !important;
-  }
-  .bgcircle-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  :global(.bgcircle-wrapper svg) {
-    height: 30vw !important;
-    width: 30vw !important;
-    opacity: 1 !important;
-  } 
+	:global(.contact-cta .title-block) {
+		margin-bottom: var(--space-2xl);
+	}
+	:global(.contact-cta .ring-btn) {
+		font-size: var(--text-lg) !important;
+		font-weight: 600 !important;
+	}
+	.bgcircle-wrapper {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	:global(.bgcircle-wrapper svg) {
+		height: 30vw !important;
+		width: 30vw !important;
+		opacity: 1 !important;
+	}
 	:global(.contact-cta .title-block .title) {
 		display: flex;
 		align-items: center !important;
