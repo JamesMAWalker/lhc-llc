@@ -7,26 +7,31 @@
 	let services = [
 		{
 			id: 'data001',
-			title: 'Data Centers',
+			path: 'data-facilities',
+			title: 'Data Facilities',
 			imgSrc: '/services/server-blade.jpg'
 		},
 		{
 			id: 'netvoip002',
+			path: 'voip',
 			title: 'Internet & VoIP',
 			imgSrc: '/services/voip.jpg'
 		},
 		{
 			id: 'fiberopt003',
+			path: 'fiber',
 			title: 'Fiber Optics',
 			imgSrc: '/services/fiber.jpg'
 		},
 		{
 			id: 'security004',
+			path: 'security',
 			title: 'Security Systems',
 			imgSrc: '/services/security.jpg'
 		},
 		{
 			id: 'serverrep005',
+			path: 'server-repair',
 			title: 'Server Repair',
 			imgSrc: '/services/repair.jpg'
 		}
@@ -77,8 +82,8 @@
 			}}
 		>
 			<ul class="services__list" style={`transform: translate(-${scrollPosition}vw)`}>
-				{#each services as { title, imgSrc, id } (id)}
-					<a class="service" href="/services" class:server={id === 'data001'}>
+				{#each services as { title, imgSrc, id, path } (id)}
+					<a class="service" href={`/services/${path}`} class:server={id === 'data001'}>
 						<img src={imgSrc} alt={title} class="image" />
 						<div class="service-title">
 							<span class="disc" />{title}

@@ -1,100 +1,53 @@
 <script>
-  import ContactForm from '../../lib/ContactForm.svelte';
-
 	import { fade, draw } from 'svelte/transition';
+	import { page } from '$app/stores';
 
+	import ContactForm from '../../lib/ContactForm.svelte';
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import RingButton from '../../lib/buttons/ring-button.svelte';
 	import ContainerFifty from '$lib/containers/ContainerFifty.svelte';
 	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
 	import BGCircle from '$lib/background/BGCircle.svelte';
 
+	import { services } from '$lib/data/services';
+
 	let loaded = false;
 	let centerCircle;
-	// $: {
-	// 	if (centerCircle !== undefined) {
-	// 		let size = scrollContainer.scrollTop / 100
-	// 		console.log('size: ', size);
-	// 	}
-	// }
+	let currentService = $page.params.services;
+
+	let {
+		title,
+		heroImg,
+		heroHeader: hero,
+		heroBlurb,
+		infoHeader: info,
+		infoBlurb,
+		processList,
+		contactHeader: contact,
+		contactBlurb
+	} = services[currentService];
 
 	const handleScroll = (e) => {
 		let size = e.target.scrollTop / 100;
-		console.log('size: ', size);
 		centerCircle.style.transform = `translate(-50%, -50%) scale(${1 + 0.9 * size})`;
 	};
 
 	setTimeout(() => {
 		loaded = true;
 	}, 200);
-
-	let processList = [
-		{
-			title: 'technical consultation',
-			steps: ['Dolor sit amet', 'Adipiscing elit', 'Mauris eu risus', 'Dapibus neque']
-		},
-		{
-			title: 'patching services',
-			steps: ['Dolor sit amet', 'Adipiscing elit', 'Mauris eu risus', 'Dapibus neque']
-		},
-		{
-			title: 'network setup',
-			steps: [
-				'Dolor sit amet',
-				'Adipiscing elit',
-				'Mauris eu risus',
-				'Dapibus neque',
-				'Risus id metus',
-				'Cras ornare'
-			]
-		},
-		{
-			title: 'server racking',
-			steps: [
-				'Dolor sit amet',
-				'Adipiscing elit',
-				'Mauris eu risus',
-				'Dapibus neque',
-				'Risus id metus',
-				'Cras ornare'
-			]
-		},
-		{
-			title: 'server blades',
-			steps: [
-				'Dolor sit amet',
-				'Adipiscing elit',
-				'Mauris eu risus',
-				'Dapibus neque',
-				'Risus id metus',
-				'Cras ornare'
-			]
-		},
-		{
-			title: 'system maintenance',
-			steps: [
-				'Dolor sit amet',
-				'Adipiscing elit',
-				'Mauris eu risus',
-				'Dapibus neque',
-				'Risus id metus',
-				'Cras ornare'
-			]
-		}
-	];
 </script>
 
 <!-- markup (zero or more items) goes here -->
 <section class="service-hero" transition:fade>
 	<div class="left">
 		<div class="blurb-container">
-			<SectionHeader sub="we have" titleMainColor="server" titleYellow="solutions" />
+			<SectionHeader
+				sub={hero.sub}
+				titleMainColor={hero.mainColor}
+				titleYellow={hero.accentColor}
+			/>
 			<p class="blurb">
-				One of the most important pieces of equipment in any company’s data center will be its
-				server racks, and these can come in a variety of different models and designs. You might use
-				enclosed cabinets or open frame racks, and they can be two-post or four-post racks, but all
-				of them serve to store the different kinds of equipment which are necessary to your network
-				processing, and your computing capability.
+				{heroBlurb}
 			</p>
 			<RingButton link="/services/#info" />
 		</div>
@@ -118,22 +71,21 @@
 		{/if}
 		<div class="image-circle">
 			<div class="image-shade" />
-			<img src="/services/server-blade.jpg" alt="" class="hero-img" />
+			<img src={heroImg} alt={title} class="hero-img" />
 		</div>
 	</div>
 </section>
 <section class="service-info" id="info">
 	<ContainerFifty>
 		<div class="left">
-			<SectionHeader sub="how we work" titleMainColor="our" titleYellow="process" />
+			<SectionHeader
+				sub={info.sub}
+				titleMainColor={info.mainColor}
+				titleYellow={info.accentColor}
+			/>
 			<p class="blurb">
-				Whether you're setting up a new datacenter or refitting an existing facility, you don't want
-				to leave your company's data at risk. Our decades of experience with all manner of server
-				form factors and ancillary technologies means that your server facility will be built with
-				security, easy maintenance, and optimal functionality in mind.
-				<br /><br />
-				We also offer technical consultation for businesses without deep knowledge of server technologies.
-			</p>
+        {@html infoBlurb}
+      </p>
 		</div>
 		<div class="right" on:scroll={(e) => handleScroll(e)}>
 			<div class="process-steps">
@@ -157,16 +109,12 @@
 	<ContainerSixty jcsb>
 		<div class="left">
 			<SectionHeader
-				sub="CONTACT"
-				titleMainColor="start your <br> networking project"
-				titleYellow="today"
+				sub={contact.sub}
+				titleMainColor={contact.mainColor}
+				titleYellow={contact.accentColor}
 			/>
 			<div class="blurb">
-				We are there every step of the way for your mission critical systems. From design to
-				installation to network management, your IT infrastructure remains secure and constant.
-				<br /><br />
-				Start your network architect services today in order to plan and evolve with the ever-changing
-				technology advantages.
+				{@html contactBlurb}
 			</div>
 			<div class="call">
 				<span class="text">or call today</span>
@@ -174,7 +122,7 @@
 			</div>
 		</div>
 		<div class="right">
-			<ContactForm></ContactForm>
+			<ContactForm />
 		</div>
 	</ContainerSixty>
 </section>
@@ -412,7 +360,7 @@
 				}
 				.privacy {
 					font-size: var(--text-xs);
-					transform: scale(.6);
+					transform: scale(0.6);
 					transform-origin: left;
 					color: var(--light-grey);
 				}
