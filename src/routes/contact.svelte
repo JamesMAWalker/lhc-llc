@@ -57,6 +57,7 @@
   :global(.contact-page svg) {
     position: absolute;
     top: 15vh;
+    transform: scale(1.1);
     z-index: var(--base-one);
   }
 </style>

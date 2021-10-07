@@ -1,7 +1,4 @@
 <script>
-	import SectionHeader from '$lib/SectionHeader.svelte';
-	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
-	import BGCircle from '$lib/background/BGCircle.svelte';
 </script>
 
 <form class="contact-form">
@@ -40,14 +37,14 @@
 	.captcha {
 		grid-column: 1 / 2;
 		grid-row: 4 / 5;
-		padding: var(--space-lg);
+		padding: 1vh;
 		background-color: var(--barely-grey);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		input {
-			margin: var(--space-lg);
-			transform: scale(1.5);
+			margin: 1.5vh;
+			transform: scale(1.4);
 		}
 		.text {
 			display: flex;
@@ -72,12 +69,5 @@
 		border: none;
 		background-color: var(--accent-color);
 		color: var(--white);
-	}
-	:global(.service-contact svg) {
-		position: absolute;
-		z-index: var(--base-one);
-		top: 17.5vh;
-		left: 15vw;
-		transform: scale(1.3);
 	}
 </style>
