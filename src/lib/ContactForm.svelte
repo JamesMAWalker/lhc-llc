@@ -16,7 +16,7 @@
 			<span>I'm not a robot</span>
 			<span class="privacy">Privacy • Terms</span>
 		</div>
-		<img src="/static/captcha.png" alt="captcha symbol" />
+		<img src="/captcha.png" alt="captcha symbol" />
 	</div>
 	<button class="submit" type="submit">send message</button>
 </form>

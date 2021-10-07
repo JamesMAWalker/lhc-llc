@@ -19,7 +19,7 @@
 	];
 
 	const pageData = {
-		imgSrc: '/static/case-studies/server-tower.jpg',
+		imgSrc: '/case-studies/server-tower.jpg',
 		alt: 'imgIX server tower',
 		title: 'ImgIX Data Center',
 		sub: 'Network infrastructure upgrade',
