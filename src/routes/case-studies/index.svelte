@@ -19,7 +19,7 @@
 	];
 
 	const pageData = {
-		// imgSrc: '/case-studies/server-tower.jpg',
+		imgSrc: '/case-studies/server-tower.jpg',
 		alt: 'imgIX server tower',
 		title: 'ImgIX Data Center',
 		sub: 'Network infrastructure upgrade',
@@ -51,11 +51,10 @@
 	let d = pageData;
 </script>
 
-<!-- markup (zero or more items) goes here -->
 <section class="case-studies">
 	<ContainerSixty column>
 		<div class="hero">
-			<!-- <img src={d.imgSrc} alt={d.alt} /> -->
+			<img src={d.imgSrc} alt={d.alt} />
 			<div class="header">
 				<h1>{d.title}</h1>
 				<h3>{d.sub}</h3>
