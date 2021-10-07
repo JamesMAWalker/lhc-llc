@@ -6,8 +6,43 @@
 	import Yelp from '$lib/icons/Yelp.svelte';
 	import Facebook from '$lib/icons/Facebook.svelte';
 	import LinkedIn from '$lib/icons/LinkedIn.svelte';
+	import { goto } from '$app/navigation';
 
 	export let menuOpen;
+
+	let menuOptions = [
+		{
+			text: 'home',
+			path: '/'
+		},
+		{
+			text: 'about',
+			path: '/#about'
+		},
+		{
+			text: 'services',
+			path: '/#services'
+		},
+		{
+			text: 'case studies',
+			path: '/#case-studies'
+		},
+		{
+			text: 'location',
+			path: '/'
+		},
+		{
+			text: 'contact',
+			path: '/contact'
+		}
+	];
+
+	const handleMenuClick = (path) => {
+		menuOpen = false;
+		setTimeout(() => {
+			goto(path);
+		}, 600);
+	};
 </script>
 
 <nav class="menu" transition:slide={{ duration: 1000, easing: expoInOut }}>
@@ -15,12 +50,21 @@
 		{#if menuOpen}
 			<ul class="menu-options" in:fade={{ delay: 750 }} out:fade>
 				<h6 class="label">MENU</h6>
-				<li class="option"><a on:click={() => menuOpen = false} href="/">home</a></li>
-				<li class="option"><a on:click={() => menuOpen = false} href="/#about">about</a></li>
-				<li class="option"><a on:click={() => menuOpen = false} href="/#services">services</a></li>
-				<li class="option"><a on:click={() => menuOpen = false} href="/#case-studies">case studies</a></li>
-				<li class="option"><a on:click={() => menuOpen = false} href="/">locations</a></li>
-				<li class="option"><a on:click={() => menuOpen = false} href="/contact">contact</a></li>
+				{#each menuOptions as { text, path } (text)}
+					<li class="option">
+						<span on:click={() => handleMenuClick(path)}>{text}</span>
+					</li>
+				{/each}
+				<!-- <li class="option"><a on:click={() => (menuOpen = false)} href="/">home</a></li>
+				<li class="option"><a on:click={() => (menuOpen = false)} href="/#about">about</a></li>
+				<li class="option">
+					<a on:click={() => (menuOpen = false)} href="/#services">services</a>
+				</li>
+				<li class="option">
+					<a on:click={() => (menuOpen = false)} href="/#case-studies">case studies</a>
+				</li>
+				<li class="option"><a on:click={() => (menuOpen = false)} href="/">locations</a></li>
+				<li class="option"><a on:click={() => (menuOpen = false)} href="/contact">contact</a></li> -->
 			</ul>
 		{/if}
 		<div class="bglogo-wrap">
@@ -90,7 +134,8 @@
 			}
 			li {
 				padding-bottom: var(--space-lg);
-				a {
+				span {
+					cursor: pointer;
 					color: var(--text-color) !important;
 					transition: var(--transition-3-smooth);
 					&:hover {

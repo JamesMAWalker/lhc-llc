@@ -1,6 +1,6 @@
 <script>
-	import { goto } from '$app/navigation'
-	import { page } from '$app/stores'
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	import Wordmark from '$lib/logo/Wordmark.svelte';
 	import Icon from '$lib/logo/Icon.svelte';
@@ -10,22 +10,23 @@
 	export let heroInView;
 	export let aboutInView;
 
-	let isWhitePage 
-	
+	let isWhitePage;
+
 	$: isWhitePage = $page.path === '/contact' || $page.path === '/case-studies';
 
 	let menuIsWhite;
 	$: menuIsWhite = (aboutInView || heroInView || menuOpen) && !isWhitePage;
-	
+
 	const handleContactBtn = () => {
 		menuOpen = false;
-		goto('/contact')
-	}
-	
+		setTimeout(() => {
+			goto('/contact');
+		}, 400);
+	};
 </script>
 
 <nav class="header">
-	<div class="logo-container" on:click={() => goto('/')} >
+	<div class="logo-container" on:click={() => goto('/')}>
 		{#if showWordmark}
 			<Wordmark />
 		{:else}
@@ -33,7 +34,7 @@
 		{/if}
 	</div>
 	<div class="menu-cluster" class:active={!menuIsWhite} on:click={() => (menuOpen = !menuOpen)}>
-		<span class="quote-btn" on:click|stopPropagation={handleContactBtn} >get a quote</span>
+		<span class="quote-btn" on:click|stopPropagation={handleContactBtn}>get a quote</span>
 		<span class="divider" />
 		<div class="menu-button"><span>//</span></div>
 	</div>
@@ -65,6 +66,9 @@
 			.divider,
 			.menu-button {
 				color: var(--text-color);
+				&:hover {
+					color: var(--accent-color);
+				}
 			}
 			.menu-button,
 			.divider {
