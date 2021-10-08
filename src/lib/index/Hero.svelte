@@ -8,21 +8,15 @@
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import BGLogo from '$lib/background/BGLogo.svelte';
 
-	export let deviceWidth;
-
 	let pageLoaded = false;
 
 	onMount(() => {
 		pageLoaded = true;
 	});
 
-	/*
-	 TODO: The below code works, but is VERY hacky. 
-	 Find a more elegant solution.
-	*/
-
 	let circleHeight;
 	let svgEl;
+	let deviceWidth;
 
 	// Detect Firefox
 	var isFirefox = typeof InstallTrigger !== 'undefined';
@@ -37,7 +31,7 @@
 	}
 </script>
 
-<section class="hero">
+<section class="hero" bind:clientWidth={deviceWidth}>
 	<video
 		class="hero-vid"
 		autoplay

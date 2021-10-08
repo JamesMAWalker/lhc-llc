@@ -4,14 +4,11 @@
 
 <script>
 	import { fade } from 'svelte/transition';
-	import { getContext } from 'svelte'
 
 	import Hero from '$lib/index/Hero.svelte';
 	import Services from '$lib/index/Services.svelte';
 	import About from '$lib/About.svelte';
 	import CaseStudies from '$lib/case-studies/CaseStudies.svelte';
-
-	let deviceWidth = getContext('deviceWidth')
 </script>
 
 <svelte:head>
@@ -25,10 +22,10 @@
 </svelte:head>
 
 <div class="landing" transition:fade>
-	<Hero {deviceWidth}/>
-	<Services {deviceWidth}/>
-	<About {deviceWidth}/>
-	<CaseStudies {deviceWidth}/>
+	<Hero />
+	<Services />
+	<About />
+	<CaseStudies />
 </div>
 
 <style lang="scss">

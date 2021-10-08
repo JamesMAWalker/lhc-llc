@@ -1,6 +1,5 @@
 <script>
 	import IntersectionObserver from 'svelte-intersection-observer';
-	import { setContext } from 'svelte'
 
 	import Header from '$lib/header/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
@@ -17,15 +16,9 @@
 	let logoTrigger;
 	let showWordmark = true;
 	let deviceWidth;
-
-	$: setContext('deviceWidth', deviceWidth);
-
 </script>
 
-<svelte:window bind:innerWidth={deviceWidth} />
-
-{#if deviceWidth}
-	{#if menuOpen}
+{#if menuOpen}
 	<Menu bind:menuOpen />
 {/if} 
 <Header bind:menuOpen {heroInView} {aboutInView} {showWordmark} />
@@ -43,7 +36,6 @@
 </main>
 
 <Footer />
-{/if}
 
 <style lang="scss">
 	main {
