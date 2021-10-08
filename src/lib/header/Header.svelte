@@ -1,6 +1,7 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { fade } from 'svelte/transition';
 
 	import Wordmark from '$lib/logo/Wordmark.svelte';
 	import Icon from '$lib/logo/Icon.svelte';
@@ -25,15 +26,20 @@
 	};
 </script>
 
-<nav class="header">
-	<div class="logo-container" on:click={() => goto('/')}>
+<nav class="header-nav">
+	<div class="logo-container" transition:fade on:click={() => goto('/')}>
 		{#if showWordmark}
 			<Wordmark />
 		{:else}
 			<Icon />
 		{/if}
 	</div>
-	<div class="menu-cluster" class:active={!menuIsWhite} on:click={() => (menuOpen = !menuOpen)}>
+	<div
+		class="menu-cluster"
+		class:active={!menuIsWhite}
+		transition:fade
+		on:click={() => (menuOpen = !menuOpen)}
+	>
 		<span class="quote-btn" on:click|stopPropagation={handleContactBtn}>get a quote</span>
 		<span class="divider" />
 		<div class="menu-button"><span>//</span></div>
@@ -41,7 +47,7 @@
 </nav>
 
 <style lang="scss">
-	.header {
+	.header-nav {
 		z-index: var(--level-top);
 		position: fixed;
 		height: 20vh;
@@ -50,7 +56,16 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		position: fixed;
+		@media (max-width: 1025px) {
+			top: 0;
+		}
 	}
+	:global(.logo-container svg) {
+		@media (max-width: 1024px) {
+			transform: scale(.6) !important;
+		}
+	} 
 	.logo-container {
 		cursor: pointer;
 		position: relative;
@@ -81,6 +96,12 @@
 	.divider,
 	.menu-button {
 		margin: 0 var(--space-md);
+	}
+	.quote-btn,
+	.divider {
+		@media (max-width: 1025px) {
+			display: none;
+		}
 	}
 	.quote-btn {
 		font-weight: bold;
