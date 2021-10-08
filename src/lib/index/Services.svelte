@@ -1,6 +1,6 @@
 <script>
 	import SectionHeader from '$lib/SectionHeader.svelte';
-	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
+	import Container from '$lib/containers/Container.svelte';
 	import Arrow from '$lib/Arrow.svelte';
 	import BGCircle from '$lib/background/BGCircle.svelte';
 
@@ -20,7 +20,7 @@
 		{
 			id: 'fiberopt003',
 			path: 'fiber',
-			title: 'Fiber Optics',
+			title: 'Fiber <br> Optics',
 			imgSrc: '/services/fiber.jpg'
 		},
 		{
@@ -60,7 +60,7 @@
 	<div class="bgcircle-wrap">
 		<BGCircle />
 	</div>
-	<ContainerSixty column>
+	<Container column={true} full>
 		<div class="upper">
 			<SectionHeader sub={'What we Do'} titleMainColor={'services &'} titleYellow={'solutions'} />
 			<div class="arrows">
@@ -86,14 +86,14 @@
 					<a class="service" href={`/services/${path}`} class:server={id === 'data001'}>
 						<img src={imgSrc} alt={title} class="image" />
 						<div class="service-title">
-							<span class="disc" />{title}
+							<span class="disc" />{@html title}
 							<div class="arrow-wrap arrow-wrap--service"><Arrow direction="right" filled /></div>
 						</div>
 					</a>
 				{/each}
 			</ul>
 		</div>
-	</ContainerSixty>
+	</Container>
 </section>
 
 <style lang="scss">
@@ -102,8 +102,8 @@
 		left: 40%;
 	}
 	:global(.arrow-wrap--service svg) {
-		transform: scale(.6) rotate(180deg);
-	}	
+		transform: scale(0.6) rotate(180deg);
+	}
 	.services {
 		position: relative;
 		height: 140vh;
@@ -114,6 +114,10 @@
 		justify-content: center;
 		color: var(--white);
 		overflow: hidden;
+		@media (max-width: 1024px) {
+			height: max-content;
+			padding-top: var(--vp-xl);
+		}
 		&__list {
 			min-width: 140vw;
 			height: 50vh;
@@ -126,6 +130,12 @@
 			overflow: visible;
 			transition: var(--transition-1-smooth);
 			will-change: transform;
+			@media (max-width: 1024px) {
+				height: max-content;
+				flex-direction: column;
+				min-width: 100vw;
+				padding: 0;
+			}
 		}
 		.service {
 			-webkit-user-select: none;
@@ -135,6 +145,11 @@
 			width: 20vw;
 			margin-right: var(--space-5xl);
 			overflow: hidden;
+			@media (max-width: 1024px) {
+				width: 90vw;
+				margin: 0;
+				margin-bottom: var(--vp-sm);
+			}
 			&.server {
 				img {
 					object-position: 75% 50%;
@@ -146,7 +161,7 @@
 					opacity: 1;
 				}
 				.disc {
-					transform: scale(.8);
+					transform: scale(0.8);
 					background-color: var(--accent-color);
 				}
 				img {
@@ -222,9 +237,14 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			/* span:first-child{
-				padding-right: var(--space-5xl);
-			} */
+			@media (max-width: 1024px) {
+				display: none;
+			}
+		}
+	}
+	:global(.upper .title-block) {
+		@media (max-width: 1024px) {
+			margin-left: 5vw;
 		}
 	}
 	.lower {
@@ -238,6 +258,9 @@
 		scrollbar-width: none;
 		&::-webkit-scrollbar {
 			display: none;
+		}
+		@media (max-width: 1024px) {
+			transform: unset;
 		}
 	}
 </style>
