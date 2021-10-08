@@ -2,13 +2,13 @@
   import DiscButton from '$lib/buttons/disc-button.svelte';
   import RingButton from '$lib/buttons/ring-button.svelte';
 
-	import { goto } from '$app/navigation';
-
 	import { draw } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import BGLogo from '$lib/background/BGLogo.svelte';
+
+	export let deviceWidth;
 
 	let pageLoaded = false;
 
