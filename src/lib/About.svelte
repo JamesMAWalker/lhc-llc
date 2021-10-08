@@ -1,13 +1,13 @@
 <script>
 	// your script goes here
-	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
+	import Container from '$lib/containers/Container.svelte';
 	import SectionHeader from '$lib/SectionHeader.svelte';
 </script>
 
 <!-- markup (zero or more items) goes here -->
 <section class="about" id="about">
 	<img class="bg-image" src="/job-site.jpg" alt="Construction site planning" />
-	<ContainerSixty column>
+	<Container column full>
 		<div class="about-inner">
 			<SectionHeader mainColor="var(--white)" sub={'WHO WE ARE'} titleMainColor={'focus &'} titleYellow={'specialties'} />
 			<p class="about-text">
@@ -24,7 +24,7 @@
 				additional employees or project managers.
 			</p>
 		</div>
-	</ContainerSixty>
+	</Container>
 </section>
 
 <style lang="scss">
@@ -35,6 +35,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+		@media (max-width: 1024px) {
+			height: max-content;
+			padding: var(--vp-lg) 0;
+		}
 		&::before {
 			z-index: var(--level-one);
 			content: '';
@@ -56,6 +60,10 @@
 			width: 80vh;
 			border-radius: var(--radius-rounded);
 			background: var(--barely-grey-tr1);
+			@media (max-width: 1024px) {
+				height: 42vh;
+				width: 42vh;
+			}
 		}
 		.bg-image {
       position: absolute;
@@ -63,9 +71,11 @@
       left: 0;
 			height: 100%;
 			width: 100%;
-			background-size: cover;
-			background-position: center;
+			object-fit: cover;
+			object-position: center;
 			filter: saturate(0);
+			@media (max-width: 1024px) {
+			}
 		}
 		.about-inner {
       z-index: var(--level-three);
@@ -77,6 +87,10 @@
 			align-items: flex-start;
 			justify-content: center;
       /* background-color: aqua; */
+			@media (max-width: 1024px) {
+				width: 90vw;
+				padding: 5vw;
+			}
 		}
     .about-text {
       margin-top: var(--space-2xl);
