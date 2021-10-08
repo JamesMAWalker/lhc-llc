@@ -4,6 +4,7 @@
 
 	import { draw, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import BGLogo from '$lib/background/BGLogo.svelte';
@@ -11,18 +12,23 @@
 	import Arrow from '$lib/Arrow.svelte';
 
 	let pageLoaded = false;
-
+	
 	onMount(() => {
 		pageLoaded = true;
 	});
-
+	
 	let circleHeight;
 	let svgEl;
 	let deviceWidth;
+	let deviceHeight;
 	let isMobile;
 	$: {
 		isMobile = deviceWidth < 1024;
+		console.log('deviceWidth: ', deviceWidth);
+		console.log('pageLoaded: ', pageLoaded);
 	}
+
+	// TODO: Clicking links is causing deviceWidth to reset. 
 
 	// Detect Firefox
 	var isFirefox = typeof InstallTrigger !== 'undefined';
@@ -35,12 +41,17 @@
 			}, 100);
 		}
 	}
+
+	const scrollToServices = () => {
+		window.scrollTo(0, deviceHeight)
+	}
+	
 </script>
 
-<svelte:window bind:innerWidth={deviceWidth} />
+<svelte:window bind:innerHeight={deviceHeight} />
 
-{#if deviceWidth}
-	<section class="hero" in:fade={{ duration: 1000 }}>
+{#if pageLoaded}
+	<section class="hero" in:fade={{ duration: 1000 }} bind:clientWidth={deviceWidth}>
 		<video
 			class="hero-vid"
 			autoplay
@@ -98,7 +109,7 @@
 			<DiscButton />
 		</div>
 		{#if isMobile}
-			<div class="arrow-mobile">
+			<div class="arrow-mobile" on:click={scrollToServices}>
 				<Arrow filled />
 			</div>
 		{/if}
@@ -194,6 +205,9 @@
 		transform: translate(-59%, -50%);
 		width: 20vh;
 		color: var(--white);
+		@media (max-width: 1025px) {
+			transform: translate(-59%, -50%) scale(.8);
+		}
 		h1 {
 			margin: 0;
 			text-align: left;
@@ -241,16 +255,16 @@
 		position: absolute;
 		bottom: var(--vp-md);
 		left: 50%;
-		transform: translateX(-50%) scale(.6) rotate(-90deg);
-		opacity: .2;
+		transform: translateX(-50%) scale(0.6) rotate(-90deg);
+		opacity: 0.2;
 		animation: 1.5s infinite alternate ease-out pulse;
 	}
 	@keyframes pulse {
-  from {
-		opacity: .2;
-  }
-  to {
-		opacity: .8;
-  }
-}
+		from {
+			opacity: 0.2;
+		}
+		to {
+			opacity: 0.8;
+		}
+	}
 </style>
