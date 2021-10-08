@@ -151,6 +151,17 @@
 	}
 }
 
+@media (max-width: 1025px) {
+	:root {
+		--text-hero: var(--text-6xl);
+		--text-hero-plus: var(--text-8xl);
+		--text-header: var(--text-2xl);
+		--text-header-plus: var(--text-3xl);
+		--text-display: 40px;
+		--text-prose: var(--text-xl);
+	}
+}
+
 html {
 	scrollbar-width: none;
 	scroll-behavior: smooth;
