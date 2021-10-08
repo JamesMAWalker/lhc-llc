@@ -1,7 +1,7 @@
 <script>
 	// your script goes here
-	export let column
-	export let jcsb
+	export let column = false
+	export let jcsb = false
 </script>
 
 <div class="container-60" class:jcsb class:column>
