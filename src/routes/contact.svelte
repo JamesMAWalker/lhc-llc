@@ -1,14 +1,14 @@
 <script>
 	import BGCircle from '$lib/background/BGCircle.svelte';
 	import ContactForm from '$lib/ContactForm.svelte';
-	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
+	import Container from '$lib/containers/Container.svelte';
 	import SectionHeader from '$lib/SectionHeader.svelte';
 </script>
 
 <!-- markup (zero or more items) goes here -->
 <section class="contact-page">
 	<BGCircle />
-	<ContainerSixty jcsb>
+	<Container jcsb>
 		<div class="left">
 			<SectionHeader
 				sub="GET IN TOUCH"
@@ -24,7 +24,7 @@
 		<div class="right">
 			<ContactForm />
 		</div>
-	</ContainerSixty>
+	</Container>
 </section>
 
 <style lang="scss">

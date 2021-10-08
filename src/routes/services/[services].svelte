@@ -5,8 +5,7 @@
 	import ContactForm from '../../lib/ContactForm.svelte';
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import RingButton from '../../lib/buttons/ring-button.svelte';
-	import ContainerFifty from '$lib/containers/ContainerFifty.svelte';
-	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
+	import Container from '$lib/containers/Container.svelte';
 	import BGCircle from '$lib/background/BGCircle.svelte';
 
 	import { services } from '$lib/data/services';
@@ -76,7 +75,7 @@
 	</div>
 </section>
 <section class="service-info" id="info">
-	<ContainerFifty>
+	<Container fifty>
 		<div class="left">
 			<SectionHeader
 				sub={info.sub}
@@ -101,12 +100,12 @@
 				{/each}
 			</div>
 		</div>
-	</ContainerFifty>
+	</Container>
 	<div class="bgcircle--scaling" bind:this={centerCircle} />
 </section>
 <section class="service-contact">
 	<BGCircle />
-	<ContainerSixty jcsb>
+	<Container jcsb>
 		<div class="left">
 			<SectionHeader
 				sub={contact.sub}
@@ -124,7 +123,7 @@
 		<div class="right">
 			<ContactForm />
 		</div>
-	</ContainerSixty>
+	</Container>
 </section>
 
 <style lang="scss">

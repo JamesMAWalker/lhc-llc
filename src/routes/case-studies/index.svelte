@@ -1,5 +1,5 @@
 <script>
-	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
+	import Container from '$lib/containers/Container.svelte';
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import Case from '$lib/case-studies/Case.svelte';
 	import BgCircle from '$lib/background/BGCircle.svelte';
@@ -53,7 +53,7 @@
 </script>
 
 <section class="case-studies" bind:clientWidth={deviceWidth}>
-	<ContainerSixty column>
+	<Container column>
 		<div class="hero">
 			<img src={d.imgSrc} alt={d.alt} />
 			<div class="header">
@@ -130,7 +130,7 @@
 				<BgCircle />
 			</div>
 		</div>
-	</ContainerSixty>
+	</Container>
 </section>
 
 <style lang="scss">

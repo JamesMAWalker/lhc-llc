@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 
 	import SectionHeader from '$lib/SectionHeader.svelte';
-	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
+	import Container from '$lib/containers/Container.svelte';
 	import Arrow from '$lib/Arrow.svelte';
 	import BGCircle from '$lib/background/BGCircle.svelte';
 
@@ -60,7 +60,7 @@
 	<div class="bgcircle-wrap">
 		<BGCircle />
 	</div>
-	<ContainerSixty column>
+	<Container column>
 		<div class="upper">
 			<div class="upper-left">
 				<SectionHeader sub={'HOW WE WORK'} titleMainColor={'case'} titleYellow={'studies'} />
@@ -92,7 +92,7 @@
 				{/each}
 			</ul>
 		</div>
-	</ContainerSixty>
+	</Container>
 </section>
 
 <style lang="scss">

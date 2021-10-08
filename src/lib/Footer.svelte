@@ -1,6 +1,6 @@
 <script>
 	// your script goes here
-	import ContainerSixty from '$lib/containers/ContainerSixty.svelte';
+	import Container from '$lib/containers/Container.svelte';
 	import Icon from '$lib/logo/Icon.svelte';
 	import Facebook from '$lib/icons/Facebook.svelte';
 	import LinkedIn from '$lib/icons/LinkedIn.svelte';
@@ -8,7 +8,7 @@
 </script>
 
 <div class="footer">
-	<ContainerSixty column>
+	<Container column>
 		<div class="footer-grid">
 			<div class="logo-wrap--footer">
 				<svg
@@ -84,7 +84,7 @@
 				<span>development and design by &nbsp;</span> <a href="/#">jw.dev</a>
 			</div>
 		</div>
-	</ContainerSixty>
+	</Container>
 </div>
 
 <style lang="scss">
