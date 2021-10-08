@@ -49,11 +49,10 @@
 	};
 
 	let d = pageData;
-	let casePageWidth;
-	$: console.log('casePageWidth: ', casePageWidth);
+	let deviceWidth;
 </script>
 
-<section class="case-studies" bind:clientWidth={casePageWidth}>
+<section class="case-studies" bind:clientWidth={deviceWidth}>
 	<ContainerSixty column>
 		<div class="hero">
 			<img src={d.imgSrc} alt={d.alt} />

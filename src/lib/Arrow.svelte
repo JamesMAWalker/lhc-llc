@@ -1,6 +1,6 @@
 <script>
 	export let direction = 'left';
-	export let filled;
+	export let filled = true;
 </script>
 
 <svg

@@ -1,12 +1,14 @@
 <script>
-  import DiscButton from '$lib/buttons/disc-button.svelte';
-  import RingButton from '$lib/buttons/ring-button.svelte';
+	import DiscButton from '$lib/buttons/disc-button.svelte';
+	import RingButton from '$lib/buttons/ring-button.svelte';
 
-	import { draw } from 'svelte/transition';
+	import { draw, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import BGLogo from '$lib/background/BGLogo.svelte';
+	import BgCircle from '$lib/background/BGCircle.svelte';
+	import Arrow from '$lib/Arrow.svelte';
 
 	let pageLoaded = false;
 
@@ -17,6 +19,10 @@
 	let circleHeight;
 	let svgEl;
 	let deviceWidth;
+	let isMobile;
+	$: {
+		isMobile = deviceWidth < 1024;
+	}
 
 	// Detect Firefox
 	var isFirefox = typeof InstallTrigger !== 'undefined';
@@ -31,66 +37,88 @@
 	}
 </script>
 
-<section class="hero" bind:clientWidth={deviceWidth}>
-	<video
-		class="hero-vid"
-		autoplay
-		muted
-		loop
-		src="https://res.cloudinary.com/jameswalker-work/video/upload/q_60/v1632240871/cabling-vids_xitbot.mp4"
-		alt="slow pan over ethernet cables"
-	>
-		<track kind="captions" />
-	</video>
-	{#if pageLoaded}
-		<svg
-			class="hero-circle"
-			height={circleHeight}
-			viewBox="0 0 396 396"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<path
-				in:draw={{ duration: 1200 }}
-				d="M395.5 198C395.5 307.076 307.076 395.5 198 395.5C88.9238 395.5 0.5 307.076 0.5 198C0.5 88.9238 88.9238 0.5 198 0.5C307.076 0.5 395.5 88.9238 395.5 198Z"
-				stroke="#F5DA4E"
-			/>
-		</svg>
-	{/if}
-	<!-- <div class="left" /> -->
-	<div class="left-content">
-		<div class="bglogo-wrap">
-			<BGLogo />
-		</div>
-		<SectionHeader titleMainColor="Cabling <br> Service & <br> Expertise." />
-		<p class="text">
-			Datacom is your comprehensive solution for cabling services from fiber optic networking to
-			video security.
-		</p>
-		<RingButton link="/#services" />
-	</div>
-	<svg
-		class="left"
-		id="Layer_1"
-		data-name="Layer 1"
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 1260 1500"
-		bind:this={svgEl}
-	>
-		<path
-			d="M1000,1609V3109H2260V2646.5c-157.72,0-287.5-129.78-287.5-287.5s129.78-287.5,287.5-287.5V1609Z"
-			transform="translate(-1000 -1609)"
-		/>
-	</svg>
+<svelte:window bind:innerWidth={deviceWidth} />
 
-	<div class="right" />
-	<div class="center">
-		<h1>Your structured cabling <span class="accent">solution.</span></h1>
-		<DiscButton />
+{#if deviceWidth}
+	<section class="hero" in:fade={{ duration: 1000 }}>
+		<video
+			class="hero-vid"
+			autoplay
+			muted
+			loop
+			src="https://res.cloudinary.com/jameswalker-work/video/upload/q_60/v1632240871/cabling-vids_xitbot.mp4"
+			alt="slow pan over ethernet cables"
+		>
+			<track kind="captions" />
+		</video>
+		{#if pageLoaded}
+			<svg
+				class="hero-circle"
+				height={circleHeight}
+				viewBox="0 0 396 396"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					in:draw={!isMobile ? { duration: 1200 } : { duration: 3000 }}
+					d="M395.5 198C395.5 307.076 307.076 395.5 198 395.5C88.9238 395.5 0.5 307.076 0.5 198C0.5 88.9238 88.9238 0.5 198 0.5C307.076 0.5 395.5 88.9238 395.5 198Z"
+					stroke="#F5DA4E"
+				/>
+			</svg>
+		{/if}
+		{#if !isMobile}
+			<div class="left-content">
+				<div class="bglogo-wrap">
+					<BGLogo />
+				</div>
+				<SectionHeader titleMainColor="Cabling <br> Service & <br> Expertise." />
+				<p class="text">
+					Datacom is your comprehensive solution for cabling services from fiber optic networking to
+					video security.
+				</p>
+				<RingButton link="/#services" />
+			</div>
+			<svg
+				class="left"
+				id="Layer_1"
+				data-name="Layer 1"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 1260 1500"
+				bind:this={svgEl}
+			>
+				<path
+					d="M1000,1609V3109H2260V2646.5c-157.72,0-287.5-129.78-287.5-287.5s129.78-287.5,287.5-287.5V1609Z"
+					transform="translate(-1000 -1609)"
+				/>
+			</svg>
+		{/if}
+		<div class="right" />
+		<div class="center">
+			<h1>Your structured cabling <span class="accent">solution.</span></h1>
+			<DiscButton />
+		</div>
+		{#if isMobile}
+			<div class="arrow-mobile">
+				<Arrow filled />
+			</div>
+		{/if}
+	</section>
+{:else}
+	<!-- else content here -->
+	<div class="loading" transition:fade={{ duration: 300 }}>
+		<BgCircle />
 	</div>
-</section>
+{/if}
 
 <style lang="scss">
+	.loading {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--white);
+	}
 	.hero {
 		position: relative;
 		height: 101vh;
@@ -109,6 +137,9 @@
 			width: 100%;
 			transform: rotateY(180deg) scale(1.75) translate(17vh, 16vh);
 			transition: opacity 2s ease-in-out;
+			@media (max-width: 1024px) {
+				transform: rotateY(180deg) scale(4) translate(20vw, 0);
+			}
 		}
 	}
 	.left {
@@ -151,11 +182,9 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%) rotate(-0.25turn);
-		/* top: 50%;
-		left: 50%;
-		height: 47vh;
-		height: calc((((75vw - 80vh) / 2) + 100vh) * 0.4);
-		transform: translate(-50%, -50.05%) rotate(-0.25turn); */
+		@media (max-width: 1024px) {
+			height: 42vh;
+		}
 	}
 	.center {
 		z-index: var(--level-eight);
@@ -207,4 +236,21 @@
 			}
 		}
 	}
+	.arrow-mobile {
+		z-index: var(--level-one);
+		position: absolute;
+		bottom: var(--vp-md);
+		left: 50%;
+		transform: translateX(-50%) scale(.6) rotate(-90deg);
+		opacity: .2;
+		animation: 1.5s infinite alternate ease-out pulse;
+	}
+	@keyframes pulse {
+  from {
+		opacity: .2;
+  }
+  to {
+		opacity: .8;
+  }
+}
 </style>
