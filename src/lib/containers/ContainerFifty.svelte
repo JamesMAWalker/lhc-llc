@@ -1,5 +1,5 @@
 <script>
-	export let column;
+	export let column = false;
 </script>
 
 <div class="container-50" class:column>
