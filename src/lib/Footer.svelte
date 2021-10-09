@@ -81,7 +81,7 @@
 			</div>
 			<div class="copyright">© DATACOM LLC. 2021</div>
 			<div class="dev">
-				<span>development and design by &nbsp;</span> <a href="/#">jw.dev</a>
+				<span>website by &nbsp;</span> <a href="/#">jw.dev</a>
 			</div>
 		</div>
 	</Container>
@@ -97,6 +97,13 @@
 		font-size: var(--text-xl);
 		font-weight: var(--semibold) !important;
 		color: var(--white);
+		@media (max-width: 1024px) {
+			height: max-content !important;
+			padding: var(--vp-lg) 0;
+		}
+	}
+	:global(.footer .container) {
+		height: max-content;
 	}
 	.footer-grid {
 		transform: translateY(6vh);
@@ -109,6 +116,22 @@
 			'blurb info  logo'
 			'icons links links'
 			'cc    cc    dev';
+		@media (max-width: 1024px) {
+			height: 100%;
+			width: 90vw;
+			margin: 0;
+			transform: unset;
+			margin-left: 5vw;
+			grid-template-rows: .75fr repeat(3, 1fr) .5fr .5fr;
+			grid-template-columns: 1fr 1fr;
+			grid-template-areas:
+				'logo  logo'
+				'blurb blurb'
+				'info  info'
+				'links links'
+				'icons cc'
+				'dev   .';
+		}
 	}
 	.header {
 		margin: 0;
@@ -119,9 +142,12 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-end;
-		svg {
-			max-width: 100%;
+		@media (max-width: 1024px) {
+			justify-content: flex-start !important;
 		}
+	}
+	:global(.logo-wrap--footer svg) {
+		width: 60%;
 	}
 	.blurb {
 		grid-area: blurb;
@@ -130,6 +156,9 @@
 		padding-bottom: var(--space-3xl);
 		span {
 			color: var(--accent-color);
+		}
+		@media (max-width: 1024px) {
+			padding: 0;
 		}
 	}
 	.contact-info {
@@ -144,6 +173,9 @@
 			&:hover {
 				color: var(--white);
 			}
+		}
+		@media (max-width: 1024px) {
+			padding: 0;
 		}
 	}
 	.icons {
@@ -168,6 +200,9 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: flex-end;
+		@media (max-width: 1024px) {
+			justify-content: flex-start;
+		}
 		ul {
 			width: 100%;
 			padding: 0;
@@ -175,11 +210,19 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			@media (max-width: 1024px) {
+				display: grid;
+				grid-template-columns:  1fr 1fr;
+				grid-template-rows:  1fr 1fr;
+			}
 		}
 		li {
 			cursor: pointer;
 			list-style: none;
 			color: var(--accent-color);
+			@media (max-width: 1024px) {
+				margin-bottom: var(--space-xl);
+			}
 			a {
 				text-decoration: none;
 				transition: var(--transition-3-smooth);
@@ -203,7 +246,12 @@
 		justify-content: flex-end;
 		font-size: var(--text-md);
 		color: var(--barely-grey);
-		a, span {
+		@media (max-width: 1024px) {
+			align-items: flex-end;
+			justify-content: flex-start;
+		}
+		a,
+		span {
 			height: var(--text-2xl);
 		}
 	}
