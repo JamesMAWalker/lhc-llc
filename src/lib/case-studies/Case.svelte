@@ -35,6 +35,11 @@
 			height: 50vh !important;
 			margin: 0 !important;
 			margin-bottom: 5vw !important;
+			.arrow-wrap {
+				opacity: 1 !important;
+				height: 6vh !important	;
+				transform: translate(50%, -50%) !important;
+			}
 		}
 		&:not(:last-child) {
 			margin-right: var(--space-5xl);
