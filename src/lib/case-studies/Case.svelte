@@ -10,26 +10,32 @@
 	export let width = '30vw';
 </script>
 
-<li class="service" style="height: {height}; width: {width}" on:click={() => goto('/case-studies')}>
+<li class="case" style="height: {height}; width: {width}" on:click={() => goto('/case-studies')}>
 	<img src={imgSrc} alt={title} class="image" />
-	<div class="service-title">
+	<div class="case-title">
 		<span class="disc" />
 		{@html title}
 		<span class="arrow-wrap">
 			<Arrow direction="right" filled={true} />
 		</span>
-		<div class="service-blurb">
+		<div class="case-blurb">
 			{blurb}
 		</div>
 	</div>
 </li>
 
 <style lang="scss">
-	.service {
+	.case {
 		-webkit-user-select: none;
 		cursor: pointer;
 		position: relative;
 		overflow: hidden;
+		@media (max-width: 1024px) {
+			width: 90vw !important;
+			height: 50vh !important;
+			margin: 0 !important;
+			margin-bottom: 5vw !important;
+		}
 		&:not(:last-child) {
 			margin-right: var(--space-5xl);
 		}

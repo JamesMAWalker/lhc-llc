@@ -124,6 +124,18 @@
 			overflow: visible;
 			transition: var(--transition-1-smooth);
 			will-change: transform;
+			@media (max-width: 1024px) {
+				height: max-content;
+				min-width: 100%;
+				padding: 0;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+		@media (max-width: 1024px) {
+			height: max-content;
+			padding-top: var(--mobile-sec-margin);
 		}
 	}
 	.upper {
@@ -138,6 +150,10 @@
 			margin-top: var(--title-margin);
 			font-size: var(--text-lg);
 			color: var(--text-color);
+			@media (max-width: 1024px) {
+				width: 90vw;
+				margin-left: 5vw;
+			}
 		}
 		.arrows {
 			width: 200px;
@@ -145,6 +161,9 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			@media (max-width: 1024px) {
+				display: none;
+			}
 		}
 	}
 	.lower {
@@ -157,6 +176,9 @@
 		justify-content: flex-start;
 		&::-webkit-scrollbar {
 			display: none;
+		}
+		@media (max-width: 1024px) {
+			transform: unset;
 		}
 	}
 </style>
