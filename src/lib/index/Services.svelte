@@ -60,7 +60,7 @@
 	<div class="bgcircle-wrap">
 		<BGCircle />
 	</div>
-	<Container column={true} full>
+	<Container column={true}>
 		<div class="upper">
 			<SectionHeader sub={'What we Do'} titleMainColor={'services &'} titleYellow={'solutions'} />
 			<div class="arrows">

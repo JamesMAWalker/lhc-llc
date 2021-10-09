@@ -7,7 +7,7 @@
 <!-- markup (zero or more items) goes here -->
 <section class="about" id="about">
 	<img class="bg-image" src="/job-site.jpg" alt="Construction site planning" />
-	<Container column full>
+	<Container column>
 		<div class="about-inner">
 			<SectionHeader mainColor="var(--white)" sub={'WHO WE ARE'} titleMainColor={'focus &'} titleYellow={'specialties'} />
 			<p class="about-text">

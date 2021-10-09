@@ -2,13 +2,10 @@
 	// your script goes here
 	export let column = false;
 	export let jcsb = false;
-	export let forty = false;
 	export let fifty = false;
-	export let sixty = true;
-	export let full = false;
 </script>
 
-<div class="container" class:jcsb class:column class:forty class:fifty class:sixty class:full>
+<div class="container" class:jcsb class:column class:fifty>
 	<slot />
 </div>
 
@@ -18,23 +15,21 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-start;
+		width: 60vw;
+		@media (max-width: 1024px) {
+			width: 100vw;
+		}
 		&.column {
 			flex-direction: column;
 		}
 		&.jcsb {
 			justify-content: space-between;
 		}
-		&.forty {
-			width: 40vw;
-		}
-		&.fifty {
+		&.jcsb {
 			width: 50vw;
-		}
-		&.sixty {
-			width: 60vw;
-		}
-		&.full {
-			width: 100vw;
+			@media (max-width: 1024px) {
+				width: 100vw;
+			}
 		}
 	}
 </style>
