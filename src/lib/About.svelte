@@ -37,7 +37,7 @@
     justify-content: center;
 		@media (max-width: 1024px) {
 			height: max-content;
-			padding: var(--vp-lg) 0;
+			padding: var(--mobile-sec-margin) 0;
 		}
 		&::before {
 			z-index: var(--level-one);

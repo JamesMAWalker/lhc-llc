@@ -137,6 +137,7 @@
 
 	/* spacing */
 	--title-margin: var(--space-lg);
+	--mobile-sec-margin: var(--vp-xl);
 }
 
 @media (max-width: 1460px) {
