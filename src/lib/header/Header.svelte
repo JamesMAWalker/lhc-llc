@@ -66,6 +66,11 @@
 			transform: scale(.6) !important;
 		}
 	} 
+	:global(.logo-container svg path) {
+		@media (max-width: 1024px) {
+			fill: var(--accent-color);
+		}
+	} 
 	.logo-container {
 		cursor: pointer;
 		position: relative;
