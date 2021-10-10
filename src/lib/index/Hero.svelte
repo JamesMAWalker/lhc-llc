@@ -1,22 +1,26 @@
 <script>
+  import Loading from './Loading.svelte';
 	import DiscButton from '$lib/buttons/disc-button.svelte';
 	import RingButton from '$lib/buttons/ring-button.svelte';
 
 	import { draw, fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
-	import { goto } from '$app/navigation';
 
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import BGLogo from '$lib/background/BGLogo.svelte';
-	import BgCircle from '$lib/background/BGCircle.svelte';
 	import Arrow from '$lib/Arrow.svelte';
 
-	let pageLoaded = false;
+	let mounted = false;
+	let loadingDelay = true;
 	
 	onMount(() => {
-		pageLoaded = true;
+		mounted = true;
 	});
 	
+	setTimeout(() => {
+		loadingDelay = false;
+	}, 1500);
+
 	let circleHeight;
 	let svgEl;
 	let deviceWidth;
@@ -24,8 +28,6 @@
 	let isMobile;
 	$: {
 		isMobile = deviceWidth < 1024;
-		console.log('deviceWidth: ', deviceWidth);
-		console.log('pageLoaded: ', pageLoaded);
 	}
 
 	// TODO: Clicking links is causing deviceWidth to reset. 
@@ -50,7 +52,7 @@
 
 <svelte:window bind:innerHeight={deviceHeight} />
 
-{#if pageLoaded}
+{#if mounted && !loadingDelay}
 	<section class="hero" in:fade={{ duration: 1000 }} bind:clientWidth={deviceWidth}>
 		<video
 			class="hero-vid"
@@ -62,7 +64,7 @@
 		>
 			<track kind="captions" />
 		</video>
-		{#if pageLoaded}
+		{#if mounted}
 			<svg
 				class="hero-circle"
 				height={circleHeight}
@@ -116,9 +118,7 @@
 	</section>
 {:else}
 	<!-- else content here -->
-	<div class="loading" transition:fade={{ duration: 300 }}>
-		<BgCircle />
-	</div>
+	<Loading/>
 {/if}
 
 <style lang="scss">
