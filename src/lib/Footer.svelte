@@ -1,10 +1,15 @@
 <script>
 	// your script goes here
 	import Container from '$lib/containers/Container.svelte';
-	import Icon from '$lib/logo/Icon.svelte';
 	import Facebook from '$lib/icons/Facebook.svelte';
 	import LinkedIn from '$lib/icons/LinkedIn.svelte';
 	import Yelp from '$lib/icons/Yelp.svelte';
+	import Arrow from './Arrow.svelte';
+
+	const scrollToTop = () => {
+		window.scrollTo(0, 0)
+	}
+	
 </script>
 
 <div class="footer">
@@ -83,6 +88,9 @@
 			<div class="dev">
 				<span>website by &nbsp;</span> <a href="/#">jw.dev</a>
 			</div>
+			<div class="btt-button" on:click={scrollToTop}>
+				<Arrow filled />
+			</div>
 		</div>
 	</Container>
 </div>
@@ -106,6 +114,7 @@
 		height: max-content;
 	}
 	.footer-grid {
+		position: relative;
 		transform: translateY(6vh);
 		height: calc(80vh - var(--vp-xl) - var(--vp-xl));
 		width: 100%;
@@ -122,7 +131,7 @@
 			margin: 0;
 			transform: unset;
 			margin-left: 5vw;
-			grid-template-rows: .75fr repeat(3, 1fr) .5fr .5fr;
+			grid-template-rows: 0.75fr repeat(3, 1fr) 0.5fr 0.5fr;
 			grid-template-columns: 1fr 1fr;
 			grid-template-areas:
 				'logo  logo'
@@ -212,8 +221,8 @@
 			justify-content: space-between;
 			@media (max-width: 1024px) {
 				display: grid;
-				grid-template-columns:  1fr 1fr;
-				grid-template-rows:  1fr 1fr;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr 1fr;
 			}
 		}
 		li {
@@ -254,5 +263,23 @@
 		span {
 			height: var(--text-2xl);
 		}
+	}
+	.btt-button {
+		position: absolute;
+		bottom: calc(-1 * var(--vp-md));
+		right: 5vw;
+		height: var(--circle-lg);
+		width: var(--circle-lg);
+		border-radius: var(--radius-rounded);
+		background-color: var(--white);
+		@media (min-width: 1024px) {
+			display: none;
+		}
+	}
+	:global(.btt-button svg) {
+		transform: rotate(90deg) scale(0.5) translateX(15%);
+	}
+	:global(.btt-button path) {
+		fill: var(--text-color);
 	}
 </style>
