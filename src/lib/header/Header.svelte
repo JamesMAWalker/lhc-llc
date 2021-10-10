@@ -10,6 +10,10 @@
 	export let showWordmark;
 	export let heroInView;
 	export let aboutInView;
+	export let footerInView;
+	$: console.log('footerInView from footer: ', footerInView);
+
+	$: hideHeader = footerInView;
 
 	let isWhitePage;
 
@@ -26,7 +30,7 @@
 	};
 </script>
 
-<nav class="header-nav">
+<nav class="header-nav" class:hide={hideHeader}>
 	<div class="logo-container" transition:fade on:click={() => goto('/')}>
 		{#if showWordmark}
 			<Wordmark />
@@ -57,6 +61,10 @@
 		justify-content: space-between;
 		align-items: center;
 		position: fixed;
+		transition: var(--transition-3-smooth);
+		&.hide {
+			opacity: 0;
+		}
 		@media (max-width: 1025px) {
 			top: 0;
 		}

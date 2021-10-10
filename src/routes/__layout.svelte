@@ -10,18 +10,20 @@
 
 	let menuTrigger;
 	let menuTriggerTwo;
+	let footerTrigger;
 	let heroInView = true;
 	let aboutInView = false;
+	let footerInView = false;
+	console.log('footerInView from layout: ', footerInView);
 
 	let logoTrigger;
 	let showWordmark = true;
-	let deviceWidth;
 </script>
 
 {#if menuOpen}
 	<Menu bind:menuOpen />
 {/if} 
-<Header bind:menuOpen {heroInView} {aboutInView} {showWordmark} />
+<Header bind:menuOpen {heroInView} {aboutInView} {showWordmark} {footerInView}/>
 <main>
 	<slot />
 	<IntersectionObserver element={menuTrigger} bind:intersecting={heroInView}>
@@ -34,7 +36,9 @@
 		<div class="trigger menu-trigger menu-trigger--2" bind:this={menuTriggerTwo} />
 	</IntersectionObserver>
 </main>
-
+<IntersectionObserver element={footerTrigger} bind:intersecting={footerInView}>
+	<div class="trigger footer-trigger" bind:this={footerTrigger} />
+</IntersectionObserver>
 <Footer />
 
 <style lang="scss">
@@ -48,10 +52,11 @@
 		overflow: hidden;
 	}
 	.trigger {
-		/* background-color: blueviolet; */
+		z-index: 9999999;
+		visibility: hidden;
+		background-color: red;
 	}
 	.menu-trigger {
-		z-index: 9999;
 		position: absolute;
 		height: 1px;
 		width: 100vw;
@@ -59,14 +64,24 @@
 		left: 0;
 		&--2 {
 			top: 330vh;
+			@media (max-width: 1024px) {
+				top: 500vh;
+			}
 		}
 	}
 	.logo-trigger {
-		z-index: 99;
 		position: absolute;
 		height: 1px;
 		width: 100vw;
 		top: 20vh;
+		left: 0;
+	}
+	.footer-trigger {
+		z-index: 9999999999999;
+		position: absolute;
+		height: 1px;
+		width: 100vw;
+		bottom: 40vh;
 		left: 0;
 	}
 </style>
