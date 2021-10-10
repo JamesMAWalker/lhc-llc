@@ -231,7 +231,7 @@
 		justify-content: space-between;
 		align-items: flex-end;
 		.arrows {
-			z-index: var(--level-two);
+			z-index: var(--level-top);
 			width: 200px;
 			width: var(--vp-2xl);
 			display: flex;

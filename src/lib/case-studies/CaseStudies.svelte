@@ -139,7 +139,7 @@
 		}
 	}
 	.upper {
-		z-index: var(--level-one);
+		z-index: var(--level-top);
 		width: 100%;
 		margin-bottom: var(--space-5xl);
 		display: flex;
