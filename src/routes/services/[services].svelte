@@ -46,7 +46,7 @@
 				titleYellow={hero.accentColor}
 			/>
 			<p class="blurb">
-				{heroBlurb}
+				{@html heroBlurb}
 			</p>
 			<RingButton link="/services/#info" />
 		</div>
