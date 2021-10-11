@@ -70,7 +70,11 @@
 		{/if}
 		<div class="image-circle">
 			<div class="image-shade" />
-			<img src={`https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_75/v1633947679/services/${imgUrlFrag}`} alt={title} class="hero-img" />
+			<img
+				src={`https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_75/v1633947679/services/${imgUrlFrag}`}
+				alt={title}
+				class="hero-img"
+			/>
 		</div>
 	</div>
 </section>
@@ -83,8 +87,8 @@
 				titleYellow={info.accentColor}
 			/>
 			<p class="blurb">
-        {@html infoBlurb}
-      </p>
+				{@html infoBlurb}
+			</p>
 		</div>
 		<div class="right" on:scroll={(e) => handleScroll(e)}>
 			<div class="process-steps">
@@ -139,61 +143,61 @@
 				stroke-dashoffset: 78.5%;
 			}
 		}
-	}
-	.blurb-container {
-		height: 60%;
-		width: 50%;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		justify-content: center;
-		.blurb {
-			margin-top: var(--title-margin);
-			margin-bottom: var(--space-lg);
-			width: 75%;
+		.left {
+			height: 100vh;
+			width: 62vw;
+			background-color: var(--white);
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
-	}
-	.left {
-		height: 100vh;
-		width: 62vw;
-		background-color: var(--white);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.right {
-		position: relative;
-		height: 100vh;
-		width: 38vw;
-		background-color: var(--deep-cyan-tr);
-		.image-circle {
-			position: absolute;
-			height: 42vh;
-			width: 42vh;
-			top: 50%;
-			left: 0%;
-			transform: translate(-50%, -50%);
-			border-radius: var(--radius-rounded);
-			border: 2px solid var(--barely-grey);
-			overflow: hidden;
+		.right {
+			position: relative;
+			height: 100vh;
+			width: 38vw;
+			background-color: var(--deep-cyan-tr);
+			.image-circle {
+				position: absolute;
+				height: 42vh;
+				width: 42vh;
+				top: 50%;
+				left: 0%;
+				transform: translate(-50%, -50%);
+				border-radius: var(--radius-rounded);
+				border: 2px solid var(--barely-grey);
+				overflow: hidden;
+			}
+			.image-shade {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				background-color: var(--primary-tr2);
+			}
+			.hero-img {
+				height: 110%;
+				width: 110%;
+				object-fit: cover;
+				object-position: right;
+			}
+			.hero-circle {
+				position: absolute;
+				top: 50%;
+				left: 0%;
+				transform: translate(-50%, -50%);
+			}
 		}
-		.image-shade {
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			background-color: var(--primary-tr2);
-		}
-		.hero-img {
-			height: 110%;
-			width: 110%;
-			object-fit: cover;
-			object-position: right;
-		}
-		.hero-circle {
-			position: absolute;
-			top: 50%;
-			left: 0%;
-			transform: translate(-50%, -50%);
+		.blurb-container {
+			height: 60%;
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			.blurb {
+				margin-top: var(--title-margin);
+				margin-bottom: var(--space-lg);
+				width: 75%;
+			}
 		}
 	}
 
@@ -289,7 +293,7 @@
 		.left {
 			height: calc(70vh - var(--vp-lg));
 			width: 30vw;
-			padding-top: var(--vp-lg);
+			/* padding-top: var(--vp-lg); */
 			margin-right: 5vw;
 			display: flex;
 			flex-direction: column;
