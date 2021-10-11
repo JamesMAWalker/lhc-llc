@@ -12,6 +12,7 @@
 
 	let mounted = false;
 	let loadingDelay = true;
+	let videoLoaded = false;
 	
 	onMount(() => {
 		mounted = true;
@@ -48,6 +49,7 @@
 		window.scrollTo(0, deviceHeight)
 	}
 	
+
 </script>
 
 <svelte:window bind:innerHeight={deviceHeight} />
@@ -57,7 +59,10 @@
 		<video
 			class="hero-vid"
 			autoplay
+			bind:seekable={videoLoaded}
+			class:loaded={videoLoaded}
 			muted
+			on:load={() => console.log('video loaded')}
 			loop
 			src="https://res.cloudinary.com/jameswalker-work/video/upload/q_60/v1632240871/cabling-vids_xitbot.mp4"
 			alt="slow pan over ethernet cables"
@@ -146,10 +151,14 @@
 			left: 0;
 			height: 100%;
 			width: 100%;
+			opacity: 0;
 			transform: rotateY(180deg) scale(1.75) translate(17vh, 16vh);
 			transition: opacity 2s ease-in-out;
 			@media (max-width: 1024px) {
 				transform: rotateY(180deg) scale(4) translate(20vw, 0);
+			}
+			&.loaded {
+				opacity: 1;
 			}
 		}
 	}
