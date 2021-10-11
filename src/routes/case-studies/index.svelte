@@ -9,17 +9,17 @@
 		{
 			title: '<div>Security at <br> YS Athletics</div>',
 			blurb: 'Clean and tamper-proof installation provides security and peace of mind.',
-			imgSrc: '/case-studies/security.jpg'
+			urlFrag: 'security_vgwpbm.jpg'
 		},
 		{
 			title: '<div>Lawndale <br> City College</div>',
 			blurb: 'Optimizing networks to improve remote learning facilities.',
-			imgSrc: '/case-studies/campus.jpg'
+			urlFrag: 'campus_a8qeux.jpg'
 		}
 	];
 
 	const pageData = {
-		imgSrc: '/case-studies/server-tower.jpg',
+		imgSrc: 'https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_75/v1633947588/case-studies/server-tower_lbb7ia.jpg',
 		alt: 'imgIX server tower',
 		title: 'ImgIX Data Center',
 		sub: 'Network infrastructure upgrade',
@@ -118,8 +118,8 @@
 		<div class="related-cases">
 			<SectionHeader sub="SEE MORE" titleMainColor="relevant" titleYellow="cases" />
 			<ul class="case-list">
-				{#each services as { imgSrc, title, blurb } (title)}
-					<Case {imgSrc} {title} {blurb} width="27.5vw" height="27.5vw" />
+				{#each services as { urlFrag, title, blurb } (title)}
+					<Case {urlFrag} {title} {blurb} width="27.5vw" height="27.5vw" />
 				{/each}
 			</ul>
 		</div>

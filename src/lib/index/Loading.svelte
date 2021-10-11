@@ -18,6 +18,7 @@
 		align-items: center;
 		justify-content: center;
 		background-color: var(--white);
+		transform: scale(.6);
 		.loading-text {
 			color: var(--barely-grey);
 			font-size: var(--text-display);

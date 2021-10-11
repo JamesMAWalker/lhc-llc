@@ -1,7 +1,7 @@
 export const services = {
 	'data-facilities': {
 		title: 'Data Facilities',
-		heroImg: '/services/server-blade.jpg',
+		imgUrlFrag: 'server-blade_bzsxfx.jpg',
 		heroHeader: {
 			sub: 'SERVICES',
 			mainColor: 'server',
@@ -75,9 +75,9 @@ export const services = {
 		},
 		contactBlurb: `We are there every step of the way for your mission critical systems. From design to installation to network management, your IT infrastructure remains secure and constant. <br><br> Start your network architect services today in order to plan and evolve with the ever-changing technology advantages.`
 	},
-	'fiber': {
+	fiber: {
 		title: 'Internet & VoIP',
-		heroImg: '/services/fiber.jpg',
+		imgUrlFrag: 'conference-room_wx0qgg.jpg',
 		heroHeader: {
 			sub: 'SERVICES',
 			mainColor: 'fiber optic',
@@ -151,9 +151,9 @@ export const services = {
 		},
 		contactBlurb: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto a sunt ad tenetur incidunt culpa nisi totam, atque mollitia soluta asperiores veniam, reprehenderit iste tempore delectus modi nam voluptatibus excepturi reiciendis autem, earum odit consectetur quaerat provident. <br><br> Expedita ex eaque, aperiam delectus dolorem corporis, inventore dicta illum laboriosam voluptates tempora. Expedita ex eaque, aperiam delectus dolorem corporis, inventore dicta illum laboriosam voluptates tempora.`
 	},
-	'voip': {
+	voip: {
 		title: 'Internet & VoIP',
-		heroImg: '/services/voip.jpg',
+		imgUrlFrag: 'more-cables_af6dis.jpg',
 		heroHeader: {
 			sub: 'SERVICES',
 			mainColor: 'VoIP & phone',
@@ -227,9 +227,9 @@ export const services = {
 		},
 		contactBlurb: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto a sunt ad tenetur incidunt culpa nisi totam, atque mollitia soluta asperiores veniam, reprehenderit iste tempore delectus modi nam voluptatibus excepturi reiciendis autem, earum odit consectetur quaerat provident. <br><br> Expedita ex eaque, aperiam delectus dolorem corporis, inventore dicta illum laboriosam voluptates tempora. Expedita ex eaque, aperiam delectus dolorem corporis, inventore dicta illum laboriosam voluptates tempora.`
 	},
-	'security': {
+	security: {
 		title: 'Security Systems',
-		heroImg: '/services/security.jpg',
+		imgUrlFrag: 'security_apy2rj.jpg',
 		heroHeader: {
 			sub: 'SERVICES',
 			mainColor: 'security',
@@ -305,7 +305,7 @@ export const services = {
 	},
 	'server-repair': {
 		title: 'Server Repair',
-		heroImg: '/services/repair.jpg',
+		imgUrlFrag: 'server_rack_uo9hu6.jpg',
 		heroHeader: {
 			sub: 'SERVICES',
 			mainColor: 'server repair',
@@ -378,5 +378,5 @@ export const services = {
 			accentColor: 'today'
 		},
 		contactBlurb: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto a sunt ad tenetur incidunt culpa nisi totam, atque mollitia soluta asperiores veniam, reprehenderit iste tempore delectus modi nam voluptatibus excepturi reiciendis autem, earum odit consectetur quaerat provident. <br><br> Expedita ex eaque, aperiam delectus dolorem corporis, inventore dicta illum laboriosam voluptates tempora. Expedita ex eaque, aperiam delectus dolorem corporis, inventore dicta illum laboriosam voluptates tempora.`
-	},
+	}
 };

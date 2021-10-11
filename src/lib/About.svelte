@@ -6,7 +6,7 @@
 
 <!-- markup (zero or more items) goes here -->
 <section class="about" id="about">
-	<img class="bg-image" src="/job-site.jpg" alt="Construction site planning" />
+	<img class="bg-image" src="https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_80/v1633947587/about/job-site_qgzuzc.jpg" alt="Construction site planning" />
 	<Container column>
 		<div class="about-inner">
 			<SectionHeader mainColor="var(--white)" sub={'WHO WE ARE'} titleMainColor={'focus &'} titleYellow={'specialties'} />

@@ -16,7 +16,7 @@
 
 	let {
 		title,
-		heroImg,
+		imgUrlFrag,
 		heroHeader: hero,
 		heroBlurb,
 		infoHeader: info,
@@ -70,7 +70,7 @@
 		{/if}
 		<div class="image-circle">
 			<div class="image-shade" />
-			<img src={heroImg} alt={title} class="hero-img" />
+			<img src={`https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_75/v1633947679/services/${imgUrlFrag}`} alt={title} class="hero-img" />
 		</div>
 	</div>
 </section>

@@ -13,27 +13,27 @@
 			// title: 'imgIX Data Center',
 			title: '<div>imgIX <br> Data Center</div>',
 			blurb: 'Delivering a custom solution for an innovative start-up.',
-			imgSrc: '/case-studies/server-tower.jpg'
+			urlFrag: `server-tower_lbb7ia.jpg`,
 		},
 		{
 			title: '<div>Security at <br> YS Athletics</div>',
 			blurb: 'Clean and tamper-proof installation provides security and peace of mind.',
-			imgSrc: '/case-studies/security.jpg'
+			urlFrag: `security_vgwpbm.jpg`,
 		},
 		{
 			title: '<div>Oakpark <br> Logistics Hub</div>',
 			blurb: 'Providing core infrastructure improvements when downtime is not an option.',
-			imgSrc: '/case-studies/logistics.jpg'
+			urlFrag: `logistics_k1kkal.jpg`,
 		},
 		{
 			title: '<div>Lawndale <br> City College</div>',
 			blurb: 'Optimizing networks to improve remote learning facilities.',
-			imgSrc: '/case-studies/campus.jpg'
+			urlFrag: `campus_a8qeux.jpg`,
 		},
 		{
 			title: '<div>Eastbank <br> Credit Union</div>',
 			blurb: 'Improving customer experience through VoIP and modernized tools.',
-			imgSrc: '/case-studies/front-desk.jpg'
+			urlFrag: `office__front-desk_gcxpyv.jpg`,
 		}
 	];
 
@@ -87,8 +87,8 @@
 			}}
 		>
 			<ul class="case-studies__list" style={`transform: translate(-${scrollPosition}vw)`}>
-				{#each services as { imgSrc, title, blurb } (title)}
-					<Case {imgSrc} {title} {blurb} />
+				{#each services as { urlFrag, title, blurb } (title)}
+					<Case {urlFrag} {title} {blurb} />
 				{/each}
 			</ul>
 		</div>

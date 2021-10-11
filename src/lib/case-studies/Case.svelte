@@ -3,7 +3,7 @@
 
 	import Arrow from '$lib/Arrow.svelte';
 
-	export let imgSrc;
+	export let urlFrag;
 	export let title;
 	export let blurb;
 	export let height = '40vh';
@@ -11,7 +11,7 @@
 </script>
 
 <li class="case" style="height: {height}; width: {width}" on:click={() => goto('/case-studies')}>
-	<img src={imgSrc} alt={title} class="image" />
+	<img loading="eager" src={`https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_75/v1633947588/case-studies/${urlFrag}`} alt={title} class="image" />
 	<div class="case-title">
 		<span class="disc" />
 		{@html title}

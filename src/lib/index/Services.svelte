@@ -9,31 +9,31 @@
 			id: 'data001',
 			path: 'data-facilities',
 			title: 'Data Facilities',
-			imgSrc: '/services/server-blade.jpg'
+			urlFrag: `server-blade_bzsxfx.jpg`, 
 		},
 		{
 			id: 'netvoip002',
 			path: 'voip',
 			title: 'Internet & VoIP',
-			imgSrc: '/services/voip.jpg'
+			urlFrag: `conference-room_wx0qgg.jpg`, 
 		},
 		{
 			id: 'fiberopt003',
 			path: 'fiber',
 			title: 'Fiber <br> Optics',
-			imgSrc: '/services/fiber.jpg'
+			urlFrag: `more-cables_af6dis.jpg`, 
 		},
 		{
 			id: 'security004',
 			path: 'security',
 			title: 'Security Systems',
-			imgSrc: '/services/security.jpg'
+			urlFrag: `security_apy2rj.jpg`, 
 		},
 		{
 			id: 'serverrep005',
 			path: 'server-repair',
 			title: 'Server Repair',
-			imgSrc: '/services/repair.jpg'
+			urlFrag: `server_rack_uo9hu6.jpg`, 
 		}
 	];
 
@@ -82,9 +82,14 @@
 			}}
 		>
 			<ul class="services__list" style={`transform: translate(-${scrollPosition}vw)`}>
-				{#each services as { title, imgSrc, id, path } (id)}
+				{#each services as { title, urlFrag, id, path } (id)}
 					<a class="service" href={`/services/${path}`} class:server={id === 'data001'}>
-						<img src={imgSrc} alt={title} class="image" />
+						<img 
+							src={`https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_75/v1633947679/services/${urlFrag}`} 
+							alt={title} 
+							loading="eager"
+							class="image" 
+						/>
 						<div class="service-title">
 							<span class="disc" />{@html title}
 							<div class="arrow-wrap arrow-wrap--service"><Arrow direction="right" filled /></div>
