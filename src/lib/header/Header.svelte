@@ -1,5 +1,5 @@
 <script>
-	import { goto } from '$app/navigation';
+	import { goto, prefetch } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';
 
@@ -22,16 +22,22 @@
 	let menuIsWhite;
 	$: menuIsWhite = (aboutInView || heroInView || menuOpen) && !isWhitePage;
 
-	const handleContactBtn = () => {
+	const toContact = () => {
 		menuOpen = false;
 		setTimeout(() => {
 			goto('/contact');
 		}, 400);
 	};
+	const toHome = () => {
+		setTimeout(() => {
+			prefetch('/');
+			goto('/', { replaceState: true });
+		}, 400);
+	};
 </script>
 
 <nav class="header-nav" class:hide={hideHeader}>
-	<div class="logo-container" transition:fade on:click={() => goto('/')}>
+	<div class="logo-container" transition:fade on:click={toHome}>
 		{#if showWordmark}
 			<Wordmark />
 		{:else}
@@ -44,7 +50,7 @@
 		transition:fade
 		on:click={() => (menuOpen = !menuOpen)}
 	>
-		<span class="quote-btn" on:click|stopPropagation={handleContactBtn}>get a quote</span>
+		<span class="quote-btn" on:click|stopPropagation={toContact}>get a quote</span>
 		<span class="divider" />
 		<div class="menu-button"><span>//</span></div>
 	</div>
@@ -71,14 +77,14 @@
 	}
 	:global(.logo-container svg) {
 		@media (max-width: 1024px) {
-			transform: scale(.6) !important;
+			transform: scale(0.6) !important;
 		}
-	} 
+	}
 	:global(.logo-container svg path) {
 		@media (max-width: 1024px) {
 			fill: var(--accent-color);
 		}
-	} 
+	}
 	.logo-container {
 		cursor: pointer;
 		position: relative;
