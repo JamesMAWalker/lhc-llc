@@ -1,5 +1,5 @@
 <script>
-  import Loading from './Loading.svelte';
+	import Loading from './Loading.svelte';
 	import DiscButton from '$lib/buttons/disc-button.svelte';
 	import RingButton from '$lib/buttons/ring-button.svelte';
 
@@ -12,12 +12,11 @@
 
 	let mounted = false;
 	let loadingDelay = true;
-	let videoLoaded = false;
-	
+
 	onMount(() => {
 		mounted = true;
 	});
-	
+
 	setTimeout(() => {
 		loadingDelay = false;
 	}, 1500);
@@ -31,7 +30,7 @@
 		isMobile = deviceWidth < 1024;
 	}
 
-	// TODO: Clicking links is causing deviceWidth to reset. 
+	// TODO: Clicking links is causing deviceWidth to reset.
 
 	// Detect Firefox
 	var isFirefox = typeof InstallTrigger !== 'undefined';
@@ -46,9 +45,8 @@
 	}
 
 	const scrollToServices = () => {
-		window.scrollTo(0, deviceHeight)
-	}
-	
+		window.scrollTo(0, deviceHeight);
+	};
 
 </script>
 
@@ -59,12 +57,10 @@
 		<video
 			class="hero-vid"
 			autoplay
-			bind:seekable={videoLoaded}
-			class:loaded={videoLoaded}
 			muted
-			on:load={() => console.log('video loaded')}
 			loop
-			src="https://res.cloudinary.com/jameswalker-work/video/upload/q_60/v1632240871/cabling-vids_xitbot.mp4"
+			in:fade
+			src="https://res.cloudinary.com/jameswalker-work/video/upload/c_scale,f_auto,q_auto:eco,w_1920/v1632240871/cabling-vids_xitbot.mp4"
 			alt="slow pan over ethernet cables"
 		>
 			<track kind="captions" />
@@ -123,7 +119,7 @@
 	</section>
 {:else}
 	<!-- else content here -->
-	<Loading/>
+	<Loading />
 {/if}
 
 <style lang="scss">
@@ -152,13 +148,11 @@
 			height: 100%;
 			width: 100%;
 			opacity: 0;
+			opacity: .5;
 			transform: rotateY(180deg) scale(1.75) translate(17vh, 16vh);
 			transition: opacity 2s ease-in-out;
 			@media (max-width: 1024px) {
 				transform: rotateY(180deg) scale(4) translate(20vw, 0);
-			}
-			&.loaded {
-				opacity: 1;
 			}
 		}
 	}
@@ -215,7 +209,7 @@
 		width: 20vh;
 		color: var(--white);
 		@media (max-width: 1025px) {
-			transform: translate(-59%, -50%) scale(.8);
+			transform: translate(-59%, -50%) scale(0.8);
 		}
 		h1 {
 			margin: 0;

@@ -14,7 +14,6 @@
 	let heroInView = true;
 	let aboutInView = false;
 	let footerInView = false;
-	console.log('footerInView from layout: ', footerInView);
 
 	let logoTrigger;
 	let showWordmark = true;
