@@ -48,6 +48,8 @@
 		window.scrollTo(0, deviceHeight);
 	};
 
+// src="https://res.cloudinary.com/datacom-cabling/video/upload/f_auto,q_50/v1633947661/hero/cabling-vids_worfjy.mp4"
+// src="https://res.cloudinary.com/datacom-cabling/video/upload/f_auto,vc_auto,q_50/v1633947661/hero/cabling-vids_worfjy.mp4"
 </script>
 
 <svelte:window bind:innerHeight={deviceHeight} />
@@ -57,10 +59,11 @@
 		<video
 			class="hero-vid"
 			autoplay
+			playsinline
 			muted
 			loop
 			in:fade
-			src="https://res.cloudinary.com/jameswalker-work/video/upload/c_scale,f_auto,q_auto:eco,w_1920/v1632240871/cabling-vids_xitbot.mp4"
+			src="https://res.cloudinary.com/datacom-cabling/video/upload/f_auto,q_65/v1634019094/hero/Cabling-Vids-1--crop_sor0c1.mp4"
 			alt="slow pan over ethernet cables"
 		>
 			<track kind="captions" />
@@ -144,15 +147,15 @@
 			z-index: var(--base-one);
 			position: absolute;
 			top: 0;
-			left: 0;
+			right: 0;
 			height: 100%;
 			width: 100%;
 			opacity: 0;
 			opacity: .5;
-			transform: rotateY(180deg) scale(1.75) translate(17vh, 16vh);
+			transform: rotateY(180deg) scale(1.75) translate(-10vw, 0);
 			transition: opacity 2s ease-in-out;
 			@media (max-width: 1024px) {
-				transform: rotateY(180deg) scale(4) translate(20vw, 0);
+				transform: rotateY(180deg) scale(2) translate(20vw, 0);
 			}
 		}
 	}
