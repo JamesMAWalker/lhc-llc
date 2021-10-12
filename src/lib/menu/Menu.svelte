@@ -55,16 +55,6 @@
 						<span on:click={() => handleMenuClick(path)}>{text}</span>
 					</li>
 				{/each}
-				<!-- <li class="option"><a on:click={() => (menuOpen = false)} href="/">home</a></li>
-				<li class="option"><a on:click={() => (menuOpen = false)} href="/#about">about</a></li>
-				<li class="option">
-					<a on:click={() => (menuOpen = false)} href="/#services">services</a>
-				</li>
-				<li class="option">
-					<a on:click={() => (menuOpen = false)} href="/#case-studies">case studies</a>
-				</li>
-				<li class="option"><a on:click={() => (menuOpen = false)} href="/">locations</a></li>
-				<li class="option"><a on:click={() => (menuOpen = false)} href="/contact">contact</a></li> -->
 			</ul>
 		{/if}
 		<div class="bglogo-wrap">
@@ -101,6 +91,11 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-start;
+		@media (max-width: 1024px) {
+			height: -webkit-fill-avaialble !important;
+			flex-direction: column;
+			background-color: var(--deep-cyan);
+		}
 	}
 	.left {
 		isolation: isolate;
@@ -112,12 +107,22 @@
 		align-items: flex-end;
 		justify-content: center;
 		background-color: var(--white);
+		@media (max-width: 1024px) {
+			height: 60%;	
+			margin-left: var(--space-2xl);
+			margin: 0;
+			justify-content: flex-end;
+			background-color: var(--deep-cyan);
+		}
 		.bglogo-wrap {
 			z-index: 1;
 			position: absolute;
 			bottom: -5vh;
 			left: -6vh;
 			transform: scale(1.1);
+			@media (max-width: 1024px) {
+				display: none;
+			}
 		}
 		.menu-options {
 			z-index: 2;
@@ -127,6 +132,19 @@
 			color: var(--text-color);
 			font-size: var(--text-header);
 			font-weight: var(--semibold);
+			@media (max-width: 1024px) {
+				font-size: 20px;
+				margin: 0;
+				padding: 0;
+				padding-bottom: var(--space-xl);
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				 .option span {
+					color: var(--white) !important;
+					transform: scale(1.5);
+				}
+			}
 			h6 {
 				font-size: var(--text-lg);
 				font-weight: var(--light);
@@ -149,6 +167,12 @@
 		height: 100%;
 		width: 62vw;
 		background-color: var(--deep-cyan-tr4);
+		@media (max-width: 1024px) {
+			height: 40%;
+			margin: 0;
+			margin-left: var(--space-2xl);
+			background-color: var(--deep-cyan);
+		}
 		.contact {
 			height: calc(100% - 10vw);
 			width: calc(100% - 10vw);
@@ -158,6 +182,11 @@
 			align-items: flex-end;
 			justify-content: space-between;
 			font-size: var(--text-lg);
+			@media (max-width: 1024px) {
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+			}
 			h6 {
 				margin: 0;
 				margin-bottom: var(--space-lg);
@@ -174,6 +203,13 @@
 			}
 		}
 	}
+	.social {
+		@media (max-width: 1024px) {
+			margin-top: var(--space-2xl	);
+			display: flex;
+			justify-content: space-between;
+		}
+	}
 	:global(.social svg) {
 		cursor: pointer;
 		margin-left: var(--space-lg);
@@ -182,6 +218,10 @@
 			path {
 				fill: var(--accent-color);
 			}
+		}
+		@media (max-width: 1024px) {
+			margin: 0;
+			margin-right: var(--space-lg);
 		}
 	}
 	:global(.social svg path) {
