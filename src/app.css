@@ -138,6 +138,7 @@
 	/* spacing */
 	--title-margin: var(--space-lg);
 	--mobile-sec-margin: var(--vp-xl);
+	--block-center-margin: 5vw;
 }
 
 @media (max-width: 1460px) {

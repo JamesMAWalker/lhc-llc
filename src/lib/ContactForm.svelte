@@ -26,12 +26,47 @@
 		gap: var(--vp-md-sm);
 		grid-template-rows: repeat(2, var(--vp-lg)) var(--vp-2xl) 7vh var(--vp-lg);
 		grid-template-columns: repeat(2, 1fr);
+		@media (max-width: 1024px) {
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(4, var(--vp-lg)) var(--vp-2xl) 7vh var(--vp-lg);
+			grid-template-areas:
+				'first'
+				'last'
+				'company'
+				'email'
+				'message'
+				'captcha'
+				'submit';
+		}
+	}
+	.first {
+		@media (max-width: 1024px) {
+			grid-area: first;
+		}
+	}
+	.last {
+		@media (max-width: 1024px) {
+			grid-area: last;
+		}
+	}
+	.company {
+		@media (max-width: 1024px) {
+			grid-area: company;
+		}
+	}
+	.email {
+		@media (max-width: 1024px) {
+			grid-area: email;
+		}
 	}
 	.message {
 		grid-column: 1 / -1;
 		padding: var(--space-xl);
 		&::-webkit-resizer {
 			display: none;
+		}
+		@media (max-width: 1024px) {
+			grid-area: message;
 		}
 	}
 	.captcha {
@@ -42,6 +77,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		@media (max-width: 1024px) {
+			grid-area: captcha;
+		}
 		input {
 			margin: 1.5vh;
 			transform: scale(1.4);
@@ -69,5 +107,8 @@
 		border: none;
 		background-color: var(--accent-color);
 		color: var(--white);
+		@media (max-width: 1024px) {
+			grid-area: submit;
+		}
 	}
 </style>

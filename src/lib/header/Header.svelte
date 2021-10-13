@@ -11,13 +11,13 @@
 	export let heroInView;
 	export let aboutInView;
 	export let footerInView;
-	$: console.log('footerInView from footer: ', footerInView);
 
 	$: hideHeader = footerInView;
 
 	let isWhitePage;
+	let { path } = $page;
 
-	$: isWhitePage = $page.path === '/contact' || $page.path === '/case-studies';
+	$: isWhitePage = path === '/contact' || path === '/case-studies' || path.includes('/services');
 
 	let menuIsWhite;
 	$: menuIsWhite = (aboutInView || heroInView || menuOpen) && !isWhitePage;

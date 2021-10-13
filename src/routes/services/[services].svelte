@@ -138,9 +138,18 @@
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-start;
+		@media (max-width: 1024px) {
+			height: max-content;
+			margin-top: var(--vp-2xl);
+			flex-direction: column-reverse;
+		}
 		.hero-circle {
 			path {
 				stroke-dashoffset: 78.5%;
+			}
+			@media (max-width: 1024px) {
+				position: absolute;
+				top: 50% !important	;
 			}
 		}
 		.left {
@@ -150,12 +159,26 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			@media (max-width: 1024px) {
+				width: 100vw;
+				height: max-content;
+				padding-top: var(--vp-md);
+				align-items: flex-start;
+			}
 		}
 		.right {
 			position: relative;
 			height: 100vh;
 			width: 38vw;
 			background-color: var(--deep-cyan-tr);
+			@media (max-width: 1024px) {
+				height: 40vh;
+				width: 100vw;
+				background-color: var(--white);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 			.image-circle {
 				position: absolute;
 				height: 42vh;
@@ -166,6 +189,14 @@
 				border-radius: var(--radius-rounded);
 				border: 2px solid var(--barely-grey);
 				overflow: hidden;
+				@media (max-width: 1024px) {
+					top: 0;
+					left: 0;
+					position: relative;
+					transform: translate(0, 0);
+					height: 37.5vh;
+					width: 37.5vh;
+				}
 			}
 			.image-shade {
 				position: absolute;
@@ -184,6 +215,12 @@
 				top: 50%;
 				left: 0%;
 				transform: translate(-50%, -50%);
+				@media (max-width: 1024px) {
+					top: 25%;
+					left: 50%;
+					height: 39vh;
+					width: 39vh;
+				}
 			}
 		}
 		.blurb-container {
@@ -193,14 +230,27 @@
 			flex-direction: column;
 			align-items: flex-start;
 			justify-content: center;
+			@media (max-width: 1024px) {
+				width: 90vw;
+				margin-bottom: var(--vp-xl);
+			}
 			.blurb {
 				margin-top: var(--title-margin);
 				margin-bottom: var(--space-lg);
 				width: 75%;
+				@media (max-width: 1024px) {
+					width: 100%;
+				}
 			}
 		}
 	}
-
+	:global(.service-info .container) {
+		@media (max-width: 1024px) {
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+		}
+	}
 	.service-info {
 		overflow: hidden;
 		position: relative;
@@ -210,14 +260,25 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		@media (max-width: 1024px) {
+			height: max-content;
+		}
 		.left {
-			width: 50%;
+			height: 100vh;
+			width: 40%;
+			padding-left: 10%;
 			display: flex;
 			flex-direction: column;
-			align-items: flex-start;
 			justify-content: center;
+			align-items: flex-start;
 			background-color: var(--primary-tr1);
 			background-color: transparent;
+			@media (max-width: 1024px) {
+				height: max-content;
+				width: 90vw;
+				margin-top: var(--vp-xl);
+				justify-content: flex-start;
+			}
 		}
 		.right {
 			width: 50%;
@@ -231,6 +292,11 @@
 			&::-webkit-scrollbar {
 				display: none;
 			}
+			@media (max-width: 1024px) {
+				width: 90vw;
+				/* overflow: visible; */
+				height: max-content;
+			}
 			.process-block {
 				display: flex;
 				flex-direction: column;
@@ -243,6 +309,11 @@
 				flex-direction: column;
 				align-items: flex-start;
 				justify-content: center;
+			}
+			.steps-list {
+				@media (max-width: 1024px) {
+					margin-left: 5vw;
+				}
 			}
 			.step-title {
 				margin-top: var(--title-margin);
@@ -279,9 +350,19 @@
 			border-radius: var(--radius-rounded);
 			transform-origin: center;
 			transition: var(--transition-1-smooth);
+			@media (max-width: 1024px) {
+				display: none;
+			}
 		}
 	}
 
+	:global(.service-contact .container) {
+		@media (max-width: 1024px) {
+			height: max-content;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
 	.service-contact {
 		position: relative;
 		height: 120vh;
@@ -290,16 +371,23 @@
 		align-items: center;
 		justify-content: center;
 		overflow: hidden;
+		@media (max-width: 1024px) {
+			height: max-content;
+		}
 		.left {
 			height: calc(70vh - var(--vp-lg));
 			width: 30vw;
-			/* padding-top: var(--vp-lg); */
-			margin-right: 5vw;
+			margin-right: var(--block-center-margin);
 			display: flex;
 			flex-direction: column;
 			align-items: start;
 			justify-content: space-between;
 			background-color: transparent;
+			@media (max-width: 1024px) {
+				height: max-content;
+				width: 80vw;
+				margin: var(--vp-xl) 0;
+			}
 			.blurb {
 				margin-top: var(--title-margin);
 				font-size: var(--text-lg);
@@ -326,7 +414,11 @@
 			height: 70vh;
 			width: 55vw;
 			background-color: transparent;
-			z-index: var(--level-top);
+			@media (max-width: 1024px) {
+				width: 80vw;
+				height: max-content;
+				margin-bottom: var(--vp-xl);
+			}
 			.contact-form {
 				height: 100%;
 				width: 100%;

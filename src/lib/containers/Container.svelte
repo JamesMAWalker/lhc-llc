@@ -5,7 +5,7 @@
 	export let fifty = false;
 </script>
 
-<div class="container" class:jcsb class:column class:fifty>
+<div class="container" class:jcsb class:column >
 	<slot />
 </div>
 
