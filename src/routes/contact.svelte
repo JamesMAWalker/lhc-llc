@@ -11,7 +11,7 @@
 	<Container jcsb>
 		<div class="left">
 			<SectionHeader
-				sub="GET IN TOUCH"
+				sub="CONTACT US"
 				titleMainColor="find your <br> solution"
 				titleYellow="today"
 			/>
@@ -36,6 +36,16 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		@media (max-width: 1024px) {
+			height: max-content;
+		}
+	}
+	:global(.contact-page .container) {
+		@media (max-width: 1024px) {
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+		}
 	}
 	.left {
 		height: 70vh;
@@ -44,6 +54,13 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
+		margin-right: var(--block-center-margin);
+		@media (max-width: 1024px) {
+			height: max-content;
+			width: 80vw;
+			margin-right: 0;
+			margin-bottom: var(--vp-lg);
+		}
 		.blurb {
 			margin-top: var(--title-margin);
 			font-size: var(--text-lg);
@@ -53,6 +70,11 @@
 	.right {
 		height: 70vh;
 		width: 30vw;
+		@media (max-width: 1024px) {
+			height: max-content;
+			width: 80vw;
+			margin-bottom: var(--vp-2xl	);
+		}
 	}
   :global(.contact-page svg) {
     position: absolute;
