@@ -142,7 +142,6 @@
 		justify-content: center;
 		align-items: center;
 		flex: 1;
-		/* overflow: hidden; */
 		&-vid {
 			z-index: var(--base-one);
 			position: absolute;

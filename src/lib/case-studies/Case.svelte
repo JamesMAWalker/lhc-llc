@@ -75,6 +75,9 @@
 			font-size: var(--text-header);
 			font-weight: 600;
 			color: var(--white);
+			@media (max-width: 1024px) {
+				width: 60%;
+			}
 			.disc {
 				z-index: var(--base-one);
 				position: absolute;

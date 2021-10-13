@@ -19,7 +19,8 @@
 	];
 
 	const pageData = {
-		imgSrc: 'https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_75/v1633947588/case-studies/server-tower_lbb7ia.jpg',
+		imgSrc:
+			'https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_75/v1633947588/case-studies/server-tower_lbb7ia.jpg',
 		alt: 'imgIX server tower',
 		title: 'ImgIX Data Center',
 		sub: 'Network infrastructure upgrade',
@@ -126,7 +127,7 @@
 		<div class="contact-cta">
 			<SectionHeader titleMainColor="have a similar case?" titleYellow="let's talk." />
 			<RingButton text="get in touch" arrow={false} />
-			<div class="bgcircle-wrapper">
+			<div class="bgcircle-wrapper--cases cta">
 				<BgCircle />
 			</div>
 		</div>
@@ -157,6 +158,10 @@
 			width: 100%;
 			background-color: var(--primary-tr2);
 			filter: saturate(75%) contrast(200%);
+			@media (max-width: 1024px) {
+				width: 90vw;
+				left: 5vw;
+			}
 		}
 		.header {
 			z-index: var(--level-one);
@@ -173,6 +178,9 @@
 			h1 {
 				color: var(--accent-color);
 				font-size: var(--text-display);
+				@media (max-width: 1024px) {
+					text-align: left;
+				}
 			}
 			h3 {
 				color: var(--white);
@@ -193,7 +201,8 @@
 		img {
 			position: absolute;
 			height: 100%;
-			width: 100%;
+			width: 90vw;
+			left: 5vw;
 			object-position: center;
 			object-fit: cover;
 		}
@@ -206,6 +215,15 @@
 		gap: 5vw;
 		grid-template-columns: 15vw 40vw;
 		grid-template-areas: 'specs content';
+		@media (max-width: 1024px) {
+			width: 90vw;
+			margin-left: 5vw;
+			grid-template-columns: 1fr;
+			grid-template-rows: 35vh 1fr;
+			grid-template-areas:
+				'specs'
+				'content';
+		}
 	}
 	.job-specs {
 		grid-area: specs;
@@ -278,13 +296,21 @@
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: center;
+		@media (max-width: 1024px) {
+			height: max-content;
+			width: 90vw;
+			margin-left: 5vw;
+		}
 		.case-list {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-      &:last-child {
-        padding-right: none;
-      }
+			&:last-child {
+				padding-right: none;
+			}
+			@media (max-width: 1024px) {
+				flex-direction: column;
+			}
 		}
 	}
 	.contact-cta {
@@ -295,6 +321,9 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		@media (max-width: 1024px) {
+			height: 60vh;
+		}
 	}
 	:global(.contact-cta .title-block) {
 		margin-bottom: var(--space-2xl);
@@ -303,7 +332,7 @@
 		font-size: var(--text-lg) !important;
 		font-weight: 600 !important;
 	}
-	.bgcircle-wrapper {
+	.bgcircle-wrapper--cases {
 		position: absolute;
 		top: 50%;
 		left: 50%;
@@ -314,10 +343,13 @@
 		align-items: center;
 		justify-content: center;
 	}
-	:global(.bgcircle-wrapper svg) {
-		height: 30vw !important;
-		width: 30vw !important;
-		opacity: 1 !important;
+	:global(.bgcircle-wrapper--cases svg) {
+			height: 30vw;
+			width: 30vw;
+			opacity: 1 !important;
+			@media (max-width: 1024px) {
+				transform: scale(1.2);
+			}
 	}
 	:global(.contact-cta .title-block .title) {
 		display: flex;
