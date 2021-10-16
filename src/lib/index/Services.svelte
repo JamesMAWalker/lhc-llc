@@ -83,7 +83,7 @@
 		>
 			<ul class="services__list" style={`transform: translate(-${scrollPosition}vw)`}>
 				{#each services as { title, urlFrag, id, path } (id)}
-					<a class="service" href={`/services/${path}`} class:server={id === 'data001'}>
+					<a class="service" href={`/services/`} class:server={id === 'data001'}>
 						<img 
 							src={`https://res.cloudinary.com/datacom-cabling/image/upload/f_auto,q_75/v1633947679/services/${urlFrag}`} 
 							alt={title} 

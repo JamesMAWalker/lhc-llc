@@ -1,3 +1,7 @@
+<script context="module">
+	export const prerender = true;
+</script>
+
 <script>
 	import BGCircle from '$lib/background/BGCircle.svelte';
 	import ContactForm from '$lib/ContactForm.svelte';

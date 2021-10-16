@@ -2,7 +2,6 @@
 	// your script goes here
 	export let column = false;
 	export let jcsb = false;
-	export let fifty = false;
 </script>
 
 <div class="container" class:jcsb class:column >

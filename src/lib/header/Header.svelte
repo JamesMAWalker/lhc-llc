@@ -30,20 +30,19 @@
 	};
 	const toHome = () => {
 		setTimeout(() => {
-			prefetch('/');
-			goto('/', { replaceState: true });
+			goto('/');
 		}, 400);
 	};
 </script>
 
 <nav class="header-nav" class:hide={hideHeader}>
-	<div class="logo-container" transition:fade on:click={toHome}>
+	<a class="logo-container" transition:fade href='/'>
 		{#if showWordmark}
 			<Wordmark />
 		{:else}
 			<Icon />
 		{/if}
-	</div>
+	</a>
 	<div
 		class="menu-cluster"
 		class:active={!menuIsWhite}

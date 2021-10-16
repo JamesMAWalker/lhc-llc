@@ -50,10 +50,9 @@
 	};
 
 	let d = pageData;
-	let deviceWidth;
 </script>
 
-<section class="case-studies" bind:clientWidth={deviceWidth}>
+<section class="case-studies">
 	<Container column>
 		<div class="hero">
 			<img src={d.imgSrc} alt={d.alt} />

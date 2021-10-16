@@ -1,6 +1,5 @@
 <script>
 	import { fade, draw } from 'svelte/transition';
-	import { page } from '$app/stores';
 
 	import ContactForm from '../../lib/ContactForm.svelte';
 	import SectionHeader from '$lib/SectionHeader.svelte';
@@ -8,11 +7,88 @@
 	import Container from '$lib/containers/Container.svelte';
 	import BGCircle from '$lib/background/BGCircle.svelte';
 
-	import { services } from '$lib/data/services';
+	const services = {
+		'data-facilities': {
+		title: 'Data Facilities',
+		imgUrlFrag: 'server-blade_bzsxfx.jpg',
+		heroHeader: {
+			sub: 'SERVICES',
+			mainColor: 'server',
+			accentColor: 'solutions'
+		},
+		heroBlurb: `One of the most important pieces of equipment in any company’s data center will be its server racks, and these can come in a variety of different models and designs. You might use enclosed cabinets or open frame racks, and they can be two-post or four-post racks, but all of them serve to store the different kinds of equipment which are necessary to your network processing, and your computing capability.`,
+		infoHeader: {
+			sub: 'HOW WE WORK',
+			mainColor: 'our',
+			accentColor: 'process'
+		},
+		infoBlurb: `Whether you're setting up a new datacenter or refitting an existing facility, you don't want to leave your company's data at risk. Our decades of experience with all manner of server form factors and ancillary technologies means that your server facility will be built with security, easy maintenance, and optimal functionality in mind. <br><br> We also offer technical consultation for businesses without deep knowledge of server technologies.`,
+		processList: [
+			{
+				title: 'technical consultation',
+				steps: ['Dolor sit amet', 'Adipiscing elit', 'Mauris eu risus', 'Dapibus neque']
+			},
+			{
+				title: 'patching services',
+				steps: ['Dolor sit amet', 'Adipiscing elit', 'Mauris eu risus', 'Dapibus neque']
+			},
+			{
+				title: 'network setup',
+				steps: [
+					'Dolor sit amet',
+					'Adipiscing elit',
+					'Mauris eu risus',
+					'Dapibus neque',
+					'Risus id metus',
+					'Cras ornare'
+				]
+			},
+			{
+				title: 'server racking',
+				steps: [
+					'Dolor sit amet',
+					'Adipiscing elit',
+					'Mauris eu risus',
+					'Dapibus neque',
+					'Risus id metus',
+					'Cras ornare'
+				]
+			},
+			{
+				title: 'server blades',
+				steps: [
+					'Dolor sit amet',
+					'Adipiscing elit',
+					'Mauris eu risus',
+					'Dapibus neque',
+					'Risus id metus',
+					'Cras ornare'
+				]
+			},
+			{
+				title: 'system maintenance',
+				steps: [
+					'Dolor sit amet',
+					'Adipiscing elit',
+					'Mauris eu risus',
+					'Dapibus neque',
+					'Risus id metus',
+					'Cras ornare'
+				]
+			}
+		],
+		contactHeader: {
+			sub: 'CONTACT',
+			mainColor: 'start your <br> networking project',
+			accentColor: 'today'
+		},
+		contactBlurb: `We are there every step of the way for your mission critical systems. From design to installation to network management, your IT infrastructure remains secure and constant. <br><br> Start your network architect services today in order to plan and evolve with the ever-changing technology advantages.`
+	},
+	}
 
 	let loaded = false;
 	let centerCircle;
-	let currentService = $page.params.services;
+	let currentService = 'data-facilities';
 
 	let {
 		title,
@@ -79,7 +155,7 @@
 	</div>
 </section>
 <section class="service-info" id="info">
-	<Container fifty>
+	<Container>
 		<div class="left">
 			<SectionHeader
 				sub={info.sub}
