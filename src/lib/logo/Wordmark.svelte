@@ -56,7 +56,7 @@
 		path {
 			transition: var(--transition-2-smooth);
 			@media (max-width: 1024px) {
-				fill: var(--white);
+				/* fill: var(--white); */
 			}
 		}
 	}

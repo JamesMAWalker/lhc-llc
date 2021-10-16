@@ -36,7 +36,7 @@
 </script>
 
 <nav class="header-nav" class:hide={hideHeader}>
-	<a class="logo-container" transition:fade href='/'>
+	<a class="logo-container" transition:fade href='/' on:click={toHome}>
 		{#if showWordmark}
 			<Wordmark />
 		{:else}
