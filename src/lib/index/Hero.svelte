@@ -151,6 +151,9 @@
 		min-height: 102vh;
 		background-color: transparent;
 		fill: white;
+		@media (max-width: 1024px) {
+			display: none;
+		}
 		/* background-image: url('/cut-out.png'); */
 	}
 	.left-content {
