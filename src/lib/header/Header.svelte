@@ -1,5 +1,5 @@
 <script>
-	import { goto, prefetch } from '$app/navigation';
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { fade } from 'svelte/transition';
 
@@ -12,15 +12,16 @@
 	export let aboutInView;
 	export let footerInView;
 
-	$: hideHeader = footerInView;
-
-	let isWhitePage;
 	let { path } = $page;
-
-	$: isWhitePage = path === '/contact' || path === '/case-studies' || path.includes('/services');
-
-	let menuIsWhite;
-	$: menuIsWhite = (aboutInView || heroInView || menuOpen) && !isWhitePage;
+	let isLightPage;
+	let menuIsDark;
+	let hideHeader
+	
+	$: {
+		isLightPage = path === '/contact' || path === '/case-studies' || path.includes('/services');
+		menuIsDark = !(heroInView || aboutInView || menuOpen) || isLightPage;
+		hideHeader = footerInView;
+	}
 
 	const toContact = () => {
 		menuOpen = false;
@@ -28,24 +29,19 @@
 			goto('/contact');
 		}, 400);
 	};
-	const toHome = () => {
-		setTimeout(() => {
-			goto('/');
-		}, 400);
-	};
 </script>
 
 <nav class="header-nav" class:hide={hideHeader}>
-	<a class="logo-container" transition:fade href='/' on:click={toHome}>
+	<a class="logo-container" transition:fade href='/'>
 		{#if showWordmark}
 			<Wordmark />
 		{:else}
-			<Icon />
+			<Icon isLight={!menuIsDark}/>
 		{/if}
 	</a>
 	<div
 		class="menu-cluster"
-		class:active={!menuIsWhite}
+		class:dark={menuIsDark}
 		transition:fade
 		on:click={() => (menuOpen = !menuOpen)}
 	>
@@ -94,7 +90,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		&.active {
+		&.dark {
 			.quote-btn,
 			.divider,
 			.menu-button {

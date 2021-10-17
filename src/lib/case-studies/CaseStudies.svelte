@@ -1,8 +1,5 @@
 <script>
 	import Case from './Case.svelte';
-
-	import { goto } from '$app/navigation';
-
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import Container from '$lib/containers/Container.svelte';
 	import Arrow from '$lib/Arrow.svelte';

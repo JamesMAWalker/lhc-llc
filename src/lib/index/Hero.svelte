@@ -8,25 +8,21 @@
 	import SectionHeader from '$lib/SectionHeader.svelte';
 	import BGLogo from '$lib/background/BGLogo.svelte';
 	import Arrow from '$lib/Arrow.svelte';
+import { onMount } from 'svelte';
 
-	let mounted = false;
-	let loadingDelay = true;
+	let pageLoaded = false;
+
+	onMount(() => {
+		pageLoaded = true;
+	})
 
 	$: {
 		setTimeout(() => {
-			mounted = true;
-			loadingDelay = false;
 		}, 1000);
 	}
 
 	let circleHeight;
 	let svgEl;
-	let deviceWidth;
-	let deviceHeight;
-	let isMobile;
-	$: {
-		isMobile = deviceWidth < 1024;
-	}
 
 	// Detect Firefox
 	var isFirefox = typeof InstallTrigger !== 'undefined';
@@ -46,69 +42,69 @@
 	};
 </script>
 
-	<section class="hero" in:fade={{ duration: 1000 }}>
-		<video
-			class="hero-vid"
-			autoplay
-			playsinline
-			muted
-			loop
-			in:fade
-			src="https://res.cloudinary.com/datacom-cabling/video/upload/f_auto,q_65/v1634019094/hero/Cabling-Vids-1--crop_sor0c1.mp4"
-			alt="slow pan over ethernet cables"
-		>
-			<track kind="captions" />
-		</video>
-		{#if mounted}
-			<svg
-				class="hero-circle"
-				height={circleHeight}
-				viewBox="0 0 396 396"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					in:draw={{ duration: 1200 }}
-					d="M395.5 198C395.5 307.076 307.076 395.5 198 395.5C88.9238 395.5 0.5 307.076 0.5 198C0.5 88.9238 88.9238 0.5 198 0.5C307.076 0.5 395.5 88.9238 395.5 198Z"
-					stroke="#F5DA4E"
-				/>
-			</svg>
-		{/if}
-		<div class="left-content">
-			<div class="bglogo-wrap">
-				<BGLogo />
-			</div>
-			<SectionHeader titleMainColor="Cabling <br> Service & <br> Expertise." />
-			<p class="text">
-				Datacom is your comprehensive solution for cabling services from fiber optic networking to
-				video security.
-			</p>
-			<RingButton link="/#services" />
-		</div>
+<section class="hero" in:fade={{ duration: 1000 }}>
+	<video
+		class="hero-vid"
+		autoplay
+		playsinline
+		muted
+		loop
+		in:fade
+		src="https://res.cloudinary.com/datacom-cabling/video/upload/f_auto,q_65/v1634019094/hero/Cabling-Vids-1--crop_sor0c1.mp4"
+		alt="slow pan over ethernet cables"
+	>
+		<track kind="captions" />
+	</video>
+	{#if pageLoaded}
 		<svg
-			class="left"
-			id="Layer_1"
-			data-name="Layer 1"
+			class="hero-circle"
+			height={circleHeight}
+			viewBox="0 0 396 396"
+			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 1260 1500"
-			bind:this={svgEl}
 		>
 			<path
-				d="M1000,1609V3109H2260V2646.5c-157.72,0-287.5-129.78-287.5-287.5s129.78-287.5,287.5-287.5V1609Z"
-				transform="translate(-1000 -1609)"
+				in:draw={{ duration: 1200 }}
+				d="M395.5 198C395.5 307.076 307.076 395.5 198 395.5C88.9238 395.5 0.5 307.076 0.5 198C0.5 88.9238 88.9238 0.5 198 0.5C307.076 0.5 395.5 88.9238 395.5 198Z"
+				stroke="#F5DA4E"
 			/>
 		</svg>
-		<div class="right" />
-		<div class="center">
-			<h1>Your structured cabling <span class="accent">solution.</span></h1>
-			<DiscButton />
+	{/if}
+	<div class="left-content">
+		<div class="bglogo-wrap">
+			<BGLogo />
 		</div>
-			<div class="arrow-mobile" on:click={scrollToServices}>
-				<Arrow filled />
-			</div>
-	</section>
-	<!-- <Loading /> -->
+		<SectionHeader titleMainColor="Cabling <br> Service & <br> Expertise." />
+		<p class="text">
+			Datacom is your comprehensive solution for cabling services from fiber optic networking to
+			video security.
+		</p>
+		<RingButton link="/#services" />
+	</div>
+	<svg
+		class="left"
+		id="Layer_1"
+		data-name="Layer 1"
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 1260 1500"
+		bind:this={svgEl}
+	>
+		<path
+			d="M1000,1609V3109H2260V2646.5c-157.72,0-287.5-129.78-287.5-287.5s129.78-287.5,287.5-287.5V1609Z"
+			transform="translate(-1000 -1609)"
+		/>
+	</svg>
+	<div class="right" />
+	<div class="center">
+		<h1>Your structured cabling <span class="accent">solution.</span></h1>
+		<DiscButton />
+	</div>
+	<div class="arrow-mobile" on:click={scrollToServices}>
+		<Arrow filled />
+	</div>
+</section>
 
+<!-- <Loading /> -->
 <style lang="scss">
 	.loading {
 		height: 100vh;

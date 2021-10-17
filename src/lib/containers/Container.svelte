@@ -23,8 +23,6 @@
 		}
 		&.jcsb {
 			justify-content: space-between;
-		}
-		&.jcsb {
 			width: 50vw;
 			@media (max-width: 1024px) {
 				width: 100vw;
