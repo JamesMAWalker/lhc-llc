@@ -2,7 +2,6 @@
   import { fade } from 'svelte/transition'
 
 	export let isLight
-	$: console.log('isLight from icon: ', isLight);
 </script>
 
 <svg class="iconmark" transition:fade={{ duration: 200 }} height="100%" viewBox="0 0 64 47" fill="none" xmlns="http://www.w3.org/2000/svg">
