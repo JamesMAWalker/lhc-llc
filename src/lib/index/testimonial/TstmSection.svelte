@@ -142,11 +142,11 @@
 			will-change: transform;
 			@media (max-width: 1024px) {
 				height: max-content;
-				min-width: 100%;
 				padding: 0;
-				flex-direction: column;
+				min-width: 520vw;
+				/* flex-direction: column;
 				justify-content: center;
-				align-items: center;
+				align-items: center; */
 			}
 		}
 		@media (max-width: 1024px) {
