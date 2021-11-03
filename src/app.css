@@ -139,6 +139,13 @@
 	--title-margin: var(--space-lg);
 	--mobile-sec-margin: var(--vp-xl);
 	--block-center-margin: 5vw;
+
+	/* other sizes */
+	--icon-sm: 25px;
+	--icon-md: 35px;
+	--icon-lg: 50px;
+	--icon-xl: 80px;
+	--icon-2xl: 120px;
 }
 
 @media (max-width: 1460px) {
