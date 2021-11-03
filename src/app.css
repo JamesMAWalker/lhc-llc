@@ -280,6 +280,13 @@ button:focus:not(:focus-visible) {
 	outline: none;
 }
 
+figure {
+	margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
 @media (min-width: 720px) {
 	h1 {
 		font-size: 2.4rem;
