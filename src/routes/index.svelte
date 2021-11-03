@@ -8,7 +8,8 @@
 	import Hero from '$lib/index/Hero.svelte';
 	import Services from '$lib/index/Services.svelte';
 	import About from '$lib/About.svelte';
-	import CaseStudies from '$lib/case-studies/CaseStudies.svelte';
+	import CaseStudies from '$lib/index/case-studies/CaseStudies.svelte';
+	import Testimonials from '$lib/index/testimonial/TstmSection.svelte'
 </script>
 
 <svelte:head>
@@ -25,7 +26,8 @@
 	<Hero />
 	<Services />
 	<About />
-	<CaseStudies />
+	<!-- <CaseStudies /> -->
+	<Testimonials />
 </div>
 
 <style lang="scss">

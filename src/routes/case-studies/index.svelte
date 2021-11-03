@@ -1,7 +1,7 @@
 <script>
 	import Container from '$lib/containers/Container.svelte';
 	import SectionHeader from '$lib/SectionHeader.svelte';
-	import Case from '$lib/case-studies/Case.svelte';
+	import Case from '$lib/index/case-studies/Case.svelte';
 	import BgCircle from '$lib/background/BGCircle.svelte';
 	import RingButton from '$lib/buttons/ring-button.svelte';
 
